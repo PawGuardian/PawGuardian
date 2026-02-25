@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/Button';
+import { BookingModal } from '../ui/BookingModal';
 import { PawPrint, Phone, Mail, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Page } from '../../App';
@@ -13,12 +14,12 @@ const NAV_LINKS: { label: string; page: Page | null }[] = [
   { label: 'Home', page: 'home' },
   { label: 'About Us', page: 'about' },
   { label: 'Services', page: 'services' },
-  { label: 'Gallery', page: 'gallery' },
-  { label: 'Reviews', page: 'reviews' },
+  { label: 'For Vets', page: 'vets' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,25 +31,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate }) => {
 
   return (
     <>
-      {/* Top Bar */}
-      <div
-        className="text-white py-2 px-6 hidden md:flex justify-between items-center text-sm font-medium z-50 relative"
-        style={{ backgroundColor: '#282239' }}
-      >
-        <div className="flex items-center gap-6">
-          <span className="flex items-center gap-2" style={{ color: '#f8f4e8cc' }}>
-            <Phone size={14} style={{ color: '#a8b4d8' }} /> +91 99887 76655
-          </span>
-          <span className="flex items-center gap-2" style={{ color: '#f8f4e8cc' }}>
-            <Mail size={14} style={{ color: '#a8b4d8' }} /> hello@pawguardian.in
-          </span>
-        </div>
-        <div className="flex items-center gap-2" style={{ color: '#f8f4e8cc' }}>
-          <Calendar size={14} style={{ color: '#a8b4d8' }} />
-          <span>Book a vaccination slot</span>
-        </div>
-      </div>
-
       {/* Main Navbar */}
       <motion.nav
         className={`sticky top-0 left-0 right-0 z-40 transition-all duration-300 border-b ${isScrolled
@@ -105,7 +87,23 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate }) => {
           </div>
 
           {/* Right: CTA */}
-          <div className="flex items-center justify-end gap-4">
+          <div className="flex items-center justify-end gap-3">
+            <button
+              onClick={() => navigate('vets')}
+              className="hidden md:flex items-center text-sm font-semibold rounded-full px-5 py-2 transition-colors cursor-pointer bg-transparent"
+              style={{
+                border: '1px solid #1e3470',
+                color: '#1e3470',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.backgroundColor = 'rgba(30,52,112,0.06)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.backgroundColor = 'transparent';
+              }}
+            >
+              Are you a Vet?
+            </button>
             <Button
               size="sm"
               className="hidden md:flex text-white border-none rounded-full px-5"
@@ -121,12 +119,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate }) => {
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#1e3470';
               }}
+              onClick={() => setIsBookingOpen(true)}
             >
               Book a Slot
             </Button>
           </div>
         </div>
       </motion.nav>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </>
   );
 };
