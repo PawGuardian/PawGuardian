@@ -175,7 +175,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#1e3470]/10">
               <div>
                 <h2 id="booking-modal-title" className="text-xl font-bold" style={{ color: '#282239' }}>Join the Waitlist</h2>
-                <p className="text-sm text-gray-500 mt-0.5">We'll reach out as spots open up.</p>
+                <p className="text-sm mt-0.5" style={{ color: '#a8b4d8' }}>We'll reach out as spots open up.</p>
               </div>
               <button
                 onClick={onClose}
