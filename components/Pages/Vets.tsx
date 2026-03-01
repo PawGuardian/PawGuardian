@@ -533,3 +533,45 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ steps, current }) => (
     ))}
   </div>
 );
+
+// ── Styled file upload field ─────────────────────────────────────────────────
+
+interface FileFieldProps {
+  label: string;
+  name: string;
+  accept?: string;
+  file: File | null;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  hint?: string;
+}
+
+const FileField: React.FC<FileFieldProps> = ({ label, name, accept, file, onChange, required, hint }) => (
+  <div className="flex flex-col gap-1.5">
+    <label className="text-sm font-semibold text-gray-700">
+      {label} {required && <span className="text-red-500">*</span>}
+    </label>
+    <label
+      className="flex items-center gap-3 rounded-xl border px-4 py-3 cursor-pointer hover:bg-gray-50 transition-colors"
+      style={{ borderColor: file ? '#1e3470' : 'rgba(30,52,112,0.20)' }}
+    >
+      <span
+        className="text-xs font-semibold px-3 py-1.5 rounded-lg text-white flex-shrink-0"
+        style={{ backgroundColor: '#1e3470' }}
+      >
+        Choose file
+      </span>
+      <span className="text-sm text-gray-500 truncate">
+        {file ? file.name : hint || 'No file chosen'}
+      </span>
+      <input
+        type="file"
+        name={name}
+        accept={accept}
+        onChange={onChange}
+        required={required}
+        className="sr-only"
+      />
+    </label>
+  </div>
+);
