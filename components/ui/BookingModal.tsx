@@ -72,7 +72,7 @@ const SuccessView: React.FC<{ onClose: () => void }> = ({ onClose }) => (
     <Button
       size="md"
       className="mt-2 text-white border-none"
-      style={{ backgroundColor: '#1e3470', boxShadow: '0 4px 14px rgba(30,52,112,0.30)' }}
+      style={{ backgroundColor: '#6272E8', boxShadow: '0 4px 14px rgba(98,114,232,0.30)' }}
       onClick={onClose}
     >
       Close
@@ -244,7 +244,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       type="submit"
                       size="md"
                       className="w-full text-white border-none disabled:opacity-60"
-                      style={{ backgroundColor: '#1e3470', boxShadow: '0 4px 14px rgba(30,52,112,0.30)' }}
+                      style={{ backgroundColor: '#6272E8', boxShadow: '0 4px 14px rgba(98,114,232,0.30)' }}
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? 'Joining…' : 'Join Waitlist'}

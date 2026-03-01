@@ -390,8 +390,8 @@ export const Services: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                             size="lg"
                             className="text-white border-none shadow-lg rounded-full px-8 flex items-center gap-2 group"
                             style={{
-                                backgroundColor: '#1e3470',
-                                boxShadow: '0 8px 24px rgba(30,52,112,0.50)',
+                                backgroundColor: '#6272E8',
+                                boxShadow: '0 8px 24px rgba(98,114,232,0.45)',
                             }}
                             onClick={onOpenBooking}
                         >
@@ -418,7 +418,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             <style>{`.pill-nav::-webkit-scrollbar { display: none; }`}</style>
             <nav className="sticky top-20 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100 py-4">
                 <div
-                    className="pill-nav flex items-center gap-3 overflow-x-auto"
+                    className="pill-nav flex items-center justify-center gap-3 overflow-x-auto"
                     style={{ paddingInline: '1.5rem', scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
                 >
                     {services.map((s) => (
@@ -638,8 +638,8 @@ export const Services: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                             size="lg"
                             className="text-white border-none shadow-lg rounded-full px-8 flex items-center gap-2 group"
                             style={{
-                                backgroundColor: '#1e3470',
-                                boxShadow: '0 8px 24px rgba(30,52,112,0.40)',
+                                backgroundColor: '#6272E8',
+                                boxShadow: '0 8px 24px rgba(98,114,232,0.40)',
                             }}
                             onClick={onOpenBooking}
                         >
