@@ -402,7 +402,19 @@ export const Vets: React.FC<VetsProps> = () => {
                 )}
 
                 {/* Steps 2, 3, 4 — placeholders for next tasks */}
-                {step === 1 && <div className="py-4 text-center text-gray-400 text-sm">Step 2 coming…</div>}
+                {step === 1 && (
+                  <div className="space-y-5">
+                    <div className="grid sm:grid-cols-3 gap-5">
+                      <Field label="Degree" name="degree" type="text" value={formData.degree} onChange={handleChange} placeholder="BVSc & AH" required />
+                      <Field label="College" name="college" type="text" value={formData.college} onChange={handleChange} placeholder="KVAFSU" required />
+                      <Field label="Graduation Year" name="graduation_year" type="number" value={formData.graduation_year} onChange={handleChange} placeholder="2018" required />
+                    </div>
+                    <Field label="State Veterinary Council Registration Number" name="state_vc_reg_number" type="text" value={formData.state_vc_reg_number} onChange={handleChange} placeholder="KVA-XXXX" required />
+                    <Field label="IVPR / VCI Registration Number" name="ivpr_vci_number" type="text" value={formData.ivpr_vci_number} onChange={handleChange} placeholder="VCI-XXXX" required />
+                    <FileField label="Copy of Registration Certificate" name="registration_cert" accept=".pdf,.jpg,.jpeg,.png" file={files.registration_cert} onChange={handleFileChange} required hint="PDF or image of your registration certificate" />
+                    <FileField label="CV / Resume" name="cv" accept=".pdf,.doc,.docx" file={files.cv} onChange={handleFileChange} required hint="PDF or Word document" />
+                  </div>
+                )}
                 {step === 2 && <div className="py-4 text-center text-gray-400 text-sm">Step 3 coming…</div>}
                 {step === 3 && <div className="py-4 text-center text-gray-400 text-sm">Step 4 coming…</div>}
 
