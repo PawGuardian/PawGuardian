@@ -1,21 +1,24 @@
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Syringe, Stethoscope, Video, HeartPulse, ShieldCheck, Activity, Brain } from 'lucide-react';
-import { Button } from '../ui/Button';
 import {
     Syringe,
+    Stethoscope,
+    Video,
+    HeartPulse,
+    ShieldCheck,
+    Activity,
+    Brain,
     FlaskConical,
     Bug,
     Sparkles,
-    Stethoscope,
     Heart,
     ArrowRight,
     CheckCircle2,
     ChevronDown,
     Home,
     Clock,
-    ShieldCheck,
     CalendarCheck,
-    PawPrint,
+    PawPrint
 } from 'lucide-react';
 import { Button } from '../ui/Button';
 
@@ -281,7 +284,7 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
 };
 
 const FaqItem: React.FC<{ q: string; a: string; index: number }> = ({ q, a, index }) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = React.useState(false);
     return (
         <motion.div
             variants={fadeUp}
@@ -325,14 +328,48 @@ interface ServicesProps {
     onOpenBooking: () => void;
 }
 
+class ServicesErrorBoundary extends React.Component<any, any> {
+    constructor(props: any) {
+        super(props);
+        this.state = { hasError: false, error: null, errorInfo: null };
+    }
+    static getDerivedStateFromError(error: Error) {
+        return { hasError: true, error };
+    }
+    componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+        this.setState({ errorInfo });
+    }
+    render() {
+        if (this.state.hasError) {
+            return (
+                <div style={{ padding: '40px', background: '#ffebee', color: '#c62828', minHeight: '100vh', fontFamily: 'monospace' }}>
+                    <h1>Application Error in Services Component</h1>
+                    <h2 style={{ fontSize: '20px' }}>{this.state.error?.toString()}</h2>
+                    <pre style={{ overflowX: 'auto', background: '#fff', padding: '20px', marginTop: '20px' }}>
+                        {this.state.errorInfo?.componentStack}
+                    </pre>
+                </div>
+            );
+        }
+        return this.props.children;
+    }
+}
+
 export const Services: React.FC<ServicesProps> = ({ onOpenBooking }) => {
+    return (
+        <ServicesErrorBoundary>
+            <ServicesContent onOpenBooking={onOpenBooking} />
+        </ServicesErrorBoundary>
+    );
+};
+
+const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
     const scrollToPlans = () => {
         document.getElementById('services-plans')?.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
         <main className="min-h-screen" style={{ backgroundColor: '#f8f4e8' }}>
-
             {/* ── Hero ──────────────────────────────────────────────────────── */}
             <section
                 className="relative overflow-hidden py-32 px-6"
