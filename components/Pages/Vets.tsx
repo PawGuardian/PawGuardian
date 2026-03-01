@@ -494,3 +494,42 @@ const Field: React.FC<FieldProps> = ({ label, name, type, value, onChange, place
     />
   </div>
 );
+
+// ── Progress bar for step wizard ────────────────────────────────────────────
+
+interface ProgressBarProps {
+  steps: string[];
+  current: number;
+}
+
+const ProgressBar: React.FC<ProgressBarProps> = ({ steps, current }) => (
+  <div className="flex items-center justify-between mb-8">
+    {steps.map((label, i) => (
+      <React.Fragment key={label}>
+        <div className="flex flex-col items-center gap-1.5 flex-1">
+          <div
+            className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all"
+            style={{
+              backgroundColor: i <= current ? '#1e3470' : 'rgba(30,52,112,0.10)',
+              color: i <= current ? '#fff' : '#1e3470',
+            }}
+          >
+            {i < current ? <CheckCircle2 size={18} /> : i + 1}
+          </div>
+          <span
+            className="text-[10px] font-semibold uppercase tracking-wide text-center"
+            style={{ color: i <= current ? '#1e3470' : '#9ca3af' }}
+          >
+            {label}
+          </span>
+        </div>
+        {i < steps.length - 1 && (
+          <div
+            className="h-px flex-1 mx-1 mb-5 transition-all"
+            style={{ backgroundColor: i < current ? '#1e3470' : 'rgba(30,52,112,0.15)' }}
+          />
+        )}
+      </React.Fragment>
+    ))}
+  </div>
+);
