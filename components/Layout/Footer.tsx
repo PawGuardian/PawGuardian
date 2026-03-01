@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
           >
             <PawPrint size={20} />
           </div>
-          <span className="font-bold tracking-tight" style={{ color: '#002347' }}>
+          <span className="font-bold tracking-tight" style={{ color: '#282239' }}>
             PawGuardian
           </span>
         </div>
@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
           <a
             href="#"
             className="transition-colors"
-            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#002347')}
+            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#282239')}
             onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = '#6b6888')}
           >
             Privacy
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
           <a
             href="#"
             className="transition-colors"
-            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#002347')}
+            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#282239')}
             onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = '#6b6888')}
           >
             Terms
@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
           <a
             href="#"
             className="transition-colors"
-            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#002347')}
+            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#282239')}
             onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = '#6b6888')}
           >
             Contact

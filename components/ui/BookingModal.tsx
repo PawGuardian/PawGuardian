@@ -44,7 +44,7 @@ interface FieldProps {
 
 const Field: React.FC<FieldProps> = ({ label, name, type, value, onChange, required, placeholder, min, step, inputRef }) => (
   <div>
-    <label htmlFor={name} className="block text-sm font-semibold mb-1.5" style={{ color: '#002347' }}>
+    <label htmlFor={name} className="block text-sm font-semibold mb-1.5" style={{ color: '#282239' }}>
       {label} {required && <span className="text-red-500">*</span>}
     </label>
     <input
@@ -59,7 +59,7 @@ const Field: React.FC<FieldProps> = ({ label, name, type, value, onChange, requi
       step={step}
       ref={inputRef}
       className="w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-[#003F7D] bg-white"
-      style={{ borderColor: '#003F7D', color: '#002347' }}
+      style={{ borderColor: '#a8b4d8', color: '#282239' }}
     />
   </div>
 );
@@ -67,7 +67,7 @@ const Field: React.FC<FieldProps> = ({ label, name, type, value, onChange, requi
 const SuccessView: React.FC<{ onClose: () => void }> = ({ onClose }) => (
   <div className="py-8 flex flex-col items-center text-center gap-4">
     <CheckCircle2 size={48} style={{ color: '#003F7D' }} />
-    <h3 className="text-xl font-bold" style={{ color: '#002347' }}>You're on the waitlist!</h3>
+    <h3 className="text-xl font-bold" style={{ color: '#282239' }}>You're on the waitlist!</h3>
     <p className="text-gray-600">We'll be in touch as spots open up.</p>
     <Button
       size="md"
@@ -174,7 +174,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             {/* Header */}
             <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#003F7D]/10">
               <div>
-                <h2 id="booking-modal-title" className="text-xl font-bold" style={{ color: '#002347' }}>Join the Waitlist</h2>
+                <h2 id="booking-modal-title" className="text-xl font-bold" style={{ color: '#282239' }}>Join the Waitlist</h2>
                 <p className="text-sm mt-0.5" style={{ color: '#a8b4d8' }}>We'll reach out as spots open up.</p>
               </div>
               <button
@@ -182,7 +182,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 className="p-1.5 rounded-full hover:bg-[#003F7D]/10 transition-colors"
                 aria-label="Close"
               >
-                <X size={20} style={{ color: '#002347' }} />
+                <X size={20} style={{ color: '#282239' }} />
               </button>
             </div>
 
@@ -196,7 +196,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                   <Field label="City" name="city" type="text" value={form.city} onChange={handleChange} required placeholder="e.g. Mumbai" />
 
                   <div>
-                    <label htmlFor="petType" className="block text-sm font-semibold mb-1.5" style={{ color: '#002347' }}>
+                    <label htmlFor="petType" className="block text-sm font-semibold mb-1.5" style={{ color: '#282239' }}>
                       Type of Pet <span className="text-red-500">*</span>
                     </label>
                     <select
@@ -206,7 +206,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-[#003F7D] bg-white"
-                      style={{ borderColor: '#003F7D', color: '#002347' }}
+                      style={{ borderColor: '#a8b4d8', color: '#282239' }}
                     >
                       <option>Dog</option>
                       <option>Cat</option>
@@ -219,7 +219,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                   <Field label="Pet's Birthday" name="petBirthday" type="date" value={form.petBirthday} onChange={handleChange} required />
 
                   <div>
-                    <label htmlFor="petGender" className="block text-sm font-semibold mb-1.5" style={{ color: '#002347' }}>
+                    <label htmlFor="petGender" className="block text-sm font-semibold mb-1.5" style={{ color: '#282239' }}>
                       Gender <span className="text-red-500">*</span>
                     </label>
                     <select
@@ -229,7 +229,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-[#003F7D] bg-white"
-                      style={{ borderColor: '#003F7D', color: '#002347' }}
+                      style={{ borderColor: '#a8b4d8', color: '#282239' }}
                     >
                       <option>Male</option>
                       <option>Female</option>

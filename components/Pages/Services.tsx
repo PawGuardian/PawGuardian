@@ -231,43 +231,72 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
             custom={index}
             viewport={{ once: true }}
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="group relative bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-shadow overflow-hidden flex flex-col"
+            className="group relative bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all overflow-hidden flex flex-col duration-300"
+            onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = service.accent;
+                e.currentTarget.style.borderColor = service.accent;
+                const iconDiv = e.currentTarget.querySelector('.icon-bg') as HTMLElement;
+                if (iconDiv) { iconDiv.style.backgroundColor = 'rgba(255,255,255,0.2)'; iconDiv.style.color = 'white'; }
+                const title = e.currentTarget.querySelector('h3') as HTMLElement;
+                if (title) title.style.color = 'white';
+                const desc = e.currentTarget.querySelector('.desc-text') as HTMLElement;
+                if (desc) desc.style.color = 'rgba(255,255,255,0.9)';
+                const tagline = e.currentTarget.querySelector('.tagline-text') as HTMLElement;
+                if (tagline) tagline.style.color = 'rgba(255,255,255,0.9)';
+                const features = e.currentTarget.querySelectorAll('.feature-text');
+                features.forEach(f => (f as HTMLElement).style.color = 'rgba(255,255,255,0.9)');
+                const featureIcons = e.currentTarget.querySelectorAll('.feature-icon');
+                featureIcons.forEach(f => (f as HTMLElement).style.color = 'white');
+            }}
+            onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'white';
+                e.currentTarget.style.borderColor = '#f3f4f6';
+                const iconDiv = e.currentTarget.querySelector('.icon-bg') as HTMLElement;
+                if (iconDiv) { iconDiv.style.backgroundColor = 'rgba(0,63,125,0.08)'; iconDiv.style.color = '#003F7D'; }
+                const title = e.currentTarget.querySelector('h3') as HTMLElement;
+                if (title) title.style.color = '#111827';
+                const desc = e.currentTarget.querySelector('.desc-text') as HTMLElement;
+                if (desc) desc.style.color = '#6B7280';
+                const tagline = e.currentTarget.querySelector('.tagline-text') as HTMLElement;
+                if (tagline) tagline.style.color = '#003F7D';
+                const features = e.currentTarget.querySelectorAll('.feature-text');
+                features.forEach(f => (f as HTMLElement).style.color = '#4B5563');
+                const featureIcons = e.currentTarget.querySelectorAll('.feature-icon');
+                featureIcons.forEach(f => (f as HTMLElement).style.color = '#003F7D');
+            }}
         >
-            {/* Top accent strip */}
-            <div className={`h-1.5 w-full bg-gradient-to-r ${service.highlight}`} />
-
-            <div className="p-8 flex flex-col flex-1">
+            <div className="p-8 flex flex-col flex-1 relative z-10 transition-colors duration-300">
                 {/* Icon */}
                 <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
-                    style={{ backgroundColor: service.accentLight }}
+                    className="icon-bg w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300"
+                    style={{ backgroundColor: 'rgba(0,63,125,0.08)', color: '#003F7D' }}
                 >
-                    <Icon size={26} strokeWidth={1.6} style={{ color: service.accent }} />
+                    <Icon size={26} strokeWidth={1.6} />
                 </div>
 
                 {/* Label + tagline */}
                 <p
-                    className="text-xs font-bold tracking-[0.18em] uppercase mb-1"
-                    style={{ color: service.accent }}
+                    className="tagline-text text-xs font-bold tracking-[0.18em] uppercase mb-1 transition-colors duration-300"
+                    style={{ color: '#003F7D' }}
                 >
                     {service.tagline}
                 </p>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight transition-colors duration-300">
                     {service.label}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">{service.description}</p>
+                <p className="desc-text text-gray-500 text-sm leading-relaxed mb-6 transition-colors duration-300">{service.description}</p>
 
                 {/* Feature list */}
                 <ul className="space-y-2 mt-auto">
                     {service.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
+                        <li key={f} className="flex items-start gap-2.5 text-sm">
                             <CheckCircle2
                                 size={15}
                                 strokeWidth={2}
-                                className="mt-0.5 shrink-0"
-                                style={{ color: service.accent }}
+                                className="feature-icon mt-0.5 shrink-0 transition-colors duration-300"
+                                style={{ color: '#003F7D' }}
                             />
-                            <span>{f}</span>
+                            <span className="feature-text text-gray-600 transition-colors duration-300">{f}</span>
                         </li>
                     ))}
                 </ul>

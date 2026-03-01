@@ -54,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate, onOpenBoo
           >
             <PawPrint size={24} />
           </motion.div>
-          <span className="text-2xl font-bold tracking-tight" style={{ color: '#002347' }}>
+          <span className="text-2xl font-bold tracking-tight" style={{ color: '#282239' }}>
             PawGuardian
           </span>
         </button>
