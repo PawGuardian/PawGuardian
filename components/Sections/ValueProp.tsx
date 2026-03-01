@@ -26,8 +26,8 @@ const CostComparison = () => {
                     >
                         <TrendingDown size={12} className="inline mr-1" /> Save 73%
                     </motion.div>
-                    <span className="font-bold text-green-600 text-4xl">₹1.2L</span>
-                    <div className="h-1.5 w-16 bg-green-400 rounded-full shadow-lg shadow-green-200"></div>
+                    <span className="font-bold text-4xl" style={{ color: '#1e3470' }}>₹1.2L</span>
+                    <div className="h-1.5 w-16 rounded-full shadow-lg" style={{ backgroundColor: '#FF6B9D', boxShadow: '0 4px 8px rgba(255,107,157,0.30)' }}></div>
                     <span className="text-sm font-bold text-gray-900">PawGuardian</span>
                 </div>
             </div>
