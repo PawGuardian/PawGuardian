@@ -6,17 +6,30 @@ import { ArrowRight } from 'lucide-react';
 export const FinalCTA: React.FC = () => {
   return (
     <section className="py-32 relative overflow-hidden" style={{ backgroundColor: '#f8f4e8' }}>
-      {/* Mesh Background */}
-      <div className="absolute inset-0 opacity-80" style={{ background: 'linear-gradient(to top right, rgba(30,52,112,0.06), #f8f4e8, rgba(40,34,57,0.05))' }} />
-      <div className="absolute bottom-0 left-0 w-full h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(30,52,112,0.2), transparent)' }} />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[80px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(255,107,157,0.12) 0%, rgba(255,159,127,0.08) 50%, transparent 80%)' }}
+      />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+        {/* Decorative paw divider */}
+        <div className="flex items-center justify-center gap-3 mb-8">
+          {['#FF6B9D', '#FF9F7F', '#FF6B9D', '#FF9F7F', '#FF6B9D'].map((color, i) => (
+            <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.7 }}>
+              <ellipse cx="12" cy="15" rx="5" ry="6" />
+              <circle cx="7" cy="8" r="2.5" />
+              <circle cx="12" cy="6" r="2.5" />
+              <circle cx="17" cy="8" r="2.5" />
+              <circle cx="5" cy="13" r="2" />
+            </svg>
+          ))}
+        </div>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6"
         >
-          Your Pet Can’t Tell You When Something’s Wrong. <span style={{ color: '#1e3470' }}>We Can.</span>
+          Your Pet Can’t Tell You When Something’s Wrong. <span><span style={{ color: ‘#1e3470’ }}>We Can</span><span style={{ color: ‘#FF6B9D’ }}>.</span></span>
         </motion.h2>
 
         <motion.p
