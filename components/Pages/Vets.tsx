@@ -96,6 +96,43 @@ export const Vets: React.FC<VetsProps> = () => {
     }
   };
 
+  const validateStep = (): boolean => {
+    if (step === 0) {
+      return !!(
+        formData.full_name &&
+        formData.email &&
+        formData.phone &&
+        formData.address &&
+        formData.aadhar_number.length === 12 &&
+        files.photo
+      );
+    }
+    if (step === 1) {
+      return !!(
+        formData.degree &&
+        formData.college &&
+        formData.graduation_year &&
+        formData.state_vc_reg_number &&
+        formData.ivpr_vci_number &&
+        files.registration_cert &&
+        files.cv
+      );
+    }
+    if (step === 2) {
+      return !!(
+        formData.clinic_type &&
+        (formData.clinic_type === 'none' || (formData.clinic_name && formData.clinic_location)) &&
+        formData.home_visit_aware &&
+        formData.commute_distance_km &&
+        formData.visits_per_week
+      );
+    }
+    if (step === 3) {
+      return !!files.signed_agreement;
+    }
+    return false;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -346,91 +383,28 @@ export const Vets: React.FC<VetsProps> = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <Field
-                    label="Full Name"
-                    name="full_name"
-                    type="text"
-                    value={formData.full_name}
-                    onChange={handleChange}
-                    placeholder="Dr. Priya Sharma"
-                    required
-                  />
-                  <Field
-                    label="Clinic / Hospital Name"
-                    name="clinic_name"
-                    type="text"
-                    value={formData.clinic_name}
-                    onChange={handleChange}
-                    placeholder="PetCare Clinic"
-                    required
-                  />
-                </div>
+                <ProgressBar steps={STEPS} current={step} />
 
-                <Field
-                  label="License Number"
-                  name="license_number"
-                  type="text"
-                  value={formData.license_number}
-                  onChange={handleChange}
-                  placeholder="VCI-XXXX-XXXX"
-                  required
-                />
-
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <Field
-                    label="Email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="dr.priya@example.com"
-                    required
-                  />
-                  <Field
-                    label="Phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+91 99887 76655"
-                    required
-                  />
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <Field
-                    label="City / Location"
-                    name="location"
-                    type="text"
-                    value={formData.location}
-                    onChange={handleChange}
-                    placeholder="Bengaluru"
-                    required
-                  />
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-sm font-semibold text-gray-700">
-                      Specialty <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      name="specialty"
-                      value={formData.specialty}
-                      onChange={handleChange}
-                      required
-                      className="rounded-xl border px-4 py-3 text-sm text-gray-800 focus:outline-none focus:ring-2 transition-shadow bg-white"
-                      style={{
-                        borderColor: 'rgba(30,52,112,0.20)',
-                        focusRingColor: '#1e3470',
-                      } as React.CSSProperties}
-                    >
-                      <option value="" disabled>Select specialty…</option>
-                      <option value="Small Animals">Small Animals</option>
-                      <option value="Large Animals">Large Animals</option>
-                      <option value="Exotic Pets">Exotic Pets</option>
-                      <option value="General Practice">General Practice</option>
-                    </select>
+                {/* Step 1 — Personal Info */}
+                {step === 0 && (
+                  <div className="space-y-5">
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <Field label="Full Name" name="full_name" type="text" value={formData.full_name} onChange={handleChange} placeholder="Dr. Priya Sharma" required />
+                      <Field label="Email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="dr.priya@example.com" required />
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <Field label="Phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+91 99887 76655" required />
+                      <Field label="Aadhar Number" name="aadhar_number" type="text" value={formData.aadhar_number} onChange={handleChange} placeholder="1234 5678 9012" required />
+                    </div>
+                    <Field label="Current Address" name="address" type="text" value={formData.address} onChange={handleChange} placeholder="Street, City, State, PIN" required />
+                    <FileField label="Profile Photo" name="photo" accept="image/*" file={files.photo} onChange={handleFileChange} required hint="JPG or PNG, clear face photo" />
                   </div>
-                </div>
+                )}
+
+                {/* Steps 2, 3, 4 — placeholders for next tasks */}
+                {step === 1 && <div className="py-4 text-center text-gray-400 text-sm">Step 2 coming…</div>}
+                {step === 2 && <div className="py-4 text-center text-gray-400 text-sm">Step 3 coming…</div>}
+                {step === 3 && <div className="py-4 text-center text-gray-400 text-sm">Step 4 coming…</div>}
 
                 {error && (
                   <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
@@ -438,24 +412,45 @@ export const Vets: React.FC<VetsProps> = () => {
                   </p>
                 )}
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3.5 rounded-full font-semibold text-white text-sm transition-all mt-2 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
-                  style={{
-                    backgroundColor: '#1e3470',
-                    boxShadow: '0 4px 14px rgba(30,52,112,0.30)',
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isSubmitting)
-                      (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#19296a';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#1e3470';
-                  }}
-                >
-                  {isSubmitting ? 'Submitting…' : 'Submit Application'}
-                </button>
+                {/* Navigation buttons */}
+                <div className="flex gap-3 pt-2">
+                  {step > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => setStep((s) => s - 1)}
+                      className="flex-1 py-3.5 rounded-full font-semibold text-sm border transition-all cursor-pointer"
+                      style={{ borderColor: '#1e3470', color: '#1e3470' }}
+                    >
+                      Back
+                    </button>
+                  )}
+                  {step < STEPS.length - 1 ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (validateStep()) {
+                          setStep((s) => s + 1);
+                          setError(null);
+                        } else {
+                          setError('Please fill in all required fields before continuing.');
+                        }
+                      }}
+                      className="flex-1 py-3.5 rounded-full font-semibold text-white text-sm transition-all cursor-pointer"
+                      style={{ backgroundColor: '#1e3470', boxShadow: '0 4px 14px rgba(30,52,112,0.30)' }}
+                    >
+                      Next
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex-1 py-3.5 rounded-full font-semibold text-white text-sm transition-all disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                      style={{ backgroundColor: '#1e3470', boxShadow: '0 4px 14px rgba(30,52,112,0.30)' }}
+                    >
+                      {isSubmitting ? 'Submitting…' : 'Submit Application'}
+                    </button>
+                  )}
+                </div>
               </form>
             )}
           </motion.div>
