@@ -19,6 +19,7 @@ const CostComparison = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
                         transition={{ delay: 0.5, type: "spring" }}
                         className="absolute -top-10 text-xs px-3 py-1 rounded-full font-bold shadow-sm"
                         style={{ backgroundColor: '#FFE66D', color: '#7a5c00', border: '1px solid rgba(255,230,109,0.6)' }}
@@ -98,7 +99,7 @@ export const ValueProp: React.FC = () => {
                         </div>
 
                         <div className="grid gap-5">
-                            <Card className="hover:border-[#FF6B9D]/40 group transition-all duration-300">
+                            <Card className="hover:border-[#FF6B9D]/40 transition-all duration-300">
                                 <div className="flex items-start gap-4">
                                     <div
                                         className="p-3 rounded-xl transition-colors"
@@ -115,7 +116,7 @@ export const ValueProp: React.FC = () => {
                                 </div>
                             </Card>
 
-                            <Card className="hover:border-[#4ECDC4]/40 group transition-all duration-300">
+                            <Card className="hover:border-[#4ECDC4]/40 transition-all duration-300">
                                 <div className="flex items-start gap-4">
                                     <div
                                         className="p-3 rounded-xl transition-colors"
@@ -132,7 +133,7 @@ export const ValueProp: React.FC = () => {
                                 </div>
                             </Card>
 
-                            <Card className="hover:border-[#FFE66D]/60 group transition-all duration-300">
+                            <Card className="hover:border-[#FFE66D]/60 transition-all duration-300">
                                 <div className="flex items-start gap-4">
                                     <div
                                         className="p-3 rounded-xl transition-colors"
