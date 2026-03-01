@@ -110,7 +110,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                     >
                         PawGuardian was born out of one vet appointment gone too late, one bill
                         that didn't need to exist, and a conviction that India's 30 million pet
-                        owners deserve better.
+                        parents deserve better.
                     </motion.p>
                 </div>
             </section>
@@ -151,7 +151,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                             <span style={{ color: '#003F7D' }}>on a mission.</span>
                         </h2>
                         <p className="mt-6 text-gray-600 text-lg leading-relaxed">
-                            We are Atharvaa Khanzode and Aditya Bendi, two third-year students from BITS Pilani. Our journey with PawGuardian began not in a boardroom, but from a profound, shared passion for pets and a harsh reality we couldn't ignore.
+                            We are Atharavaa Khanzode and Aditya Bendi, two third-year students from BITS Pilani. Our journey with PawGuardian began not in a boardroom, but from a profound, shared passion for pets and a harsh reality we couldn't ignore.
                         </p>
                         <p className="mt-4 text-gray-500 leading-relaxed">
                             Time and again, we came across heartbreaking stories of pets passing away simply because their conditions were detected too late. These pets never even got the chance for a fair fight. We realized the system was inherently reactive, forcing pet parents to wait until symptoms became critical. PawGuardian was built to flip this narrative, ensuring every pet gets the early detection and preventive care they truly deserve.
