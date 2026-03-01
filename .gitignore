@@ -9,6 +9,8 @@ lerna-debug.log*
 bun-error.log*
 
 node_modules
+package-lock.json
+yarn.lock
 dist
 dist-ssr
 *.local
@@ -27,3 +29,5 @@ dist-ssr
 #vibecoding
 AGENTS.md
 .agents/
+
+.env

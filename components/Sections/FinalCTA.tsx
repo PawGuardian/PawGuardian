@@ -29,16 +29,6 @@ export const FinalCTA: React.FC = () => {
           Start caring before it’s urgent.
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
-          className="flex flex-col sm:flex-row justify-center gap-4"
-        >
-          <Button size="lg" className="px-10 h-14 text-lg text-white border-none" style={{ backgroundColor: '#1e3470', boxShadow: '0 8px 24px rgba(30,52,112,0.30)' }}>Join the Waitlist</Button>
-          <Button size="lg" variant="secondary" className="px-10 h-14 text-lg" icon={<ArrowRight size={20} />}>Get Early Access</Button>
-        </motion.div>
-
         <p className="mt-8 text-sm text-gray-500">Join PawGuardian today and be part of India’s preventive pet-care movement.</p>
       </div>
     </section>

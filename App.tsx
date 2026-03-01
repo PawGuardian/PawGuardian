@@ -8,11 +8,10 @@ import { Plans } from './components/Sections/Plans';
 import { FinalCTA } from './components/Sections/FinalCTA';
 import { AboutUs } from './components/Pages/AboutUs';
 import { Services } from './components/Pages/Services';
-import { Gallery } from './components/Pages/Gallery';
-import { Reviews } from './components/Pages/Reviews';
+import { Vets } from './components/Pages/Vets';
 import { motion } from 'framer-motion';
 
-export type Page = 'home' | 'about' | 'services' | 'gallery' | 'reviews';
+export type Page = 'home' | 'about' | 'services' | 'vets';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -65,10 +64,8 @@ function App() {
           </main>
         ) : currentPage === 'about' ? (
           <AboutUs />
-        ) : currentPage === 'gallery' ? (
-          <Gallery />
-        ) : currentPage === 'reviews' ? (
-          <Reviews />
+        ) : currentPage === 'vets' ? (
+          <Vets navigate={navigate} />
         ) : (
           <Services />
         )}

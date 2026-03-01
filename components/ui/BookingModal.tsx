@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2 } from 'lucide-react';
 import { Button } from './Button';
+import { supabase } from '@/lib/supabase';
 
 interface BookingFormData {
   name: string;
@@ -9,7 +10,7 @@ interface BookingFormData {
   petType: string;
   petName: string;
   petBreed: string;
-  petAge: string;
+  petBirthday: string;
   petGender: string;
 }
 
@@ -19,7 +20,7 @@ const EMPTY_FORM: BookingFormData = {
   petType: 'Dog',
   petName: '',
   petBreed: '',
-  petAge: '',
+  petBirthday: '',
   petGender: 'Male',
 };
 
@@ -82,6 +83,8 @@ const SuccessView: React.FC<{ onClose: () => void }> = ({ onClose }) => (
 export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
   const [form, setForm] = useState<BookingFormData>(EMPTY_FORM);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -110,9 +113,34 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
     }
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError(null);
+
+    if (!supabase) {
+      setError('Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to your .env file.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    const { error: supabaseError } = await supabase.from('bookings').insert([{
+      name: form.name,
+      city: form.city,
+      pet_type: form.petType,
+      pet_name: form.petName,
+      pet_breed: form.petBreed,
+      pet_birthday: form.petBirthday,
+      pet_gender: form.petGender,
+    }]);
+
+    if (supabaseError) {
+      setError('Something went wrong. Please try again.');
+      setIsSubmitting(false);
+    } else {
+      setSubmitted(true);
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -185,7 +213,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
 
                   <Field label="Pet's Name" name="petName" type="text" value={form.petName} onChange={handleChange} required placeholder="e.g. Bruno" />
                   <Field label="Breed" name="petBreed" type="text" value={form.petBreed} onChange={handleChange} required placeholder="e.g. Labrador Retriever" />
-                  <Field label="Age (years)" name="petAge" type="number" value={form.petAge} onChange={handleChange} required placeholder="e.g. 2" min="0" step="0.5" />
+                  <Field label="Pet's Birthday" name="petBirthday" type="date" value={form.petBirthday} onChange={handleChange} required />
 
                   <div>
                     <label htmlFor="petGender" className="block text-sm font-semibold mb-1.5" style={{ color: '#282239' }}>
@@ -205,14 +233,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                     </select>
                   </div>
 
+                  {error && (
+                    <p className="text-sm text-red-600">{error}</p>
+                  )}
                   <div className="pt-2">
                     <Button
                       type="submit"
                       size="md"
-                      className="w-full text-white border-none"
+                      className="w-full text-white border-none disabled:opacity-60"
                       style={{ backgroundColor: '#1e3470', boxShadow: '0 4px 14px rgba(30,52,112,0.30)' }}
+                      disabled={isSubmitting}
                     >
-                      Submit
+                      {isSubmitting ? 'Submitting…' : 'Submit'}
                     </Button>
                   </div>
                 </form>
