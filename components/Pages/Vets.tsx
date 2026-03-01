@@ -477,7 +477,55 @@ export const Vets: React.FC<VetsProps> = () => {
                     </div>
                   </div>
                 )}
-                {step === 3 && <div className="py-4 text-center text-gray-400 text-sm">Step 4 coming…</div>}
+                {step === 3 && (
+                  <div className="space-y-5">
+                    {/* Agreement summary */}
+                    <div
+                      className="rounded-2xl p-5 space-y-3"
+                      style={{ backgroundColor: 'rgba(30,52,112,0.05)', border: '1px solid rgba(30,52,112,0.12)' }}
+                    >
+                      <h3 className="text-sm font-bold text-gray-900">Liability Agreement</h3>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        By joining PawGuardian, you agree to the following terms. Please download, sign, and upload the agreement below.
+                      </p>
+                      <ul className="space-y-1.5">
+                        {[
+                          'Independent contractor clause — You operate as an independent contractor, not an employee.',
+                          'Indemnification clause — You indemnify PawGuardian against claims arising from your services.',
+                          'Mandatory registration validity — Your veterinary registration must remain valid at all times.',
+                          'Mandatory professional behaviour — You commit to maintaining professional standards of care.',
+                          'Non-solicitation clause — You agree not to solicit PawGuardian clients outside the platform.',
+                        ].map((clause) => (
+                          <li key={clause} className="flex items-start gap-2 text-xs text-gray-600">
+                            <span className="mt-0.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#1e3470' }} />
+                            {clause}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Download button */}
+                    <a
+                      href="/PawGuardian-Vet-Agreement.pdf"
+                      download
+                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border font-semibold text-sm transition-colors hover:bg-gray-50"
+                      style={{ borderColor: '#1e3470', color: '#1e3470' }}
+                    >
+                      Download Agreement PDF
+                    </a>
+
+                    {/* Signed agreement upload */}
+                    <FileField
+                      label="Upload Signed Agreement"
+                      name="signed_agreement"
+                      accept=".pdf,.jpg,.jpeg,.png"
+                      file={files.signed_agreement}
+                      onChange={handleFileChange}
+                      required
+                      hint="Upload your signed copy (PDF or scanned image)"
+                    />
+                  </div>
+                )}
 
                 {error && (
                   <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
