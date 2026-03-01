@@ -8,28 +8,28 @@ const pillars = [
     title: "Smart Subscription",
     desc: "Personalised plans with regular diagnostics, baseline tracking, and AI-assisted health insights.",
     iconStyle: { backgroundColor: 'rgba(255,107,157,0.12)', color: '#FF6B9D' },
-    ghostColor: 'rgba(255,107,157,0.08)',
+    ghostColor: 'rgba(255,107,157,0.15)',
   },
   {
     icon: Truck,
     title: "Doorstep Veterinary Care",
     desc: "At-home sample collection, vaccinations, and tele-consults based on real test results.",
     iconStyle: { backgroundColor: 'rgba(78,205,196,0.12)', color: '#4ECDC4' },
-    ghostColor: 'rgba(78,205,196,0.08)',
+    ghostColor: 'rgba(78,205,196,0.15)',
   },
   {
     icon: Smartphone,
     title: "Digital Health Platform",
     desc: "All records, reminders, reports, and vet guidance—accessible in one place.",
     iconStyle: { backgroundColor: 'rgba(255,159,127,0.12)', color: '#FF9F7F' },
-    ghostColor: 'rgba(255,159,127,0.08)',
+    ghostColor: 'rgba(255,159,127,0.15)',
   },
   {
     icon: PiggyBank,
     title: "Affordable by Design",
     desc: "Early intervention means fewer emergencies, no transport costs, and lower lifetime spend.",
     iconStyle: { backgroundColor: 'rgba(196,181,253,0.20)', color: '#9B6DFF' },
-    ghostColor: 'rgba(196,181,253,0.10)',
+    ghostColor: 'rgba(196,181,253,0.15)',
   }
 ];
 
