@@ -129,8 +129,8 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                         className="relative"
                     >
                         <img
-                            src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=1470&auto=format&fit=crop"
-                            alt="Vet examining a dog"
+                            src="/founders.jpg"
+                            alt="Founders of PawGuardian"
                             className="w-full h-[480px] object-cover rounded-3xl shadow-2xl shadow-blue-100"
                         />
 
