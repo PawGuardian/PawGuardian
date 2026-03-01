@@ -52,7 +52,7 @@ export const Hero: React.FC = () => {
           className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 drop-shadow-xl"
         >
           Revolutionising <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r" style={{ backgroundImage: 'linear-gradient(to right, #FF6B9D, #FF9F7F)' }}>
+          <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #FF6B9D, #FF9F7F)' }}>
             Pet Care.
           </span>
         </motion.h1>
@@ -123,7 +123,6 @@ export const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Removed Health Optimized Widget */}
     </section>
   );
 };
