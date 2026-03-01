@@ -53,7 +53,7 @@ export const Plans: React.FC = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-6xl md:text-8xl font-black tracking-tighter absolute top-10 left-10 select-none opacity-50" style={{ color: 'rgba(255,159,127,0.5)' }}>DOG</h2>
+                            <h2 className="text-6xl md:text-8xl font-black tracking-tighter absolute top-10 left-10 select-none" style={{ color: 'rgba(255,159,127,0.5)' }}>DOG</h2>
                             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 relative z-10">
                                 For <span style={{ color: '#FF9F7F' }}>Dogs</span> 🐶
                             </h3>
@@ -61,7 +61,13 @@ export const Plans: React.FC = () => {
 
                             <div className="space-y-6">
                                 {dogPlans.map((plan, i) => (
-                                    <div key={i} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl transition-colors shadow-sm" style={{ border: '1px solid rgba(255,159,127,0.25)' }}>
+                                    <div
+                                        key={i}
+                                        className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-sm transition-shadow"
+                                        style={{ border: '1px solid rgba(255,159,127,0.25)' }}
+                                        onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = '#FF9F7F'; }}
+                                        onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,159,127,0.25)'; }}
+                                    >
                                         <div className="flex justify-between items-center mb-2">
                                             <h4 className="font-bold text-gray-900">{plan.title}</h4>
                                             <span className="text-xs font-semibold px-2 py-1 rounded-full" style={{ backgroundColor: 'rgba(255,159,127,0.18)', color: '#b85a30' }}>{plan.range}</span>
@@ -76,7 +82,7 @@ export const Plans: React.FC = () => {
                             </div>
                         </motion.div>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1974&auto=format&fit=crop" alt="Dog" className="absolute bottom-0 right-0 w-2/3 h-2/3 object-cover object-center opacity-30 mix-blend-multiply pointer-events-none" />
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1974&auto=format&fit=crop" alt="Dog" loading="lazy" className="absolute bottom-0 right-0 w-2/3 h-2/3 object-cover object-center opacity-30 mix-blend-multiply pointer-events-none" />
                 </div>
 
                 {/* Cat Section */}
@@ -90,7 +96,7 @@ export const Plans: React.FC = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-6xl md:text-8xl font-black tracking-tighter absolute top-10 right-10 select-none opacity-50" style={{ color: 'rgba(196,181,253,0.5)' }}>CAT</h2>
+                            <h2 className="text-6xl md:text-8xl font-black tracking-tighter absolute top-10 right-10 select-none" style={{ color: 'rgba(196,181,253,0.5)' }}>CAT</h2>
                             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 relative z-10">
                                 For <span style={{ color: '#C4B5FD' }}>Cats</span> 🐱
                             </h3>
@@ -98,7 +104,13 @@ export const Plans: React.FC = () => {
 
                             <div className="space-y-6">
                                 {catPlans.map((plan, i) => (
-                                    <div key={i} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl transition-colors shadow-sm" style={{ border: '1px solid rgba(196,181,253,0.3)' }}>
+                                    <div
+                                        key={i}
+                                        className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-sm transition-shadow"
+                                        style={{ border: '1px solid rgba(196,181,253,0.3)' }}
+                                        onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = '#C4B5FD'; }}
+                                        onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(196,181,253,0.3)'; }}
+                                    >
                                         <div className="flex justify-between items-center mb-2">
                                             <h4 className="font-bold text-gray-900">{plan.title}</h4>
                                             <span className="text-xs font-semibold px-2 py-1 rounded-full" style={{ backgroundColor: 'rgba(196,181,253,0.20)', color: '#6B21A8' }}>{plan.range}</span>
@@ -113,7 +125,7 @@ export const Plans: React.FC = () => {
                             </div>
                         </motion.div>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop" alt="Cat" className="absolute bottom-0 right-0 w-2/3 h-2/3 object-cover object-center opacity-30 mix-blend-multiply pointer-events-none" />
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=2043&auto=format&fit=crop" alt="Cat" loading="lazy" className="absolute bottom-0 right-0 w-2/3 h-2/3 object-cover object-center opacity-30 mix-blend-multiply pointer-events-none" />
                 </div>
             </div>
 
