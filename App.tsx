@@ -9,12 +9,16 @@ import { FinalCTA } from './components/Sections/FinalCTA';
 import { AboutUs } from './components/Pages/AboutUs';
 import { Services } from './components/Pages/Services';
 import { Vets } from './components/Pages/Vets';
+import { BookingModal } from './components/ui/BookingModal';
 import { motion } from 'framer-motion';
 
 export type Page = 'home' | 'about' | 'services' | 'vets';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [isBookingOpen, setIsBookingOpen] = useState<boolean>(false);
+
+  const openBooking = () => setIsBookingOpen(true);
 
   const navigate = (page: Page) => {
     setCurrentPage(page);
@@ -29,30 +33,28 @@ function App() {
           <motion.div
             animate={{
               scale: [1, 1.2, 1],
-              opacity: [0.2, 0.35, 0.2],
               x: [-100, 100, -100],
               y: [-50, 50, -50],
             }}
             transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-            className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full blur-[100px] mix-blend-multiply"
-            style={{ backgroundColor: 'rgba(30,52,112,0.12)' }}
+            className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full"
+            style={{ backgroundColor: 'rgba(30,52,112,0.10)', willChange: 'transform' }}
           />
           <motion.div
             animate={{
               scale: [1.2, 1, 1.2],
-              opacity: [0.2, 0.35, 0.2],
               x: [100, -100, 100],
               y: [50, -50, 50],
             }}
             transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-            className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full blur-[100px] mix-blend-multiply"
-            style={{ backgroundColor: 'rgba(40,34,57,0.10)' }}
+            className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full"
+            style={{ backgroundColor: 'rgba(40,34,57,0.08)', willChange: 'transform' }}
           />
         </div>
       )}
 
       <div className="relative z-10">
-        <Navbar currentPage={currentPage} navigate={navigate} />
+        <Navbar currentPage={currentPage} navigate={navigate} onOpenBooking={openBooking} />
 
         {currentPage === 'home' ? (
           <main>
@@ -71,6 +73,7 @@ function App() {
         )}
 
         <Footer />
+        <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
       </div>
     </div>
   );

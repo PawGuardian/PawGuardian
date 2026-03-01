@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '../ui/Button';
-import { BookingModal } from '../ui/BookingModal';
 import { PawPrint, Phone, Mail, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Page } from '../../App';
@@ -8,6 +7,7 @@ import type { Page } from '../../App';
 interface NavbarProps {
   currentPage: Page;
   navigate: (page: Page) => void;
+  onOpenBooking: () => void;
 }
 
 const NAV_LINKS: { label: string; page: Page | null }[] = [
@@ -17,9 +17,8 @@ const NAV_LINKS: { label: string; page: Page | null }[] = [
   { label: 'For Vets', page: 'vets' },
 ];
 
-export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate }) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate, onOpenBooking }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,8 +29,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate }) => {
   }, []);
 
   return (
-    <>
-      {/* Main Navbar */}
       <motion.nav
         className={`sticky top-0 left-0 right-0 z-40 transition-all duration-300 border-b ${isScrolled
           ? 'backdrop-blur-xl border-[#1e3470]/20 shadow-sm'
@@ -123,14 +120,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate }) => {
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#FF6B9D';
               }}
-              onClick={() => setIsBookingOpen(true)}
+              onClick={onOpenBooking}
             >
               Book a Slot
             </Button>
           </div>
         </div>
       </motion.nav>
-      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
-    </>
   );
 };
