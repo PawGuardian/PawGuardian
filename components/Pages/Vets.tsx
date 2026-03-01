@@ -133,8 +133,21 @@ export const Vets: React.FC<VetsProps> = () => {
     return false;
   };
 
+  const uploadFile = async (file: File, fieldName: string): Promise<string> => {
+    if (!supabase) throw new Error('Supabase not configured');
+    const path = `${Date.now()}-${fieldName}-${file.name}`;
+    const { data, error } = await supabase.storage.from('vet-docs').upload(path, file);
+    if (error) throw error;
+    const { data: { publicUrl } } = supabase.storage.from('vet-docs').getPublicUrl(data.path);
+    return publicUrl;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateStep()) {
+      setError('Please upload the signed agreement before submitting.');
+      return;
+    }
     setIsSubmitting(true);
     setError(null);
 
@@ -144,13 +157,47 @@ export const Vets: React.FC<VetsProps> = () => {
       return;
     }
 
-    const { error: supabaseError } = await supabase.from('vet_signups').insert([formData]);
+    try {
+      // Upload all files in parallel
+      const [photo_url, registration_cert_url, cv_url, signed_agreement_url] = await Promise.all([
+        uploadFile(files.photo!, 'photo'),
+        uploadFile(files.registration_cert!, 'registration_cert'),
+        uploadFile(files.cv!, 'cv'),
+        uploadFile(files.signed_agreement!, 'signed_agreement'),
+      ]);
 
-    if (supabaseError) {
-      setError('Something went wrong. Please try again or contact us directly.');
-      setIsSubmitting(false);
-    } else {
+      const payload = {
+        full_name: formData.full_name,
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        aadhar_number: formData.aadhar_number,
+        photo_url,
+        degree: formData.degree,
+        college: formData.college,
+        graduation_year: Number(formData.graduation_year),
+        state_vc_reg_number: formData.state_vc_reg_number,
+        ivpr_vci_number: formData.ivpr_vci_number,
+        registration_cert_url,
+        cv_url,
+        clinic_type: formData.clinic_type,
+        clinic_name: formData.clinic_name || null,
+        clinic_location: formData.clinic_location || null,
+        animal_specialisation: formData.animal_specialisation || null,
+        home_visit_aware: formData.home_visit_aware,
+        commute_distance_km: Number(formData.commute_distance_km),
+        visits_per_week: Number(formData.visits_per_week),
+        signed_agreement_url,
+      };
+
+      const { error: supabaseError } = await supabase.from('vet_signups').insert([payload]);
+      if (supabaseError) throw supabaseError;
+
       setIsSuccess(true);
+    } catch (err) {
+      console.error(err);
+      setError('Something went wrong uploading your files or saving your application. Please try again.');
+    } finally {
       setIsSubmitting(false);
     }
   };
