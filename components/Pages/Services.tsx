@@ -91,7 +91,7 @@ const services = [
         features: [
             'CBC + comprehensive metabolic panel',
             'Urinalysis & stool analysis',
-            'Thyroid, cardiac & cancer markers',
+            'Thyroid & cardiac markers',
             'Vet-interpreted results with action plan',
         ],
     },
@@ -102,9 +102,9 @@ const services = [
         tagline: 'Internal & External Cover',
         description:
             "Tailored deworming protocols based on your pet's age, weight, and exposure risk. Plus tick, flea, and mite prevention with vet-recommended products.",
-        highlight: 'from-[#d97706] to-[#f59e0b]',
-        accent: '#d97706',
-        accentLight: 'rgba(217,119,6,0.08)',
+        highlight: 'from-[#FF8E00] to-[#FD7702]',
+        accent: '#FF8E00',
+        accentLight: 'rgba(255,142,0,0.08)',
         features: [
             'Round, tape & hookworm treatment',
             'Flea & tick prevention doses',
@@ -119,9 +119,9 @@ const services = [
         tagline: 'Oral Health Matters',
         description:
             'Dental disease affects over 70% of pets by age 3. Our vets provide thorough oral exams and professional-grade teeth cleaning guidance at home.',
-        highlight: 'from-[#0891b2] to-[#06b6d4]',
-        accent: '#0891b2',
-        accentLight: 'rgba(8,145,178,0.08)',
+        highlight: 'from-[#003366] to-[#002347]',
+        accent: '#003366',
+        accentLight: 'rgba(0,51,102,0.08)',
         features: [
             'Plaque & tartar assessment',
             'Gum disease early detection',
@@ -142,7 +142,7 @@ const services = [
         features: [
             'Anti-fungal & medicated baths',
             'Ear canal cleaning',
-            'Nail trimming & anal gland check',
+            'Nail trimming',
             'Breed-specific coat care',
         ],
     },
@@ -372,7 +372,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
         <main className="min-h-screen" style={{ backgroundColor: '#f8f4e8' }}>
             {/* ── Hero ──────────────────────────────────────────────────────── */}
             <section
-                className="relative overflow-hidden py-32 px-6"
+                className="relative overflow-hidden pt-12 pb-32 px-6"
                 style={{ backgroundColor: '#002347' }}
             >
                 {/* Decorative blobs */}
@@ -391,8 +391,8 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                     />
                 </div>
 
-                <div className="max-w-7xl mx-auto px-6 relative z-10 pt-16">
-                    <div className="text-center mb-20 max-w-3xl mx-auto mt-24">
+                <div className="max-w-7xl mx-auto px-6 relative z-10 pt-4">
+                    <div className="text-center mb-20 max-w-3xl mx-auto mt-6">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -603,75 +603,77 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             </section>
 
             {/* ── How It Works ──────────────────────────────────────────────── */}
-            <section
-                className="py-24 px-6"
-                style={{ backgroundColor: '#002347' }}
-            >
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span
-                            className="font-semibold tracking-wide uppercase text-sm"
-                            style={{ color: '#a8b4d8' }}
-                        >
-                            The Process
-                        </span>
-                        <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-white">
-                            Booking to Care in{' '}
+            {false && (
+                <section
+                    className="py-24 px-6"
+                    style={{ backgroundColor: '#002347' }}
+                >
+                    <div className="max-w-7xl mx-auto">
+                        <div className="text-center mb-16">
                             <span
-                                className="text-transparent bg-clip-text"
-                                style={{
-                                    backgroundImage: 'linear-gradient(to right, #a8b8e8, #c8b4f0)',
-                                }}
+                                className="font-semibold tracking-wide uppercase text-sm"
+                                style={{ color: '#a8b4d8' }}
                             >
-                                4 Steps
+                                The Process
                             </span>
-                        </h2>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-                        {/* Connecting line — desktop only */}
-                        <div
-                            className="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-px"
-                            style={{ backgroundColor: 'rgba(168,180,216,0.20)' }}
-                        />
-
-                        {processSteps.map((step, i) => {
-                            const Icon = step.icon;
-                            return (
-                                <motion.div
-                                    key={step.step}
-                                    variants={fadeUp}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    custom={i}
-                                    viewport={{ once: true }}
-                                    className="relative text-center"
+                            <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-white">
+                                Booking to Care in{' '}
+                                <span
+                                    className="text-transparent bg-clip-text"
+                                    style={{
+                                        backgroundImage: 'linear-gradient(to right, #a8b8e8, #c8b4f0)',
+                                    }}
                                 >
-                                    {/* Circle */}
-                                    <div
-                                        className="w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center relative z-10"
-                                        style={{ backgroundColor: 'rgba(0,35,71,0.40)', border: '1px solid rgba(168,180,216,0.20)' }}
+                                    4 Steps
+                                </span>
+                            </h2>
+                        </div>
+
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                            {/* Connecting line — desktop only */}
+                            <div
+                                className="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-px"
+                                style={{ backgroundColor: 'rgba(168,180,216,0.20)' }}
+                            />
+
+                            {processSteps.map((step, i) => {
+                                const Icon = step.icon;
+                                return (
+                                    <motion.div
+                                        key={step.step}
+                                        variants={fadeUp}
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        custom={i}
+                                        viewport={{ once: true }}
+                                        className="relative text-center"
                                     >
-                                        <Icon size={28} style={{ color: '#a8b8e8' }} strokeWidth={1.5} />
-                                    </div>
-                                    <div
-                                        className="text-xs font-black tracking-[0.2em] uppercase mb-2"
-                                        style={{ color: '#a8b4d8' }}
-                                    >
-                                        Step {step.step}
-                                    </div>
-                                    <h3 className="text-lg font-bold text-white mb-2">
-                                        {step.title}
-                                    </h3>
-                                    <p className="text-sm text-gray-400 leading-relaxed max-w-xs mx-auto">
-                                        {step.desc}
-                                    </p>
-                                </motion.div>
-                            );
-                        })}
+                                        {/* Circle */}
+                                        <div
+                                            className="w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center relative z-10"
+                                            style={{ backgroundColor: 'rgba(0,35,71,0.40)', border: '1px solid rgba(168,180,216,0.20)' }}
+                                        >
+                                            <Icon size={28} style={{ color: '#a8b8e8' }} strokeWidth={1.5} />
+                                        </div>
+                                        <div
+                                            className="text-xs font-black tracking-[0.2em] uppercase mb-2"
+                                            style={{ color: '#a8b4d8' }}
+                                        >
+                                            Step {step.step}
+                                        </div>
+                                        <h3 className="text-lg font-bold text-white mb-2">
+                                            {step.title}
+                                        </h3>
+                                        <p className="text-sm text-gray-400 leading-relaxed max-w-xs mx-auto">
+                                            {step.desc}
+                                        </p>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
 
             {/* ── FAQ ───────────────────────────────────────────────────────── */}
             <section className="py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>

@@ -65,7 +65,7 @@ export const Empathy: React.FC = () => {
 
                         <Card className="bg-white/5 border-white/10 backdrop-blur-xl p-10 rounded-3xl text-center">
                             <HeartPulse size={48} style={{ color: '#FF8E00' }} className="mx-auto mb-6" />
-                            <h3 className="text-6xl font-black text-white mb-4">40<span style={{ color: '#FF8E00' }}>%</span></h3>
+                            <h3 className="text-6xl font-black mb-4" style={{ color: '#FF8E00' }}>40%</h3>
                             <p className="text-xl font-medium text-gray-200 uppercase tracking-widest mb-2">Of Cats Develop</p>
                             <p className="text-gray-400">Carrier phobia & lasting anxiety after just three standard clinic visits.</p>
 

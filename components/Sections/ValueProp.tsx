@@ -16,16 +16,9 @@ const MaskedSymptomsCard = () => {
                 <p className="text-[#a8b4d8] text-sm leading-relaxed mb-6 font-medium">
                     By the time you notice they are sick, the condition has often progressed significantly.
                 </p>
-                <div className="bg-[#182a5c] p-4 rounded-xl border border-white/5 flex items-center justify-between">
-                    <div>
-                        <span className="block text-xs font-bold text-[#a8b4d8] uppercase tracking-wider mb-1">Early Detection</span>
-                        <span className="text-[#003366] font-bold text-lg">Costs &lt; ⅓</span>
-                    </div>
-                    <div className="h-8 w-px bg-white/10 mx-4"></div>
-                    <div className="text-right">
-                        <span className="block text-xs font-bold text-[#a8b4d8] uppercase tracking-wider mb-1">Late Treatment</span>
-                        <span className="text-[#FD7702] font-bold text-lg">3x More Expensive</span>
-                    </div>
+                <div className="bg-[#182a5c] p-4 rounded-xl border border-white/5 text-center">
+                    <span className="block text-xs font-bold text-[#a8b4d8] uppercase tracking-wider mb-1">Cost of Waiting</span>
+                    <span className="text-[#FD7702] font-bold text-lg">Late treatment can be 3x more expensive</span>
                 </div>
             </div>
         </div>
@@ -76,67 +69,61 @@ export const ValueProp: React.FC = () => {
                         </div>
 
                         <div className="grid gap-5">
-                            <Card className="hover:border-[#FD7702]/40 transition-all duration-300 group">
+                            <Card className="!bg-[#003F7D] border-none transition-all duration-300 group">
                                 <div className="flex items-start gap-4">
                                     <div
-                                        className="p-3 rounded-xl transition-colors"
-                                        style={{ backgroundColor: '#DBEAFE', color: '#003F7D' }}
-                                        onMouseEnter={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#003F7D'; d.style.color = 'white'; }}
-                                        onMouseLeave={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#DBEAFE'; d.style.color = '#003F7D'; }}
+                                        className="p-3 rounded-xl transition-colors shrink-0"
+                                        style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#FF8E00' }}
                                     >
                                         <AlertCircle size={24} />
                                     </div>
-                                    <div className="flex-1">
+                                    <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-gray-900 group-hover:text-[#003F7D] transition-colors">Early Detection, Not Late Panic</h4>
-                                            <ChevronDown size={20} className="text-gray-400 group-hover:text-[#003F7D] group-hover:rotate-180 transition-all duration-300" />
+                                            <h4 className="text-xl font-bold text-white transition-colors">Early Detection, Not Late Panic</h4>
+                                            <ChevronDown size={20} className="text-white/50 group-hover:text-white group-hover:rotate-180 transition-all duration-300" />
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-2">
-                                            <p className="text-gray-600 text-sm leading-relaxed">Regular at-home diagnostics establish baselines and catch issues before they become life-threatening.</p>
+                                        <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-3">
+                                            <p className="text-white/80 text-sm leading-relaxed">Regular at-home diagnostics establish baselines and catch issues before they become life-threatening.</p>
                                         </div>
                                     </div>
                                 </div>
                             </Card>
 
-                            <Card className="hover:border-[#003366]/40 transition-all duration-300 group">
+                            <Card className="!bg-[#003366] border-none transition-all duration-300 group">
                                 <div className="flex items-start gap-4">
                                     <div
-                                        className="p-3 rounded-xl transition-colors"
-                                        style={{ backgroundColor: 'rgba(78,205,196,0.12)', color: '#003366' }}
-                                        onMouseEnter={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#003366'; d.style.color = 'white'; }}
-                                        onMouseLeave={(e) => { const d = e.currentTarget; d.style.backgroundColor = 'rgba(78,205,196,0.12)'; d.style.color = '#003366'; }}
+                                        className="p-3 rounded-xl transition-colors shrink-0"
+                                        style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#FF8E00' }}
                                     >
                                         <Home size={24} />
                                     </div>
-                                    <div className="flex-1">
+                                    <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-gray-900 group-hover:text-[#003366] transition-colors">Care Without the Clinic Stress</h4>
-                                            <ChevronDown size={20} className="text-gray-400 group-hover:text-[#003366] group-hover:rotate-180 transition-all duration-300" />
+                                            <h4 className="text-xl font-bold text-white transition-colors">Care Without the Clinic Stress</h4>
+                                            <ChevronDown size={20} className="text-white/50 group-hover:text-white group-hover:rotate-180 transition-all duration-300" />
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-2">
-                                            <p className="text-gray-600 text-sm leading-relaxed">No travel. No anxious pets. No waiting rooms. We collect samples, vaccinate, and consult—right at home.</p>
+                                        <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-3">
+                                            <p className="text-white/80 text-sm leading-relaxed">No travel. No anxious pets. No waiting rooms. We collect samples, vaccinate, and consult—right at home.</p>
                                         </div>
                                     </div>
                                 </div>
                             </Card>
 
-                            <Card className="hover:border-[#FF5003]/60 transition-all duration-300 group">
+                            <Card className="!bg-[#FF8E00] border-none transition-all duration-300 group">
                                 <div className="flex items-start gap-4">
                                     <div
-                                        className="p-3 rounded-xl transition-colors"
-                                        style={{ backgroundColor: 'rgba(255,230,109,0.18)', color: '#d4a500' }}
-                                        onMouseEnter={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#FF5003'; d.style.color = '#7a5c00'; }}
-                                        onMouseLeave={(e) => { const d = e.currentTarget; d.style.backgroundColor = 'rgba(255,230,109,0.18)'; d.style.color = '#d4a500'; }}
+                                        className="p-3 rounded-xl transition-colors shrink-0"
+                                        style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#002347' }}
                                     >
                                         <Wallet size={24} />
                                     </div>
-                                    <div className="flex-1">
+                                    <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-gray-900 group-hover:text-[#FF5003] transition-colors">Predictable, Affordable Healthcare</h4>
-                                            <ChevronDown size={20} className="text-gray-400 group-hover:text-[#FF5003] group-hover:rotate-180 transition-all duration-300" />
+                                            <h4 className="text-xl font-bold text-[#002347] transition-colors">Predictable, Affordable Healthcare</h4>
+                                            <ChevronDown size={20} className="text-[#002347]/50 group-hover:text-[#002347] group-hover:rotate-180 transition-all duration-300" />
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-2">
-                                            <p className="text-gray-600 text-sm leading-relaxed">Subscription pricing replaces surprise bills, emergency expenses, and last-minute decisions.</p>
+                                        <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-3">
+                                            <p className="text-[#002347]/80 text-sm leading-relaxed font-medium">Subscription pricing replaces surprise bills, emergency expenses, and last-minute decisions.</p>
                                         </div>
                                     </div>
                                 </div>

@@ -251,7 +251,7 @@ export const Vets: React.FC<VetsProps> = () => {
             Partner With{' '}
             <span
               className="text-transparent bg-clip-text"
-              style={{ backgroundImage: 'linear-gradient(to right, #a8b8e8, #c8b4f0)' }}
+              style={{ backgroundImage: 'linear-gradient(to right, #FF8E00, #FD7702)' }}
             >
               PawGuardian
             </span>
@@ -267,30 +267,20 @@ export const Vets: React.FC<VetsProps> = () => {
             own schedule, and make a real difference in the lives of pets and their families.
           </motion.p>
 
-          {/* Stats strip */}
+          {/* Call to Action Button */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-12 flex flex-col sm:flex-row gap-6 justify-center"
+            className="mt-12 flex justify-center"
           >
-            {[
-              { value: '500+', label: 'Partner Vets' },
-              { value: '10K+', label: 'Pet Owners' },
-              { value: 'Verified', label: 'Platform' },
-            ].map(({ value, label }) => (
-              <div
-                key={label}
-                className="flex flex-col items-center px-8 py-4 rounded-2xl"
-                style={{
-                  backgroundColor: 'rgba(255,255,255,0.07)',
-                  border: '1px solid rgba(168,180,216,0.15)',
-                }}
-              >
-                <span className="text-3xl font-extrabold text-white">{value}</span>
-                <span className="text-sm mt-1" style={{ color: '#a8b4d8' }}>{label}</span>
-              </div>
-            ))}
+            <a
+              href="#signup"
+              className="px-8 py-4 rounded-full font-bold text-white text-lg transition-transform hover:scale-105 shadow-xl cursor-pointer"
+              style={{ backgroundColor: '#FF8E00', boxShadow: '0 8px 24px rgba(255,142,0,0.3)' }}
+            >
+              Join Us
+            </a>
           </motion.div>
         </div>
       </section>
@@ -391,7 +381,7 @@ export const Vets: React.FC<VetsProps> = () => {
       </section>
 
       {/* ── Signup Form ───────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
+      <section id="signup" className="py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <span
