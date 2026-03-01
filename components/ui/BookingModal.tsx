@@ -58,7 +58,7 @@ const Field: React.FC<FieldProps> = ({ label, name, type, value, onChange, requi
       min={min}
       step={step}
       ref={inputRef}
-      className="w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3470] bg-white"
+      className="w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB] bg-white"
       style={{ borderColor: '#a8b4d8', color: '#282239' }}
     />
   </div>
@@ -66,7 +66,7 @@ const Field: React.FC<FieldProps> = ({ label, name, type, value, onChange, requi
 
 const SuccessView: React.FC<{ onClose: () => void }> = ({ onClose }) => (
   <div className="py-8 flex flex-col items-center text-center gap-4">
-    <CheckCircle2 size={48} style={{ color: '#1e3470' }} />
+    <CheckCircle2 size={48} style={{ color: '#2563EB' }} />
     <h3 className="text-xl font-bold" style={{ color: '#282239' }}>You're on the waitlist!</h3>
     <p className="text-gray-600">We'll be in touch as spots open up.</p>
     <Button
@@ -172,14 +172,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             aria-labelledby="booking-modal-title"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#1e3470]/10">
+            <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#2563EB]/10">
               <div>
                 <h2 id="booking-modal-title" className="text-xl font-bold" style={{ color: '#282239' }}>Join the Waitlist</h2>
                 <p className="text-sm mt-0.5" style={{ color: '#a8b4d8' }}>We'll reach out as spots open up.</p>
               </div>
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-full hover:bg-[#1e3470]/10 transition-colors"
+                className="p-1.5 rounded-full hover:bg-[#2563EB]/10 transition-colors"
                 aria-label="Close"
               >
                 <X size={20} style={{ color: '#282239' }} />
@@ -205,7 +205,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       value={form.petType}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3470] bg-white"
+                      className="w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB] bg-white"
                       style={{ borderColor: '#a8b4d8', color: '#282239' }}
                     >
                       <option>Dog</option>
@@ -228,7 +228,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       value={form.petGender}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-[#1e3470] bg-white"
+                      className="w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB] bg-white"
                       style={{ borderColor: '#a8b4d8', color: '#282239' }}
                     >
                       <option>Male</option>

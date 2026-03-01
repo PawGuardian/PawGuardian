@@ -96,8 +96,8 @@ const fadeUp = {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 interface AboutUsProps {
-  navigate: (page: Page) => void;
-  onOpenBooking: () => void;
+    navigate: (page: Page) => void;
+    onOpenBooking: () => void;
 }
 
 export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => {
@@ -188,7 +188,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                         />
                         {/* Floating badge */}
                         <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl px-6 py-4 flex items-center gap-3 border border-gray-100">
-                            <div className="text-white p-2 rounded-xl" style={{ backgroundColor: '#1e3470' }}>
+                            <div className="text-white p-2 rounded-xl" style={{ backgroundColor: '#2563EB' }}>
                                 <PawPrint size={22} />
                             </div>
                             <div>
@@ -205,12 +205,12 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                     >
-                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#1e3470' }}>
+                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#2563EB' }}>
                             Our Mission
                         </span>
                         <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
                             Making Preventive Care{' '}
-                            <span style={{ color: '#1e3470' }}>the Norm</span>, Not the Exception.
+                            <span style={{ color: '#2563EB' }}>the Norm</span>, Not the Exception.
                         </h2>
                         <p className="mt-6 text-gray-600 text-lg leading-relaxed">
                             Most Indian pet parents only visit a vet when something is visibly
@@ -225,7 +225,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                         </p>
                         <div className="mt-8 flex items-center gap-3">
                             <div className="p-3 rounded-xl" style={{ backgroundColor: 'rgba(30,52,112,0.08)' }}>
-                                <Target size={22} style={{ color: '#1e3470' }} />
+                                <Target size={22} style={{ color: '#2563EB' }} />
                             </div>
                             <p className="text-sm font-semibold text-gray-700">
                                 Vision: Zero preventable pet deaths in India by 2030.
@@ -239,7 +239,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
             <section className="py-24 px-6 border-t" style={{ backgroundColor: '#f8f4e8', borderColor: 'rgba(30,52,112,0.08)' }}>
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#1e3470' }}>
+                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#2563EB' }}>
                             What Drives Us
                         </span>
                         <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
@@ -276,7 +276,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
             <section className="py-24 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#1e3470' }}>
+                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#2563EB' }}>
                             The Humans Behind the Paws
                         </span>
                         <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
@@ -307,7 +307,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                                 </div>
                                 <div className="p-6">
                                     <p className="font-bold text-gray-900 text-base">{member.name}</p>
-                                    <p className="text-xs font-semibold mt-0.5 mb-3" style={{ color: '#1e3470' }}>
+                                    <p className="text-xs font-semibold mt-0.5 mb-3" style={{ color: '#2563EB' }}>
                                         {member.role}
                                     </p>
                                     <p className="text-gray-500 text-sm leading-relaxed">{member.bio}</p>
@@ -365,7 +365,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
             </section>
 
             {/* ── CTA ──────────────────────────────────────────────────────── */}
-            <section className="py-24 px-6" style={{ background: 'linear-gradient(135deg, #282239 0%, #1e3470 50%, #282239 100%)' }}>
+            <section className="py-24 px-6" style={{ background: 'linear-gradient(135deg, #282239 0%, #2563EB 50%, #282239 100%)' }}>
                 <div className="max-w-2xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 border" style={{ backgroundColor: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.20)' }}>
                         <Stethoscope size={14} className="text-blue-300" />

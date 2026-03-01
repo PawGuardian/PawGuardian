@@ -28,8 +28,8 @@ const services = [
         tagline: 'Core & Lifestyle Shots',
         description:
             'Age-appropriate vaccination schedules for dogs and cats — from Puppyhood Rabies & DHPP to annual boosters — administered by licensed vets at your doorstep.',
-        highlight: 'from-[#1e3470] to-[#2a4a98]',
-        accent: '#1e3470',
+        highlight: 'from-[#2563EB] to-[#2a4a98]',
+        accent: '#2563EB',
         accentLight: 'rgba(30,52,112,0.08)',
         features: [
             'DHPP, Leptospirosis, Rabies for dogs',
@@ -45,9 +45,9 @@ const services = [
         tagline: 'Lab Tests at Home',
         description:
             'Our trained phlebotomists collect samples at your home. Full blood panels, organ function, infection markers — results delivered digitally within 24 hours.',
-        highlight: 'from-[#7c3aed] to-[#a855f7]',
-        accent: '#7c3aed',
-        accentLight: 'rgba(124,58,237,0.08)',
+        highlight: 'from-[#3B82F6] to-[#60A5FA]',
+        accent: '#3B82F6',
+        accentLight: 'rgba(59,130,246,0.08)',
         features: [
             'CBC + comprehensive metabolic panel',
             'Urinalysis & stool analysis',
@@ -96,9 +96,9 @@ const services = [
         tagline: 'Skin, Coat & Comfort',
         description:
             'More than a bath — our vet-supervised grooming targets skin conditions, ear infections, and coat quality. Species-appropriate products, zero stress in familiar surroundings.',
-        highlight: 'from-[#be185d] to-[#ec4899]',
-        accent: '#be185d',
-        accentLight: 'rgba(190,24,93,0.08)',
+        highlight: 'from-[#EA580C] to-[#F97316]',
+        accent: '#EA580C',
+        accentLight: 'rgba(234,88,12,0.08)',
         features: [
             'Anti-fungal & medicated baths',
             'Ear canal cleaning',
@@ -419,10 +419,10 @@ export const Services: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                             }}
                             onMouseEnter={(e) => {
                                 (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                                    '#1e3470';
+                                    '#2563EB';
                                 (e.currentTarget as HTMLAnchorElement).style.color = '#fff';
                                 (e.currentTarget as HTMLAnchorElement).style.borderColor =
-                                    '#1e3470';
+                                    '#2563EB';
                             }}
                             onMouseLeave={(e) => {
                                 (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '';
@@ -443,13 +443,13 @@ export const Services: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                     <div className="text-center mb-16">
                         <span
                             className="font-semibold tracking-wide uppercase text-sm"
-                            style={{ color: '#1e3470' }}
+                            style={{ color: '#2563EB' }}
                         >
                             Our Services
                         </span>
                         <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
                             Everything Under One{' '}
-                            <span style={{ color: '#1e3470' }}>Paw</span>
+                            <span style={{ color: '#2563EB' }}>Paw</span>
                         </h2>
                         <p className="mt-4 text-gray-500 max-w-xl mx-auto leading-relaxed">
                             Each service is designed around one principle: zero-compromise care
@@ -470,7 +470,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             {/* ── Trust Banner ──────────────────────────────────────────────── */}
             <section
                 className="py-6 px-6 text-white text-sm font-medium"
-                style={{ backgroundColor: '#1e3470' }}
+                style={{ backgroundColor: '#2563EB' }}
             >
                 <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-10 gap-y-2 text-center">
                     {[
@@ -564,7 +564,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                     <div className="text-center mb-14">
                         <span
                             className="font-semibold tracking-wide uppercase text-sm"
-                            style={{ color: '#1e3470' }}
+                            style={{ color: '#2563EB' }}
                         >
                             Common Questions
                         </span>
@@ -586,7 +586,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                 className="py-24 px-6"
                 style={{
                     background:
-                        'linear-gradient(135deg, #282239 0%, #1e3470 50%, #282239 100%)',
+                        'linear-gradient(135deg, #282239 0%, #2563EB 50%, #282239 100%)',
                 }}
             >
                 <div className="max-w-2xl mx-auto text-center">

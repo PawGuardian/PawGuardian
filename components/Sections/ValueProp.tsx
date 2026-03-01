@@ -3,43 +3,30 @@ import { motion } from 'framer-motion';
 import { AlertCircle, Home, Wallet, Activity, PawPrint, TrendingDown } from 'lucide-react';
 import { Card } from '../ui/Card';
 
-const CostComparison = () => {
+const MaskedSymptomsCard = () => {
     return (
-        <div className="mt-6">
-            <div className="flex items-end justify-center gap-12 py-4">
-                {/* Reactive Cost */}
-                <div className="flex flex-col items-center gap-3">
-                    <span className="font-bold text-red-500 text-4xl">₹4.5L</span>
-                    <div className="h-1.5 w-16 bg-red-100 rounded-full"></div>
-                    <span className="text-sm font-medium text-gray-400">Late Treatment</span>
+        <div className="mt-6 space-y-4">
+            <div className="bg-[#2563EB] p-6 rounded-2xl text-white shadow-lg">
+                <div className="flex items-start gap-4 mb-4">
+                    <div className="bg-white/10 p-2 rounded-xl text-[#FF9F7F] shrink-0">
+                        <AlertCircle size={24} />
+                    </div>
+                    <h4 className="text-xl font-bold">More than 6 out of 10 pets instinctively hide their symptoms.</h4>
                 </div>
-
-                {/* Preventive Cost */}
-                <div className="flex flex-col items-center gap-3 relative">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.5, type: "spring" }}
-                        className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs px-3 py-1 rounded-full font-bold shadow-sm"
-                        style={{ backgroundColor: '#FFE66D', color: '#7a5c00', border: '1px solid rgba(255,230,109,0.6)' }}
-                    >
-                        <TrendingDown size={12} className="inline mr-1" /> Save 73%
-                    </motion.div>
-                    <span className="font-bold text-4xl" style={{ color: '#1e3470' }}>₹1.2L</span>
-                    <div className="h-1.5 w-16 rounded-full shadow-lg" style={{ backgroundColor: '#6272E8', boxShadow: '0 4px 8px rgba(98,114,232,0.30)' }}></div>
-                    <span className="text-sm font-bold text-gray-900">PawGuardian</span>
-                </div>
-            </div>
-
-            {/* Purple Info Box */}
-            <div className="mt-8 p-5 bg-purple-50 rounded-2xl flex items-start gap-4 border border-purple-100">
-                <div className="bg-white p-1.5 rounded-full text-purple-600 shrink-0 shadow-sm border border-purple-100">
-                    <AlertCircle size={18} />
-                </div>
-                <p className="text-sm text-purple-900 leading-relaxed font-medium">
-                    <PawPrint size={14} className="inline mr-1 text-purple-500" /> Pets instinctively hide pain. <span className="font-bold text-purple-700">68% mask symptoms</span>, making early detection through data vital.
+                <p className="text-[#a8b4d8] text-sm leading-relaxed mb-6 font-medium">
+                    By the time you notice they are sick, the condition has often progressed significantly.
                 </p>
+                <div className="bg-[#182a5c] p-4 rounded-xl border border-white/5 flex items-center justify-between">
+                    <div>
+                        <span className="block text-xs font-bold text-[#a8b4d8] uppercase tracking-wider mb-1">Early Detection</span>
+                        <span className="text-[#4ECDC4] font-bold text-lg">Costs &lt; ⅓</span>
+                    </div>
+                    <div className="h-8 w-px bg-white/10 mx-4"></div>
+                    <div className="text-right">
+                        <span className="block text-xs font-bold text-[#a8b4d8] uppercase tracking-wider mb-1">Late Treatment</span>
+                        <span className="text-[#F97316] font-bold text-lg">3x More Expensive</span>
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -47,7 +34,7 @@ const CostComparison = () => {
 
 export const ValueProp: React.FC = () => {
     return (
-        <section id="value" className="py-24 relative" style={{ backgroundColor: '#f8f4e8' }}>
+        <section id="value" className="py-24 relative" style={{ backgroundColor: '#f0fdf4' }}>
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-16">
                     <motion.h2
@@ -66,7 +53,7 @@ export const ValueProp: React.FC = () => {
                         className="text-xl text-gray-500 max-w-2xl mx-auto"
                     >
                         Most pet parents don't delay care because they don't care. <br />
-                        <span style={{ color: '#1e3470' }} className="font-semibold">They delay because the system makes it hard.</span>
+                        <span style={{ color: '#2563EB' }} className="font-semibold">They delay because the system makes it hard.</span>
                     </motion.p>
                 </div>
 
@@ -88,24 +75,24 @@ export const ValueProp: React.FC = () => {
                             </div>
                         </div>
 
-                        <CostComparison />
+                        <MaskedSymptomsCard />
                     </motion.div>
 
                     {/* Right Column: The Solution */}
                     <div className="space-y-8">
-                        <div className="border-l-4 pl-6" style={{ borderColor: '#1e3470' }}>
+                        <div className="border-l-4 pl-6" style={{ borderColor: '#2563EB' }}>
                             <h3 className="text-2xl font-bold text-gray-900 mb-2">From Reactive to Proactive</h3>
                             <p className="text-gray-600">PawGuardian flips the model. We move from reactive clinic visits to proactive, at-home, continuous care.</p>
                         </div>
 
                         <div className="grid gap-5">
-                            <Card className="hover:border-[#FF6B9D]/40 transition-all duration-300 group">
+                            <Card className="hover:border-[#F97316]/40 transition-all duration-300 group">
                                 <div className="flex items-start gap-4">
                                     <div
                                         className="p-3 rounded-xl transition-colors"
-                                        style={{ backgroundColor: 'rgba(98,114,232,0.10)', color: '#6272E8' }}
-                                        onMouseEnter={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#6272E8'; d.style.color = 'white'; }}
-                                        onMouseLeave={(e) => { const d = e.currentTarget; d.style.backgroundColor = 'rgba(98,114,232,0.10)'; d.style.color = '#6272E8'; }}
+                                        style={{ backgroundColor: '#DBEAFE', color: '#2563EB' }}
+                                        onMouseEnter={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#2563EB'; d.style.color = 'white'; }}
+                                        onMouseLeave={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#DBEAFE'; d.style.color = '#2563EB'; }}
                                     >
                                         <AlertCircle size={24} />
                                     </div>
@@ -118,13 +105,13 @@ export const ValueProp: React.FC = () => {
                                 </div>
                             </Card>
 
-                            <Card className="hover:border-[#4ECDC4]/40 transition-all duration-300 group">
+                            <Card className="hover:border-[#3B82F6]/40 transition-all duration-300 group">
                                 <div className="flex items-start gap-4">
                                     <div
                                         className="p-3 rounded-xl transition-colors"
-                                        style={{ backgroundColor: 'rgba(78,205,196,0.12)', color: '#4ECDC4' }}
-                                        onMouseEnter={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#4ECDC4'; d.style.color = 'white'; }}
-                                        onMouseLeave={(e) => { const d = e.currentTarget; d.style.backgroundColor = 'rgba(78,205,196,0.12)'; d.style.color = '#4ECDC4'; }}
+                                        style={{ backgroundColor: 'rgba(78,205,196,0.12)', color: '#3B82F6' }}
+                                        onMouseEnter={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#3B82F6'; d.style.color = 'white'; }}
+                                        onMouseLeave={(e) => { const d = e.currentTarget; d.style.backgroundColor = 'rgba(78,205,196,0.12)'; d.style.color = '#3B82F6'; }}
                                     >
                                         <Home size={24} />
                                     </div>
@@ -137,12 +124,12 @@ export const ValueProp: React.FC = () => {
                                 </div>
                             </Card>
 
-                            <Card className="hover:border-[#FFE66D]/60 transition-all duration-300 group">
+                            <Card className="hover:border-[#EA580C]/60 transition-all duration-300 group">
                                 <div className="flex items-start gap-4">
                                     <div
                                         className="p-3 rounded-xl transition-colors"
                                         style={{ backgroundColor: 'rgba(255,230,109,0.18)', color: '#d4a500' }}
-                                        onMouseEnter={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#FFE66D'; d.style.color = '#7a5c00'; }}
+                                        onMouseEnter={(e) => { const d = e.currentTarget; d.style.backgroundColor = '#EA580C'; d.style.color = '#7a5c00'; }}
                                         onMouseLeave={(e) => { const d = e.currentTarget; d.style.backgroundColor = 'rgba(255,230,109,0.18)'; d.style.color = '#d4a500'; }}
                                     >
                                         <Wallet size={24} />

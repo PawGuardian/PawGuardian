@@ -37,7 +37,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking, navigate }) =
         >
           Your Pet Can&apos;t Tell You When Something&apos;s Wrong.{' '}
           <span>
-            <span style={{ color: '#1e3470' }}>We Can</span>
+            <span style={{ color: '#2563EB' }}>We Can</span>
             <span style={{ color: '#6272E8' }}>.</span>
           </span>
         </motion.h2>
