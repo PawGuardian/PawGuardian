@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate, onOpenBoo
         {/* Right: CTA */}
         <div className="flex items-center justify-end gap-3">
           <button
-            onClick={() => navigate('vets')}
+            onClick={() => navigate('home')}
             className="hidden md:flex items-center text-sm font-semibold rounded-full px-5 py-2 transition-colors cursor-pointer bg-transparent"
             style={{
               border: '1px solid #2563EB',
@@ -105,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate, onOpenBoo
               (e.currentTarget as HTMLButtonElement).style.backgroundColor = 'transparent';
             }}
           >
-            Are you a Vet?
+            Are you a Pet Parent?
           </button>
           <Button
             size="sm"
