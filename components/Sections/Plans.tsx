@@ -45,7 +45,7 @@ export const Plans: React.FC = () => {
                 {/* Dog Section */}
                 <div className="relative overflow-hidden group">
                     {/* Background Image / Color */}
-                    <div className="absolute inset-0 bg-orange-50/50 z-0 transition-colors duration-500 group-hover:bg-orange-100/50" />
+                    <div className="absolute inset-0 z-0 transition-colors duration-500" style={{ backgroundColor: 'rgba(255,159,127,0.06)' }} />
 
                     <div className="relative z-10 p-12 md:p-24 flex flex-col h-full justify-center">
                         <motion.div
@@ -53,18 +53,18 @@ export const Plans: React.FC = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-orange-200 absolute top-10 left-10 select-none opacity-50">DOG</h2>
+                            <h2 className="text-6xl md:text-8xl font-black tracking-tighter absolute top-10 left-10 select-none opacity-50" style={{ color: 'rgba(255,159,127,0.5)' }}>DOG</h2>
                             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 relative z-10">
-                                For <span className="text-orange-500">Dogs</span>
+                                For <span style={{ color: '#FF9F7F' }}>Dogs</span> 🐶
                             </h3>
                             <p className="text-lg text-gray-600 mb-8 max-w-md">Comprehensive care plans tailored for canine physiology and lifestyle needs.</p>
 
                             <div className="space-y-6">
                                 {dogPlans.map((plan, i) => (
-                                    <div key={i} className="bg-white/80 backdrop-blur-sm p-6 rounded-xl border border-orange-100 hover:border-orange-300 transition-colors shadow-sm">
+                                    <div key={i} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl transition-colors shadow-sm" style={{ border: '1px solid rgba(255,159,127,0.25)' }}>
                                         <div className="flex justify-between items-center mb-2">
                                             <h4 className="font-bold text-gray-900">{plan.title}</h4>
-                                            <span className="text-xs font-semibold bg-orange-100 text-orange-700 px-2 py-1 rounded-full">{plan.range}</span>
+                                            <span className="text-xs font-semibold px-2 py-1 rounded-full" style={{ backgroundColor: 'rgba(255,159,127,0.18)', color: '#b85a30' }}>{plan.range}</span>
                                         </div>
                                         <p className="text-sm text-gray-500">{plan.features.join(", ")}</p>
                                     </div>
@@ -72,7 +72,7 @@ export const Plans: React.FC = () => {
                             </div>
 
                             <div className="mt-8">
-                                <Button className="bg-orange-500 hover:bg-orange-600 text-white border-none shadow-orange-200 shadow-lg">View Dog Plans</Button>
+                                <Button className="text-white border-none shadow-lg" style={{ backgroundColor: '#FF9F7F' }}>View Dog Plans</Button>
                             </div>
                         </motion.div>
                     </div>
@@ -82,7 +82,7 @@ export const Plans: React.FC = () => {
                 {/* Cat Section */}
                 <div className="relative overflow-hidden group border-l border-gray-100">
                     {/* Background Image / Color */}
-                    <div className="absolute inset-0 bg-blue-50/50 z-0 transition-colors duration-500 group-hover:bg-blue-100/50" />
+                    <div className="absolute inset-0 z-0 transition-colors duration-500" style={{ backgroundColor: 'rgba(196,181,253,0.06)' }} />
 
                     <div className="relative z-10 p-12 md:p-24 flex flex-col h-full justify-center">
                         <motion.div
@@ -90,18 +90,18 @@ export const Plans: React.FC = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-blue-200 absolute top-10 right-10 select-none opacity-50">CAT</h2>
+                            <h2 className="text-6xl md:text-8xl font-black tracking-tighter absolute top-10 right-10 select-none opacity-50" style={{ color: 'rgba(196,181,253,0.5)' }}>CAT</h2>
                             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 relative z-10">
-                                For <span className="text-blue-500">Cats</span>
+                                For <span style={{ color: '#C4B5FD' }}>Cats</span> 🐱
                             </h3>
                             <p className="text-lg text-gray-600 mb-8 max-w-md">Stress-free, at-home care specifically designed for sensitive felines.</p>
 
                             <div className="space-y-6">
                                 {catPlans.map((plan, i) => (
-                                    <div key={i} className="bg-white/80 backdrop-blur-sm p-6 rounded-xl border border-blue-100 hover:border-blue-300 transition-colors shadow-sm">
+                                    <div key={i} className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl transition-colors shadow-sm" style={{ border: '1px solid rgba(196,181,253,0.3)' }}>
                                         <div className="flex justify-between items-center mb-2">
                                             <h4 className="font-bold text-gray-900">{plan.title}</h4>
-                                            <span className="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-1 rounded-full">{plan.range}</span>
+                                            <span className="text-xs font-semibold px-2 py-1 rounded-full" style={{ backgroundColor: 'rgba(196,181,253,0.20)', color: '#6B21A8' }}>{plan.range}</span>
                                         </div>
                                         <p className="text-sm text-gray-500">{plan.features.join(", ")}</p>
                                     </div>
@@ -109,7 +109,7 @@ export const Plans: React.FC = () => {
                             </div>
 
                             <div className="mt-8">
-                                <Button className="bg-blue-500 hover:bg-blue-600 text-white border-none shadow-blue-200 shadow-lg">View Cat Plans</Button>
+                                <Button className="text-white border-none shadow-lg" style={{ backgroundColor: '#C4B5FD', color: '#3B0764' }}>View Cat Plans</Button>
                             </div>
                         </motion.div>
                     </div>
