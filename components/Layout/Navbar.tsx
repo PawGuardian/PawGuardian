@@ -48,8 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate }) => {
             className="flex items-center gap-2.5 cursor-pointer w-fit bg-transparent border-none p-0"
           >
             <motion.div
-              whileHover={{ rotate: [0, -15, 15, -10, 10, 0] }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
+              whileHover={{ rotate: [0, -15, 15, -10, 10, 0], transition: { duration: 0.5, ease: 'easeInOut' } }}
               className="text-white p-2 rounded-xl shadow-lg"
               style={{
                 background: 'linear-gradient(135deg, #FF6B9D, #FF9F7F)',
@@ -117,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, navigate }) => {
               style={{
                 backgroundColor: '#FF6B9D',
                 boxShadow: '0 4px 14px rgba(255,107,157,0.35)',
-              } as React.CSSProperties}
+              }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#e85a8a';
               }}
