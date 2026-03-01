@@ -65,7 +65,7 @@ function App() {
             <FinalCTA />
           </main>
         ) : currentPage === 'about' ? (
-          <AboutUs />
+          <AboutUs navigate={navigate} onOpenBooking={openBooking} />
         ) : currentPage === 'vets' ? (
           <Vets navigate={navigate} />
         ) : (

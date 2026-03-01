@@ -13,6 +13,7 @@ import {
     Zap,
 } from 'lucide-react';
 import { Button } from '../ui/Button';
+import type { Page } from '../../App';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -94,7 +95,12 @@ const fadeUp = {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export const AboutUs: React.FC = () => {
+interface AboutUsProps {
+  navigate: (page: Page) => void;
+  onOpenBooking: () => void;
+}
+
+export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => {
     return (
         <main className="min-h-screen" style={{ backgroundColor: '#f8f4e8' }}>
 
@@ -382,6 +388,7 @@ export const AboutUs: React.FC = () => {
                             size="lg"
                             className="text-white border-none shadow-lg rounded-full px-8 flex items-center gap-2 group"
                             style={{ backgroundColor: '#1e3470', boxShadow: '0 8px 24px rgba(30,52,112,0.40)' }}
+                            onClick={onOpenBooking}
                         >
                             <Users size={18} />
                             <span>Join the Waitlist</span>
@@ -391,6 +398,7 @@ export const AboutUs: React.FC = () => {
                             size="lg"
                             variant="secondary"
                             className="bg-white/10 text-white hover:bg-white/20 border-white/20 hover:border-white/40 backdrop-blur-sm rounded-full px-8"
+                            onClick={() => navigate('services')}
                         >
                             View Our Plans
                         </Button>
