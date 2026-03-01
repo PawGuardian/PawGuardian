@@ -208,7 +208,7 @@ export const Vets: React.FC<VetsProps> = () => {
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
       <section
         className="relative overflow-hidden py-32 px-6"
-        style={{ backgroundColor: '#282239' }}
+        style={{ backgroundColor: '#002347' }}
       >
         {/* Decorative blobs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -218,7 +218,7 @@ export const Vets: React.FC<VetsProps> = () => {
           />
           <div
             className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[100px]"
-            style={{ backgroundColor: 'rgba(168,180,216,0.10)' }}
+            style={{ backgroundColor: 'rgba(255,142,0,0.10)' }}
           />
         </div>
 
@@ -233,10 +233,10 @@ export const Vets: React.FC<VetsProps> = () => {
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center justify-center gap-2 mb-6"
           >
-            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#a8b4d8' }} />
+            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#FF8E00' }} />
             <span
               className="text-xs font-bold tracking-[0.2em] uppercase"
-              style={{ color: '#a8b4d8' }}
+              style={{ color: '#FF8E00' }}
             >
               For Veterinarians
             </span>
@@ -330,12 +330,12 @@ export const Vets: React.FC<VetsProps> = () => {
       </section>
 
       {/* ── How it Works ──────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#003F7D' }}>
+      <section className="py-24 px-6" style={{ backgroundColor: '#002347' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <span
               className="font-semibold tracking-wide uppercase text-sm"
-              style={{ color: '#a8b4d8' }}
+              style={{ color: '#FF8E00' }}
             >
               The Process
             </span>

@@ -26,36 +26,30 @@ import { Button } from '../ui/Button';
 
 const dogPlans = [
     {
-        title: "Puppy Care",
-        range: "0–1.5 years",
+        title: "Young Pet",
         features: ["Core vaccinations", "Deworming schedule", "Socialisation guidance", "Nutritional counselling"]
     },
     {
         title: "Adult Dog",
-        range: "2–7 years",
         features: ["Annual blood panels", "Parasite prevention", "Booster vaccines", "Mobility & joint checks"]
     },
     {
         title: "Senior Dog",
-        range: "7+ years",
         features: ["Advanced bloodwork", "Cardiac & renal screening", "Arthritis management", "Cognitive health monitoring"]
     }
 ];
 
 const catPlans = [
     {
-        title: "Kitten Care",
-        range: "0–1.5 years",
+        title: "Young Pet",
         features: ["FVRCP & Rabies vaccines", "Deworming", "Spay / neuter guidance", "Microchipping"]
     },
     {
         title: "Adult Cat",
-        range: "2–7 years",
         features: ["Annual wellness exams", "Dental health checks", "Parasite prevention", "Weight management"]
     },
     {
         title: "Senior Cat",
-        range: "7+ years",
         features: ["Renal & liver monitoring", "Thyroid screening", "Pain & comfort assessment"]
     }
 ];
@@ -68,7 +62,7 @@ const services = [
         tagline: 'Core & Lifestyle Shots',
         description:
             'Age-appropriate vaccination schedules for dogs and cats — from Puppyhood Rabies & DHPP to annual boosters — administered by licensed vets at your doorstep.',
-        highlight: 'from-[#003F7D] to-[#2a4a98]',
+        highlight: 'from-[#003F7D] to-[#003F7D]',
         accent: '#003F7D',
         accentLight: 'rgba(0,35,71,0.08)',
         features: [
@@ -87,7 +81,7 @@ const services = [
             'Our trained phlebotomists collect samples at your home. Full blood panels, organ function, infection markers — results delivered digitally within 24 hours.',
         highlight: 'from-[#003366] to-[#003366]',
         accent: '#003366',
-        accentLight: 'rgba(59,130,246,0.08)',
+        accentLight: 'rgba(0,51,102,0.08)',
         features: [
             'CBC + comprehensive metabolic panel',
             'Urinalysis & stool analysis',
@@ -102,7 +96,7 @@ const services = [
         tagline: 'Internal & External Cover',
         description:
             "Tailored deworming protocols based on your pet's age, weight, and exposure risk. Plus tick, flea, and mite prevention with vet-recommended products.",
-        highlight: 'from-[#FF8E00] to-[#FD7702]',
+        highlight: 'from-[#FF8E00] to-[#FF8E00]',
         accent: '#FF8E00',
         accentLight: 'rgba(255,142,0,0.08)',
         features: [
@@ -119,9 +113,9 @@ const services = [
         tagline: 'Oral Health Matters',
         description:
             'Dental disease affects over 70% of pets by age 3. Our vets provide thorough oral exams and professional-grade teeth cleaning guidance at home.',
-        highlight: 'from-[#003366] to-[#002347]',
-        accent: '#003366',
-        accentLight: 'rgba(0,51,102,0.08)',
+        highlight: 'from-[#FD7702] to-[#FD7702]',
+        accent: '#FD7702',
+        accentLight: 'rgba(253,119,2,0.08)',
         features: [
             'Plaque & tartar assessment',
             'Gum disease early detection',
@@ -136,7 +130,7 @@ const services = [
         tagline: 'Skin, Coat & Comfort',
         description:
             'More than a bath — our vet-supervised grooming targets skin conditions, ear infections, and coat quality. Species-appropriate products, zero stress in familiar surroundings.',
-        highlight: 'from-[#FF5003] to-[#FD7702]',
+        highlight: 'from-[#FF5003] to-[#FF5003]',
         accent: '#FF5003',
         accentLight: 'rgba(234,88,12,0.08)',
         features: [
@@ -152,10 +146,10 @@ const services = [
         label: 'Vet Consultations',
         tagline: 'Expert Advice, Anytime',
         description:
-            'In-person home visits and video consultations with our network of 500+ licensed vets. Same-day bookings available for urgent concerns.',
-        highlight: 'from-[#065f46] to-[#10b981]',
-        accent: '#065f46',
-        accentLight: 'rgba(6,95,70,0.08)',
+            'In-person home visits and video consultations with our network of 500+ licensed vets.',
+        highlight: 'from-[#002347] to-[#002347]',
+        accent: '#002347',
+        accentLight: 'rgba(0,35,71,0.08)',
         features: [
             'Home visit by licensed vet',
             'Video consultation within 2 hrs',
@@ -446,7 +440,6 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                                         >
                                             <div className="flex justify-between items-center mb-3">
                                                 <h4 className="font-bold text-gray-900 text-lg">{plan.title}</h4>
-                                                <span className="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" style={{ backgroundColor: 'rgba(255,142,0,0.15)', color: '#cc7200' }}>{plan.range}</span>
                                             </div>
                                             <ul className="space-y-2">
                                                 {plan.features.map((feature, j) => (
@@ -493,7 +486,6 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                                         >
                                             <div className="flex justify-between items-center mb-3">
                                                 <h4 className="font-bold text-gray-900 text-lg">{plan.title}</h4>
-                                                <span className="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" style={{ backgroundColor: 'rgba(253,119,2,0.15)', color: '#cc5f00' }}>{plan.range}</span>
                                             </div>
                                             <ul className="space-y-2">
                                                 {plan.features.map((feature, j) => (
@@ -593,7 +585,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                         '✓ Fear-Free Handling',
                         '✓ Digital Health Passport',
                         '✓ Transparent Pricing',
-                        '✓ Same-Day Slots Available',
+                        '✓ Care At Home',
                     ].map((t) => (
                         <span key={t} className="opacity-90 tracking-wide">
                             {t}
@@ -621,7 +613,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                                 <span
                                     className="text-transparent bg-clip-text"
                                     style={{
-                                        backgroundImage: 'linear-gradient(to right, #a8b8e8, #c8b4f0)',
+                                        backgroundImage: 'linear-gradient(to right, #FF8E00, #FD7702)',
                                     }}
                                 >
                                     4 Steps
@@ -653,7 +645,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                                             className="w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center relative z-10"
                                             style={{ backgroundColor: 'rgba(0,35,71,0.40)', border: '1px solid rgba(168,180,216,0.20)' }}
                                         >
-                                            <Icon size={28} style={{ color: '#a8b8e8' }} strokeWidth={1.5} />
+                                            <Icon size={28} style={{ color: '#FF8E00' }} strokeWidth={1.5} />
                                         </div>
                                         <div
                                             className="text-xs font-black tracking-[0.2em] uppercase mb-2"
@@ -675,25 +667,22 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                 </section>
             )}
 
-            {/* ── FAQ ───────────────────────────────────────────────────────── */}
+            {/* ── FAQ / Details ─────────────────────────────────────────────── */}
             <section className="py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
                 <div className="max-w-3xl mx-auto">
-                    <div className="text-center mb-14">
+                    <div className="text-center bg-white rounded-3xl border border-gray-100 shadow-sm p-12">
                         <span
                             className="font-semibold tracking-wide uppercase text-sm"
                             style={{ color: '#003F7D' }}
                         >
-                            Common Questions
+                            Any queries?
                         </span>
-                        <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
-                            Answered Honestly
+                        <h2 className="mt-4 text-2xl md:text-4xl font-bold tracking-tight text-gray-900 mb-6">
+                            DM us at <span style={{ color: '#FF8E00' }}>+91 9325855890</span>
                         </h2>
-                    </div>
-
-                    <div className="bg-white rounded-3xl border border-gray-100 shadow-sm px-8">
-                        {faqs.map((faq, i) => (
-                            <FaqItem key={faq.q} q={faq.q} a={faq.a} index={i} />
-                        ))}
+                        <p className="text-gray-500">
+                            We're happy to answer any questions you might have.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -735,7 +724,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                     </h2>
                     <p className="text-gray-400 text-lg mb-10">
                         Book your first home visit in under 60 seconds. Our vets are ready —
-                        same-day slots available in select cities.
+                        expert care available at your convenience.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button

@@ -6,8 +6,7 @@ import { HeartPulse, Activity, ShieldCheck } from 'lucide-react';
 
 const stages = [
     {
-        title: "Puppy & Kitten",
-        range: "0–1.5 years",
+        title: "Young Pet",
         subtitle: "The Foundation",
         desc: "Build a strong immune system and establish healthy baselines.",
         features: ["Core vaccinations & boosters", "Deworming schedules", "Spay/neuter guidance", "Nutritional counselling"],
@@ -16,7 +15,6 @@ const stages = [
     },
     {
         title: "Adult Pet",
-        range: "2–7 years",
         subtitle: "Maintenance & Prevention",
         desc: "Keep them active, healthy, and catch minor issues early.",
         features: ["Annual comprehensive panels", "Dental health monitoring", "Parasite prevention", "Weight management"],
@@ -25,7 +23,6 @@ const stages = [
     },
     {
         title: "Senior Pet",
-        range: "7+ years",
         subtitle: "Monitoring & Comfort",
         desc: "Ensure quality of life with proactive chronic disease management.",
         features: ["Advanced organ screening", "Mobility & arthritis care", "Pain management", "Cognitive monitoring"],
@@ -82,9 +79,6 @@ export const Plans: React.FC<PlansProps> = ({ navigate }) => {
                                 <div className="p-4 rounded-2xl bg-white/10" style={{ color: stage.color }}>
                                     <stage.icon size={32} />
                                 </div>
-                                <span className="text-sm font-bold px-3 py-1 rounded-full bg-white/10 text-white">
-                                    {stage.range}
-                                </span>
                             </div>
 
                             <h3 className="text-2xl font-bold text-white mb-1">{stage.title}</h3>

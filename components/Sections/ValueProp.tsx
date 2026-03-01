@@ -89,7 +89,7 @@ export const ValueProp: React.FC = () => {
                                 </div>
                             </Card>
 
-                            <Card className="!bg-[#003366] border-none transition-all duration-300 group">
+                            <Card className="!bg-[#003F7D] border-none transition-all duration-300 group">
                                 <div className="flex items-start gap-4">
                                     <div
                                         className="p-3 rounded-xl transition-colors shrink-0"
@@ -109,21 +109,21 @@ export const ValueProp: React.FC = () => {
                                 </div>
                             </Card>
 
-                            <Card className="!bg-[#FF8E00] border-none transition-all duration-300 group">
+                            <Card className="!bg-[#003F7D] border-none transition-all duration-300 group">
                                 <div className="flex items-start gap-4">
                                     <div
                                         className="p-3 rounded-xl transition-colors shrink-0"
-                                        style={{ backgroundColor: 'rgba(255,255,255,0.2)', color: '#002347' }}
+                                        style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#FF8E00' }}
                                     >
                                         <Wallet size={24} />
                                     </div>
                                     <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-[#002347] transition-colors">Predictable, Affordable Healthcare</h4>
-                                            <ChevronDown size={20} className="text-[#002347]/50 group-hover:text-[#002347] group-hover:rotate-180 transition-all duration-300" />
+                                            <h4 className="text-xl font-bold text-white transition-colors">Predictable, Affordable Healthcare</h4>
+                                            <ChevronDown size={20} className="text-white/50 group-hover:text-white group-hover:rotate-180 transition-all duration-300" />
                                         </div>
                                         <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-3">
-                                            <p className="text-[#002347]/80 text-sm leading-relaxed font-medium">Subscription pricing replaces surprise bills, emergency expenses, and last-minute decisions.</p>
+                                            <p className="text-white/80 text-sm leading-relaxed">Subscription pricing replaces surprise bills, emergency expenses, and last-minute decisions.</p>
                                         </div>
                                     </div>
                                 </div>

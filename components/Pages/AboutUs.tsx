@@ -24,25 +24,25 @@ const values = [
         icon: Heart,
         title: 'Pet-First Philosophy',
         desc: 'Every decision we make starts with one question: is this the best possible outcome for the animal? We never compromise on that.',
-        color: 'text-rose-500 bg-rose-50',
+        color: '#003F7D',
     },
     {
         icon: Microscope,
         title: 'Science-Backed Care',
         desc: 'Our protocols are grounded in clinical research, diagnostic data, and continuous feedback loops with licensed veterinarians.',
-        color: 'text-blue-600 bg-blue-50',
+        color: '#003366',
     },
     {
         icon: Shield,
         title: 'Radical Transparency',
         desc: 'No hidden fees, no upsells. We tell pet parents exactly what their pet needs and why — every single time.',
-        color: 'text-purple-600 bg-purple-50',
+        color: '#FF8E00',
     },
     {
         icon: Zap,
         title: 'Prevention Over Cure',
         desc: 'Catching issues early is cheaper, kinder, and smarter. We make preventive care the default, not the exception.',
-        color: 'text-amber-500 bg-amber-50',
+        color: '#FD7702',
     },
 ];
 
@@ -84,8 +84,8 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                         animate={{ opacity: 1, y: 0 }}
                         className="flex items-center justify-center gap-2 mb-6"
                     >
-                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#a8b8e8' }} />
-                        <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#a8b4d8' }}>
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#FF8E00' }} />
+                        <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: '#FF8E00' }}>
                             Our Story
                         </span>
                     </motion.div>
@@ -97,7 +97,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                         className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6"
                     >
                         Built by Pet Lovers,{' '}
-                        <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #a8b8e8, #c8b4f0)' }}>
+                        <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #FF8E00, #FD7702)' }}>
                             For Pet Lovers.
                         </span>
                     </motion.h1>
@@ -181,16 +181,35 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                                 custom={i}
                                 viewport={{ once: true }}
                                 whileHover={{ y: -6 }}
-                                className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-xl transition-all group"
+                                className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm transition-all group"
                                 style={{ '--tw-shadow-color': 'rgba(0,35,71,0.08)' } as React.CSSProperties}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = v.color;
+                                    const iconDiv = e.currentTarget.querySelector('.icon-bg') as HTMLElement;
+                                    if (iconDiv) { iconDiv.style.backgroundColor = 'rgba(255,255,255,0.2)'; iconDiv.style.color = 'white'; }
+                                    const title = e.currentTarget.querySelector('h3') as HTMLElement;
+                                    if (title) title.style.color = 'white';
+                                    const desc = e.currentTarget.querySelector('p') as HTMLElement;
+                                    if (desc) desc.style.color = 'rgba(255,255,255,0.9)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = 'white';
+                                    const iconDiv = e.currentTarget.querySelector('.icon-bg') as HTMLElement;
+                                    if (iconDiv) { iconDiv.style.backgroundColor = `${v.color}1A`; iconDiv.style.color = v.color; }
+                                    const title = e.currentTarget.querySelector('h3') as HTMLElement;
+                                    if (title) title.style.color = '#111827';
+                                    const desc = e.currentTarget.querySelector('p') as HTMLElement;
+                                    if (desc) desc.style.color = '#6B7280';
+                                }}
                             >
                                 <div
-                                    className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${v.color} group-hover:scale-110 transition-transform`}
+                                    className="icon-bg w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-all group-hover:scale-110"
+                                    style={{ color: v.color, backgroundColor: `${v.color}1A` }}
                                 >
                                     <v.icon size={26} strokeWidth={1.5} />
                                 </div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">{v.title}</h3>
-                                <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
+                                <h3 className="text-lg font-bold text-gray-900 mb-2 transition-colors">{v.title}</h3>
+                                <p className="text-gray-500 text-sm leading-relaxed transition-colors">{v.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -210,7 +229,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                     </div>
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
                         Give Your Pet the{' '}
-                        <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #a8b8e8, #c8b4f0)' }}>
+                        <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #FF8E00, #FD7702)' }}>
                             Healthcare They Deserve
                         </span>
                     </h2>
