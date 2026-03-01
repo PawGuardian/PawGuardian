@@ -62,7 +62,7 @@ function App() {
             <ValueProp />
             <HowItWorks />
             <Plans navigate={navigate} />
-            <FinalCTA />
+            <FinalCTA onOpenBooking={openBooking} navigate={navigate} />
           </main>
         ) : currentPage === 'about' ? (
           <AboutUs navigate={navigate} onOpenBooking={openBooking} />

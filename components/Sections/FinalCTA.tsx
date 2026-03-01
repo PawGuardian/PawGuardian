@@ -1,7 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Button } from '../ui/Button';
+import type { Page } from '../../App';
 
-export const FinalCTA: React.FC = () => {
+interface FinalCTAProps {
+  onOpenBooking: () => void;
+  navigate: (page: Page) => void;
+}
+
+export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking, navigate }) => {
   return (
     <section className="py-32 relative overflow-hidden" style={{ backgroundColor: '#f8f4e8' }}>
       <div
@@ -22,25 +29,52 @@ export const FinalCTA: React.FC = () => {
             </svg>
           ))}
         </div>
+
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6"
         >
-          Your Pet Can&apos;t Tell You When Something&apos;s Wrong. <span><span style={{ color: ‘#1e3470’ }}>We Can</span><span style={{ color: ‘#FF6B9D’ }}>.</span></span>
+          Your Pet Can&apos;t Tell You When Something&apos;s Wrong.{' '}
+          <span>
+            <span style={{ color: '#1e3470' }}>We Can</span>
+            <span style={{ color: '#FF6B9D' }}>.</span>
+          </span>
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-xl text-gray-600 mb-12 leading-relaxed"
+          className="text-xl text-gray-600 mb-10 leading-relaxed"
         >
-          Stop waiting for symptoms. Stop stressing your pet with clinic visits. <br className="hidden md:block" />
+          Stop waiting for symptoms. Stop stressing your pet with clinic visits.{' '}
+          <br className="hidden md:block" />
           Start caring before it&apos;s urgent.
         </motion.p>
 
-        <p className="mt-8 text-sm text-gray-500">Join PawGuardian today and be part of India’s preventive pet-care movement.</p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <Button
+            size="lg"
+            className="text-white border-none shadow-lg"
+            style={{ backgroundColor: '#FF6B9D', boxShadow: '0 4px 14px rgba(255,107,157,0.35)' }}
+            onClick={onOpenBooking}
+          >
+            Join the Waitlist
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => navigate('services')}
+          >
+            View Plans
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
