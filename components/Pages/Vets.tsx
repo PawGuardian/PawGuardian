@@ -415,7 +415,68 @@ export const Vets: React.FC<VetsProps> = () => {
                     <FileField label="CV / Resume" name="cv" accept=".pdf,.doc,.docx" file={files.cv} onChange={handleFileChange} required hint="PDF or Word document" />
                   </div>
                 )}
-                {step === 2 && <div className="py-4 text-center text-gray-400 text-sm">Step 3 coming…</div>}
+                {step === 2 && (
+                  <div className="space-y-5">
+                    {/* Clinic type radio group */}
+                    <div className="flex flex-col gap-2">
+                      <label className="text-sm font-semibold text-gray-700">
+                        Are you practicing in a clinic? <span className="text-red-500">*</span>
+                      </label>
+                      <div className="flex gap-4">
+                        {[
+                          { value: 'own', label: 'Own clinic' },
+                          { value: 'visiting', label: 'Visiting vet' },
+                          { value: 'none', label: 'No clinic' },
+                        ].map(({ value, label }) => (
+                          <label key={value} className="flex items-center gap-2 cursor-pointer text-sm text-gray-700">
+                            <input
+                              type="radio"
+                              name="clinic_type"
+                              value={value}
+                              checked={formData.clinic_type === value}
+                              onChange={handleChange}
+                              className="accent-[#1e3470]"
+                            />
+                            {label}
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Conditional clinic fields */}
+                    {(formData.clinic_type === 'own' || formData.clinic_type === 'visiting') && (
+                      <div className="grid sm:grid-cols-2 gap-5">
+                        <Field label="Clinic Name" name="clinic_name" type="text" value={formData.clinic_name} onChange={handleChange} placeholder="PetCare Clinic" required />
+                        <Field label="Clinic Location" name="clinic_location" type="text" value={formData.clinic_location} onChange={handleChange} placeholder="Bengaluru, Karnataka" required />
+                      </div>
+                    )}
+
+                    {/* Specialisation */}
+                    <Field label="Animal care you specialise in (optional)" name="animal_specialisation" type="text" value={formData.animal_specialisation} onChange={handleChange} placeholder="e.g. Dogs, Cats, Exotic birds…" />
+
+                    {/* Home visit awareness */}
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        name="home_visit_aware"
+                        checked={formData.home_visit_aware}
+                        onChange={handleChange}
+                        className="mt-0.5 accent-[#1e3470] w-4 h-4 flex-shrink-0"
+                      />
+                      <span className="text-sm text-gray-700">
+                        <span className="font-semibold">I understand this is an at-home visit service.</span>{' '}
+                        Consultations are conducted at the pet owner's residence, not at a clinic.{' '}
+                        <span className="text-red-500">*</span>
+                      </span>
+                    </label>
+
+                    {/* Commute details */}
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <Field label="Max commute distance (km)" name="commute_distance_km" type="number" value={formData.commute_distance_km} onChange={handleChange} placeholder="20" required />
+                      <Field label="Visits per week willing to do" name="visits_per_week" type="number" value={formData.visits_per_week} onChange={handleChange} placeholder="10" required />
+                    </div>
+                  </div>
+                )}
                 {step === 3 && <div className="py-4 text-center text-gray-400 text-sm">Step 4 coming…</div>}
 
                 {error && (
