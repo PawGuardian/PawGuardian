@@ -37,11 +37,11 @@ interface PlansProps {
 
 export const Plans: React.FC<PlansProps> = ({ navigate }) => {
     return (
-        <section id="plans" className="py-24 relative overflow-hidden" style={{ backgroundColor: '#002347' }}>
+        <section id="plans" className="py-12 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#002347' }}>
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#003366] rounded-full blur-[120px] opacity-50" />
-                <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[#003F7D] rounded-full blur-[100px] opacity-30" />
+                <div className="absolute top-0 right-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#003366] rounded-full blur-[120px] opacity-50" />
+                <div className="absolute bottom-0 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] bg-[#003F7D] rounded-full blur-[100px] opacity-30" />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -50,7 +50,7 @@ export const Plans: React.FC<PlansProps> = ({ navigate }) => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6"
+                        className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-6"
                     >
                         One Subscription. Every Life Stage.
                     </motion.h2>

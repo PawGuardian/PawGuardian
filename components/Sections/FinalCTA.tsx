@@ -10,7 +10,7 @@ interface FinalCTAProps {
 
 export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking, navigate }) => {
   return (
-    <section className="py-32 relative overflow-hidden" style={{ backgroundColor: '#f8f4e8' }}>
+    <section className="py-16 md:py-32 relative overflow-hidden" style={{ backgroundColor: '#f8f4e8' }}>
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[80px] pointer-events-none"
         style={{ background: 'radial-gradient(ellipse, rgba(255,142,0,0.12) 0%, rgba(123,147,240,0.08) 50%, transparent 80%)' }}
@@ -33,7 +33,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking, navigate }) =
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6"
+          className="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6"
         >
           Your Pet Can&apos;t Tell You When Something&apos;s Wrong.{' '}
           <span>

@@ -35,16 +35,16 @@ const pillars = [
 
 export const HowItWorks: React.FC = () => {
   return (
-    <section id="how-it-works" className="py-24 border-t" style={{ backgroundColor: '#f8f4e8', borderColor: 'rgba(0,35,71,0.10)' }}>
+    <section id="how-it-works" className="py-12 md:py-24 border-t" style={{ backgroundColor: '#f8f4e8', borderColor: 'rgba(0,35,71,0.10)' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <span
             className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-2"
             style={{ backgroundColor: '#FD7702', color: '#7a5c00' }}
           >
             <Sparkles size={12} className="inline mr-1" /> The 4-Pillar Model
           </span>
-          <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
+          <h2 className="mt-2 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
             A Complete Preventive Care Ecosystem
           </h2>
         </div>

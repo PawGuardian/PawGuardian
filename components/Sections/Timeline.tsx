@@ -48,16 +48,16 @@ const roadmapSteps = [
 
 export const Timeline: React.FC = () => {
     return (
-        <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#f8f4e8' }}>
+        <section className="py-12 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#f8f4e8' }}>
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="text-center mb-20 max-w-3xl mx-auto">
+                <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
                     <span
                         className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4"
                         style={{ backgroundColor: '#FD7702', color: '#fff' }}
                     >
                         THE PAWGUARDIAN JOURNEY
                     </span>
-                    <h2 className="text-4xl md:text-6xl font-black tracking-tight text-gray-900 mb-6 leading-tight">
+                    <h2 className="text-2xl sm:text-4xl md:text-6xl font-black tracking-tight text-gray-900 mb-6 leading-tight">
                         A Complete Preventive Care <span className="text-[#003F7D]">Ecosystem</span>
                     </h2>
                     <p className="text-xl text-gray-500">

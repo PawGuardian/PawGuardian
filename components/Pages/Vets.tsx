@@ -207,7 +207,7 @@ export const Vets: React.FC<VetsProps> = () => {
 
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden py-32 px-6"
+        className="relative overflow-hidden py-16 md:py-32 px-6"
         style={{ backgroundColor: '#002347' }}
       >
         {/* Decorative blobs */}
@@ -223,7 +223,7 @@ export const Vets: React.FC<VetsProps> = () => {
         </div>
 
         {/* Paw watermark */}
-        <div className="absolute right-12 top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none select-none">
+        <div className="absolute right-12 top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none select-none hidden md:block">
           <PawPrint size={320} strokeWidth={0.8} className="text-white" />
         </div>
 
@@ -246,7 +246,7 @@ export const Vets: React.FC<VetsProps> = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.05]"
+            className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.05]"
           >
             Partner With{' '}
             <span
@@ -286,7 +286,7 @@ export const Vets: React.FC<VetsProps> = () => {
       </section>
 
       {/* ── Benefits Grid ─────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
+      <section className="py-12 md:py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <span
@@ -295,7 +295,7 @@ export const Vets: React.FC<VetsProps> = () => {
             >
               Why Join Us
             </span>
-            <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
+            <h2 className="mt-2 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
               Built for <span style={{ color: '#003F7D' }}>Vets First</span>
             </h2>
             <p className="mt-4 text-gray-500 max-w-xl mx-auto leading-relaxed">
@@ -304,7 +304,7 @@ export const Vets: React.FC<VetsProps> = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {benefits.map(({ icon: Icon, title, desc }, i) => (
               <motion.div
                 key={title}
@@ -330,7 +330,7 @@ export const Vets: React.FC<VetsProps> = () => {
       </section>
 
       {/* ── How it Works ──────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ backgroundColor: '#002347' }}>
+      <section className="py-12 md:py-24 px-6" style={{ backgroundColor: '#002347' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <span
@@ -339,12 +339,12 @@ export const Vets: React.FC<VetsProps> = () => {
             >
               The Process
             </span>
-            <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-white">
+            <h2 className="mt-2 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white">
               How It Works
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-8 relative">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 relative">
             {/* Connecting line — desktop only */}
             <div
               className="hidden sm:block absolute top-10 left-[16.67%] right-[16.67%] h-px"
@@ -381,7 +381,7 @@ export const Vets: React.FC<VetsProps> = () => {
       </section>
 
       {/* ── Signup Form ───────────────────────────────────────────────────────── */}
-      <section id="signup" className="py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
+      <section id="signup" className="py-12 md:py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <span
@@ -670,7 +670,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ steps, current }) => (
             {i < current ? <CheckCircle2 size={18} /> : i + 1}
           </div>
           <span
-            className="text-[10px] font-semibold uppercase tracking-wide text-center"
+            className="text-[10px] font-semibold uppercase tracking-wide text-center hidden sm:block"
             style={{ color: i <= current ? '#003F7D' : '#9ca3af' }}
           >
             {label}

@@ -5,9 +5,9 @@ import { Card } from '../ui/Card';
 
 export const Empathy: React.FC = () => {
     return (
-        <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#002347' }}>
+        <section className="py-12 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#002347' }}>
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
 
                     {/* Left text */}
                     <div>
@@ -15,7 +15,7 @@ export const Empathy: React.FC = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
+                            className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6"
                         >
                             We Feel You.<br />
                             <span style={{ color: '#FF8E00' }}>And We Feel Them, Too.</span>
@@ -65,7 +65,7 @@ export const Empathy: React.FC = () => {
 
                         <Card className="bg-white/5 border-white/10 backdrop-blur-xl p-10 rounded-3xl text-center">
                             <HeartPulse size={48} style={{ color: '#FF8E00' }} className="mx-auto mb-6" />
-                            <h3 className="text-6xl font-black mb-4" style={{ color: '#FF8E00' }}>40%</h3>
+                            <h3 className="text-4xl sm:text-6xl font-black mb-4" style={{ color: '#FF8E00' }}>40%</h3>
                             <p className="text-xl font-medium text-gray-200 uppercase tracking-widest mb-2">Of Cats Develop</p>
                             <p className="text-gray-400">Carrier phobia & lasting anxiety after just three standard clinic visits.</p>
 

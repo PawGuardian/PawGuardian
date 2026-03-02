@@ -9,7 +9,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
-    <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[70vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 35, 71, 0.5)' }} />
         <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(to top, rgba(0, 35, 71, 0.95), transparent)' }} />
         {/* Decorative paw print — bottom left */}
-        <div className="absolute bottom-8 left-8 opacity-10 pointer-events-none select-none z-0">
+        <div className="absolute bottom-8 left-8 opacity-10 pointer-events-none select-none z-0 hidden md:block">
           <svg width="120" height="120" viewBox="0 0 120 120" fill="white" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="60" cy="75" rx="18" ry="22" />
             <circle cx="38" cy="50" r="10" />
@@ -54,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 drop-shadow-xl"
+          className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 drop-shadow-xl"
         >
           Revolutionising <br />
           <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #FF8E00, #FD7702)' }}>

@@ -172,7 +172,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             aria-labelledby="booking-modal-title"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#003F7D]/10">
+            <div className="flex items-center justify-between px-4 sm:px-6 pt-6 pb-4 border-b border-[#003F7D]/10">
               <div>
                 <h2 id="booking-modal-title" className="text-xl font-bold" style={{ color: '#282239' }}>Join the Waitlist</h2>
                 <p className="text-sm mt-0.5" style={{ color: '#a8b4d8' }}>We'll reach out as spots open up.</p>
@@ -187,7 +187,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             </div>
 
             {/* Body */}
-            <div className="px-6 py-5 max-h-[70vh] overflow-y-auto">
+            <div className="px-4 sm:px-6 py-5 max-h-[80vh] sm:max-h-[70vh] overflow-y-auto">
               {submitted ? (
                 <SuccessView onClose={onClose} />
               ) : (

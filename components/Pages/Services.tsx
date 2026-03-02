@@ -396,7 +396,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
         <main className="min-h-screen" style={{ backgroundColor: '#f8f4e8' }}>
             {/* ── Hero ──────────────────────────────────────────────────────── */}
             <section
-                className="relative overflow-hidden pt-12 pb-32 px-6"
+                className="relative overflow-hidden pt-12 pb-16 md:pb-32 px-6"
                 style={{ backgroundColor: '#002347' }}
             >
                 {/* Decorative blobs */}
@@ -420,7 +420,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight"
+                            className="text-3xl sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tight"
                         >
                             Our <span style={{ color: '#FF8E00' }}>Services</span>
                         </motion.h1>
@@ -436,9 +436,9 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                     </div>
 
                     {/* NEW SECTION: Subscriptions */}
-                    <div className="mb-32">
+                    <div className="mb-16 md:mb-32">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
                                 Subscription Plans (Auto-Pilot)
                             </h2>
                             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -484,7 +484,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                                 </div>
                                 <div className="mt-8">
                                     <Button
-                                        className="w-full text-white border-none shadow-lg py-4 text-lg hidden md:block"
+                                        className="w-full text-white border-none shadow-lg py-4 text-lg"
                                         style={{ backgroundColor: '#003F7D', boxShadow: '0 8px 24px rgba(0,63,125,0.25)' }}
                                         onClick={onOpenBooking}
                                     >
@@ -530,7 +530,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                                 </div>
                                 <div className="mt-8">
                                     <Button
-                                        className="w-full text-white border-none shadow-lg py-4 text-lg hidden md:flex items-center justify-center gap-2"
+                                        className="w-full text-white border-none shadow-lg py-4 text-lg flex items-center justify-center gap-2"
                                         style={{ backgroundColor: '#003F7D', boxShadow: '0 8px 24px rgba(0,63,125,0.25)' }}
                                         onClick={onOpenBooking}
                                     >
@@ -554,7 +554,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                         <a
                             key={s.id}
                             href={`#${s.id}`}
-                            className="shrink-0 text-sm font-semibold px-5 py-2 rounded-full border transition-all"
+                            className="shrink-0 text-sm font-semibold px-3 sm:px-5 py-2 rounded-full border transition-all"
                             style={{
                                 borderColor: 'rgba(0,35,71,0.20)',
                                 color: '#4a4a6a',
@@ -580,12 +580,12 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             </nav>
 
             {/* ── Services Grid (One-Time Services) ──────────────────────────────────────────────── */}
-            <section id="services-plans" className="py-24 px-6 bg-white" style={{ paddingTop: '5rem' }}>
+            <section id="services-plans" className="py-12 md:py-24 px-6 bg-white" style={{ paddingTop: '5rem' }}>
                 <div className="max-w-7xl mx-auto">
                     {/* EXISTING SECTION: One-Time Services */}
                     <div className="mb-16">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
+                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
                                 Individual Care Components
                             </h2>
                             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
@@ -609,7 +609,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                 className="py-6 px-6 text-white text-sm font-medium"
                 style={{ backgroundColor: '#003F7D' }}
             >
-                <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-10 gap-y-2 text-center">
+                <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-4 sm:gap-x-10 gap-y-2 text-center">
                     {[
                         '✓ Licensed Vets Only',
                         '✓ Fear-Free Handling',
@@ -698,9 +698,9 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             )}
 
             {/* ── FAQ / Details ─────────────────────────────────────────────── */}
-            <section className="py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
+            <section className="py-12 md:py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
                 <div className="max-w-3xl mx-auto">
-                    <div className="text-center bg-white rounded-3xl border border-gray-100 shadow-sm p-12">
+                    <div className="text-center bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-12">
                         <span
                             className="font-semibold tracking-wide uppercase text-sm"
                             style={{ color: '#003F7D' }}
@@ -719,7 +719,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
 
             {/* ── CTA ───────────────────────────────────────────────────────── */}
             <section
-                className="py-24 px-6"
+                className="py-12 md:py-24 px-6"
                 style={{
                     background:
                         'linear-gradient(135deg, #002347 0%, #003F7D 50%, #002347 100%)',
@@ -741,7 +741,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                             Book Today
                         </span>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
                         Your Pet's Health{' '}
                         <span
                             className="text-transparent bg-clip-text"

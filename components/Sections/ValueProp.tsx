@@ -27,14 +27,14 @@ const MaskedSymptomsCard = () => {
 
 export const ValueProp: React.FC = () => {
     return (
-        <section id="value" className="py-24 relative" style={{ backgroundColor: '#f8f4e8' }}>
+        <section id="value" className="py-12 md:py-24 relative" style={{ backgroundColor: '#f8f4e8' }}>
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6"
+                        className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6"
                     >
                         Why Smart Pet Parents Choose Us
                     </motion.h2>
@@ -50,7 +50,7 @@ export const ValueProp: React.FC = () => {
                     </motion.p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
                     {/* Left Column: The Cost Card - Adjusted sizing */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
@@ -80,9 +80,9 @@ export const ValueProp: React.FC = () => {
                                     <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
                                             <h4 className="text-xl font-bold text-white transition-colors">Early Detection, Not Late Panic</h4>
-                                            <ChevronDown size={20} className="text-white/50 group-hover:text-white group-hover:rotate-180 transition-all duration-300" />
+                                            <ChevronDown size={20} className="text-white/50 hidden md:block group-hover:text-white group-hover:rotate-180 transition-all duration-300" />
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-3">
+                                        <div className="overflow-hidden transition-all duration-500 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
                                             <p className="text-white/80 text-sm leading-relaxed">Regular at-home diagnostics establish baselines and catch issues before they become life-threatening.</p>
                                         </div>
                                     </div>
@@ -100,9 +100,9 @@ export const ValueProp: React.FC = () => {
                                     <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
                                             <h4 className="text-xl font-bold text-white transition-colors">Care Without the Clinic Stress</h4>
-                                            <ChevronDown size={20} className="text-white/50 group-hover:text-white group-hover:rotate-180 transition-all duration-300" />
+                                            <ChevronDown size={20} className="text-white/50 hidden md:block group-hover:text-white group-hover:rotate-180 transition-all duration-300" />
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-3">
+                                        <div className="overflow-hidden transition-all duration-500 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
                                             <p className="text-white/80 text-sm leading-relaxed">No travel. No anxious pets. No waiting rooms. We collect samples, vaccinate, and consult—right at home.</p>
                                         </div>
                                     </div>
@@ -120,9 +120,9 @@ export const ValueProp: React.FC = () => {
                                     <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
                                             <h4 className="text-xl font-bold text-white transition-colors">Predictable, Affordable Healthcare</h4>
-                                            <ChevronDown size={20} className="text-white/50 group-hover:text-white group-hover:rotate-180 transition-all duration-300" />
+                                            <ChevronDown size={20} className="text-white/50 hidden md:block group-hover:text-white group-hover:rotate-180 transition-all duration-300" />
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-3">
+                                        <div className="overflow-hidden transition-all duration-500 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
                                             <p className="text-white/80 text-sm leading-relaxed">Subscription pricing replaces surprise bills, emergency expenses, and last-minute decisions.</p>
                                         </div>
                                     </div>
