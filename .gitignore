@@ -32,3 +32,5 @@ AGENTS.md
 
 .env
 .mcp.json
+.vercel
+.env*.local
