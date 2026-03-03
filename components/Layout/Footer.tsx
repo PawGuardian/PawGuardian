@@ -1,5 +1,5 @@
 import React from 'react';
-import { PawPrint, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { PawPrint, Instagram } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -47,32 +47,18 @@ export const Footer: React.FC = () => {
           </a>
         </div>
 
-        <div className="flex gap-4" style={{ color: '#a8a6b8' }}>
-          <a
-            href="#"
-            className="transition-colors"
-            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#FF8E00')}
-            onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = '#a8a6b8')}
-          >
-            <Twitter size={20} />
-          </a>
-          <a
-            href="#"
-            className="transition-colors"
-            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#FF8E00')}
-            onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = '#a8a6b8')}
-          >
-            <Instagram size={20} />
-          </a>
-          <a
-            href="#"
-            className="transition-colors"
-            onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = '#FF8E00')}
-            onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = '#a8a6b8')}
-          >
-            <Linkedin size={20} />
-          </a>
-        </div>
+        <a
+          href="https://instagram.com/pawguardian.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 transition-colors"
+          style={{ color: '#a8a6b8' }}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = '#FF8E00')}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = '#a8a6b8')}
+        >
+          <Instagram size={20} />
+          <span className="text-sm">@pawguardian.in</span>
+        </a>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-8 text-center text-xs" style={{ color: '#9896a8' }}>
         © 2026 PawGuardian. All rights reserved.

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Users, CalendarCheck, ShieldCheck, PawPrint, CheckCircle2 } from 'lucide-react';
+import { Users, CalendarCheck, ShieldCheck, PawPrint, CheckCircle2, Home, Building2, Video } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import type { Page } from '../../App';
 
@@ -54,7 +54,9 @@ const INITIAL_FORM = {
   graduation_year: '',
   state_vc_reg_number: '',
   ivpr_vci_number: '',
-  clinic_type: '' as 'own' | 'visiting' | 'none' | '',
+  role_visiting: false,
+  role_partner: false,
+  role_consulting: false,
   clinic_name: '',
   clinic_location: '',
   animal_specialisation: '',
@@ -119,13 +121,17 @@ export const Vets: React.FC<VetsProps> = () => {
       );
     }
     if (step === 2) {
-      return !!(
-        formData.clinic_type &&
-        (formData.clinic_type === 'none' || (formData.clinic_name && formData.clinic_location)) &&
-        formData.home_visit_aware &&
-        formData.commute_distance_km &&
-        formData.visits_per_week
-      );
+      // Must pick at least one role
+      if (!formData.role_visiting && !formData.role_partner && !formData.role_consulting) return false;
+      // Visiting vets must acknowledge at-home service and fill commute details
+      if (formData.role_visiting) {
+        if (!formData.home_visit_aware || !formData.commute_distance_km || !formData.visits_per_week) return false;
+      }
+      // Partner vets must provide clinic details
+      if (formData.role_partner) {
+        if (!formData.clinic_name || !formData.clinic_location) return false;
+      }
+      return true;
     }
     if (step === 3) {
       return !!files.signed_agreement;
@@ -180,7 +186,9 @@ export const Vets: React.FC<VetsProps> = () => {
         ivpr_vci_number: formData.ivpr_vci_number,
         registration_cert_url,
         cv_url,
-        clinic_type: formData.clinic_type,
+        role_visiting: formData.role_visiting,
+        role_partner: formData.role_partner,
+        role_consulting: formData.role_consulting,
         clinic_name: formData.clinic_name || null,
         clinic_location: formData.clinic_location || null,
         animal_specialisation: formData.animal_specialisation || null,
@@ -454,92 +462,179 @@ export const Vets: React.FC<VetsProps> = () => {
                 )}
                 {step === 2 && (
                   <div className="space-y-5">
-                    {/* Clinic type radio group */}
+                    {/* Role selection — multi-select */}
                     <div className="flex flex-col gap-2">
                       <label className="text-sm font-semibold text-gray-700">
-                        Are you practicing in a clinic? <span className="text-red-500">*</span>
+                        How would you like to work with us? <span className="text-red-500">*</span>
                       </label>
-                      <div className="flex gap-4">
-                        {[
-                          { value: 'own', label: 'Own clinic' },
-                          { value: 'visiting', label: 'Visiting vet' },
-                          { value: 'none', label: 'No clinic' },
-                        ].map(({ value, label }) => (
-                          <label key={value} className="flex items-center gap-2 cursor-pointer text-sm text-gray-700">
+                      <p className="text-xs text-gray-400">Select all that apply</p>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        {([
+                          {
+                            field: 'role_visiting' as const,
+                            icon: Home,
+                            title: 'Visiting Vet',
+                            desc: 'Doorstep visits at pet owners\u2019 homes',
+                          },
+                          {
+                            field: 'role_partner' as const,
+                            icon: Building2,
+                            title: 'Partner Vet',
+                            desc: 'Get your clinic PawGuardian certified',
+                          },
+                          {
+                            field: 'role_consulting' as const,
+                            icon: Video,
+                            title: 'Consulting Vet',
+                            desc: 'Teleconsultations & remote advisory',
+                          },
+                        ] as const).map(({ field, icon: Icon, title, desc }) => (
+                          <label
+                            key={field}
+                            className="relative flex flex-col items-center text-center gap-2 rounded-xl border-2 p-4 cursor-pointer transition-all"
+                            style={{
+                              borderColor: formData[field] ? '#003F7D' : 'rgba(0,35,71,0.15)',
+                              backgroundColor: formData[field] ? 'rgba(0,63,125,0.04)' : 'transparent',
+                            }}
+                          >
                             <input
-                              type="radio"
-                              name="clinic_type"
-                              value={value}
-                              checked={formData.clinic_type === value}
+                              type="checkbox"
+                              name={field}
+                              checked={formData[field]}
                               onChange={handleChange}
-                              className="accent-[#003F7D]"
+                              className="sr-only"
                             />
-                            {label}
+                            {formData[field] && (
+                              <div className="absolute top-2 right-2">
+                                <CheckCircle2 size={16} style={{ color: '#003F7D' }} />
+                              </div>
+                            )}
+                            <div
+                              className="w-10 h-10 rounded-xl flex items-center justify-center"
+                              style={{
+                                backgroundColor: formData[field] ? '#003F7D' : 'rgba(0,35,71,0.08)',
+                              }}
+                            >
+                              <Icon size={20} style={{ color: formData[field] ? '#fff' : '#003F7D' }} />
+                            </div>
+                            <span className="text-sm font-bold text-gray-900">{title}</span>
+                            <p className="text-[11px] text-gray-500 leading-snug">{desc}</p>
                           </label>
                         ))}
                       </div>
                     </div>
 
-                    {/* Conditional clinic fields */}
-                    {(formData.clinic_type === 'own' || formData.clinic_type === 'visiting') && (
-                      <div className="grid sm:grid-cols-2 gap-5">
-                        <Field label="Clinic Name" name="clinic_name" type="text" value={formData.clinic_name} onChange={handleChange} placeholder="PetCare Clinic" required />
-                        <Field label="Clinic Location" name="clinic_location" type="text" value={formData.clinic_location} onChange={handleChange} placeholder="Bengaluru, Karnataka" required />
+                    {/* ── Visiting Vet details ── */}
+                    {formData.role_visiting && (
+                      <div
+                        className="rounded-xl p-4 space-y-4"
+                        style={{ backgroundColor: 'rgba(0,63,125,0.04)', border: '1px solid rgba(0,63,125,0.10)' }}
+                      >
+                        <div className="flex items-center gap-2">
+                          <Home size={16} style={{ color: '#003F7D' }} />
+                          <span className="text-sm font-bold text-gray-800">Visiting Vet Details</span>
+                        </div>
+                        <p className="text-xs text-gray-500 leading-relaxed">
+                          You will travel to pet owners' homes to provide doorstep veterinary care. Consultations happen at the pet parent's residence, not at a clinic.
+                        </p>
+                        <label className="flex items-start gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            name="home_visit_aware"
+                            checked={formData.home_visit_aware}
+                            onChange={handleChange}
+                            className="mt-0.5 accent-[#003F7D] w-4 h-4 flex-shrink-0"
+                          />
+                          <span className="text-sm text-gray-700">
+                            <span className="font-semibold">I understand and agree to provide at-home visits.</span>{' '}
+                            <span className="text-red-500">*</span>
+                          </span>
+                        </label>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          <Field label="Max commute distance (km)" name="commute_distance_km" type="number" value={formData.commute_distance_km} onChange={handleChange} placeholder="20" required />
+                          <Field label="Visits per week willing to do" name="visits_per_week" type="number" value={formData.visits_per_week} onChange={handleChange} placeholder="10" required />
+                        </div>
                       </div>
                     )}
 
-                    {/* Specialisation */}
-                    <Field label="Animal care you specialise in (optional)" name="animal_specialisation" type="text" value={formData.animal_specialisation} onChange={handleChange} placeholder="e.g. Dogs, Cats, Exotic birds…" />
+                    {/* ── Partner Vet details ── */}
+                    {formData.role_partner && (
+                      <div
+                        className="rounded-xl p-4 space-y-4"
+                        style={{ backgroundColor: 'rgba(255,142,0,0.05)', border: '1px solid rgba(255,142,0,0.18)' }}
+                      >
+                        <div className="flex items-center gap-2">
+                          <Building2 size={16} style={{ color: '#FF8E00' }} />
+                          <span className="text-sm font-bold text-gray-800">Partner Clinic Details</span>
+                        </div>
+                        <p className="text-xs text-gray-500 leading-relaxed">
+                          Nothing changes about how you run your clinic. We will list it as a{' '}
+                          <strong style={{ color: '#003F7D' }}>PawGuardian Certified Clinic</strong> — recommending
+                          it to pet parents when in-clinic care is needed (surgeries, diagnostics, etc.) and enabling
+                          appointment bookings through our platform in the future.
+                        </p>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          <Field label="Clinic Name" name="clinic_name" type="text" value={formData.clinic_name} onChange={handleChange} placeholder="PetCare Clinic" required />
+                          <Field label="Clinic Location" name="clinic_location" type="text" value={formData.clinic_location} onChange={handleChange} placeholder="Bengaluru, Karnataka" required />
+                        </div>
+                      </div>
+                    )}
 
-                    {/* Home visit awareness */}
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="home_visit_aware"
-                        checked={formData.home_visit_aware}
-                        onChange={handleChange}
-                        className="mt-0.5 accent-[#003F7D] w-4 h-4 flex-shrink-0"
-                      />
-                      <span className="text-sm text-gray-700">
-                        <span className="font-semibold">I understand this is an at-home visit service.</span>{' '}
-                        Consultations are conducted at the pet owner's residence, not at a clinic.{' '}
-                        <span className="text-red-500">*</span>
-                      </span>
-                    </label>
+                    {/* ── Consulting Vet details ── */}
+                    {formData.role_consulting && (
+                      <div
+                        className="rounded-xl p-4 space-y-2"
+                        style={{ backgroundColor: 'rgba(0,63,125,0.04)', border: '1px solid rgba(0,63,125,0.10)' }}
+                      >
+                        <div className="flex items-center gap-2">
+                          <Video size={16} style={{ color: '#003F7D' }} />
+                          <span className="text-sm font-bold text-gray-800">Consulting Vet Details</span>
+                        </div>
+                        <p className="text-xs text-gray-500 leading-relaxed">
+                          You will provide expert advice through video and phone consultations. Pet parents can reach
+                          you for guidance, second opinions, and non-emergency advisory support — all remotely.
+                        </p>
+                      </div>
+                    )}
 
-                    {/* Commute details */}
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <Field label="Max commute distance (km)" name="commute_distance_km" type="number" value={formData.commute_distance_km} onChange={handleChange} placeholder="20" required />
-                      <Field label="Visits per week willing to do" name="visits_per_week" type="number" value={formData.visits_per_week} onChange={handleChange} placeholder="10" required />
-                    </div>
+                    {/* Specialisation — shown when any role selected */}
+                    {(formData.role_visiting || formData.role_partner || formData.role_consulting) && (
+                      <Field label="Animal care you specialise in (optional)" name="animal_specialisation" type="text" value={formData.animal_specialisation} onChange={handleChange} placeholder="e.g. Dogs, Cats, Exotic birds…" />
+                    )}
                   </div>
                 )}
                 {step === 3 && (
                   <div className="space-y-5">
-                    {/* Agreement summary */}
+                    {/* Agreement intro */}
                     <div
-                      className="rounded-2xl p-5 space-y-3"
+                      className="rounded-2xl p-5 space-y-4"
                       style={{ backgroundColor: 'rgba(0,35,71,0.05)', border: '1px solid rgba(0,35,71,0.12)' }}
                     >
-                      <h3 className="text-sm font-bold text-gray-900">Liability Agreement</h3>
+                      <h3 className="text-sm font-bold text-gray-900">Partnership Agreement</h3>
                       <p className="text-xs text-gray-500 leading-relaxed">
-                        By joining PawGuardian, you agree to the following terms. Please download, sign, and upload the agreement below.
+                        We want PawGuardian to operate in a way that's transparent and sustainable. We're putting together a simple agreement that outlines how we work together — designed to protect both parties, especially ensuring that medical judgment remains entirely with you.
                       </p>
-                      <ul className="space-y-1.5">
+                      <ul className="space-y-2.5">
                         {[
-                          'Independent contractor clause — You operate as an independent contractor, not an employee.',
-                          'Indemnification clause — You indemnify PawGuardian against claims arising from your services.',
-                          'Mandatory registration validity — Your veterinary registration must remain valid at all times.',
-                          'Mandatory professional behaviour — You commit to maintaining professional standards of care.',
-                          'Non-solicitation clause — You agree not to solicit PawGuardian clients outside the platform.',
-                        ].map((clause) => (
-                          <li key={clause} className="flex items-start gap-2 text-xs text-gray-600">
-                            <span className="mt-0.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#003F7D' }} />
-                            {clause}
+                          { title: 'Your clinical decisions, always', desc: 'All medical and clinical decision-making remains fully yours. PawGuardian will never interfere with your professional judgment.' },
+                          { title: 'We handle the logistics', desc: 'PawGuardian takes care of coordination, scheduling, and connecting you with pet owners — so you can focus on care.' },
+                          { title: 'Clear payment timelines', desc: 'Transparent and timely payment schedules so you always know when and how much you\u2019ll be paid.' },
+                          { title: 'Defined liability boundaries', desc: 'Clear boundaries on who is responsible for what — no ambiguity, no surprises.' },
+                        ].map(({ title, desc }) => (
+                          <li key={title} className="flex items-start gap-3 text-xs text-gray-600">
+                            <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: '#003F7D' }} />
+                            <div>
+                              <span className="font-semibold text-gray-800">{title}</span>
+                              <p className="text-gray-500 mt-0.5 leading-relaxed">{desc}</p>
+                            </div>
                           </li>
                         ))}
                       </ul>
                     </div>
+
+                    <p className="text-xs text-gray-400 text-center leading-relaxed">
+                      The full agreement will be shared with you for review before signing. No surprises.
+                    </p>
 
                     {/* Download button */}
                     <a

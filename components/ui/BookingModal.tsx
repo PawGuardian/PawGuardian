@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2 } from 'lucide-react';
+import { X, CheckCircle2, PawPrint } from 'lucide-react';
 import { Button } from './Button';
 import { supabase } from '@/lib/supabase';
 
@@ -8,6 +8,7 @@ interface BookingFormData {
   name: string;
   city: string;
   petType: string;
+  petTypeOther: string;
   petName: string;
   petBreed: string;
   petBirthday: string;
@@ -18,6 +19,7 @@ const EMPTY_FORM: BookingFormData = {
   name: '',
   city: '',
   petType: 'Dog',
+  petTypeOther: '',
   petName: '',
   petBreed: '',
   petBirthday: '',
@@ -64,11 +66,14 @@ const Field: React.FC<FieldProps> = ({ label, name, type, value, onChange, requi
   </div>
 );
 
-const SuccessView: React.FC<{ onClose: () => void }> = ({ onClose }) => (
+const SuccessView: React.FC<{ petName: string; onClose: () => void }> = ({ petName, onClose }) => (
   <div className="py-8 flex flex-col items-center text-center gap-4">
     <CheckCircle2 size={48} style={{ color: '#003F7D' }} />
     <h3 className="text-xl font-bold" style={{ color: '#282239' }}>You're on the waitlist!</h3>
-    <p className="text-gray-600">We'll be in touch as spots open up.</p>
+    <p className="text-base" style={{ color: '#282239' }}>
+      We're so excited to meet <span className="font-bold" style={{ color: '#FF8E00' }}>{petName}</span> soon! <PawPrint size={18} className="inline -mt-0.5" style={{ color: '#FF8E00' }} /><br />
+      Give them an extra pet from our side for now.
+    </p>
     <Button
       size="md"
       className="mt-2 text-white border-none"
@@ -124,13 +129,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
       return;
     }
 
+    const petType = form.petType === 'Other' ? `Other - ${form.petTypeOther}` : form.petType;
+
     const { error: supabaseError } = await supabase.from('bookings').insert([{
       name: form.name,
       city: form.city,
-      pet_type: form.petType,
+      pet_type: petType,
       pet_name: form.petName,
       pet_breed: form.petBreed,
-      pet_birthday: form.petBirthday,
+      pet_birthday: form.petBirthday || null,
       pet_gender: form.petGender,
     }]);
 
@@ -189,7 +196,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             {/* Body */}
             <div className="px-4 sm:px-6 py-5 max-h-[80vh] sm:max-h-[70vh] overflow-y-auto">
               {submitted ? (
-                <SuccessView onClose={onClose} />
+                <SuccessView petName={form.petName} onClose={onClose} />
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <Field label="Your Name" name="name" type="text" value={form.name} onChange={handleChange} required placeholder="e.g. Priya Sharma" inputRef={firstInputRef} />
@@ -214,9 +221,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                     </select>
                   </div>
 
+                  {form.petType === 'Other' && (
+                    <Field label="Please specify" name="petTypeOther" type="text" value={form.petTypeOther} onChange={handleChange} required placeholder="e.g. Rabbit, Parrot, Hamster" />
+                  )}
+
                   <Field label="Pet's Name" name="petName" type="text" value={form.petName} onChange={handleChange} required placeholder="e.g. Bruno" />
                   <Field label="Breed" name="petBreed" type="text" value={form.petBreed} onChange={handleChange} required placeholder="e.g. Labrador Retriever" />
-                  <Field label="Pet's Birthday" name="petBirthday" type="date" value={form.petBirthday} onChange={handleChange} required />
+                  <Field label="Pet's Birthday (optional)" name="petBirthday" type="date" value={form.petBirthday} onChange={handleChange} />
 
                   <div>
                     <label htmlFor="petGender" className="block text-sm font-semibold mb-1.5" style={{ color: '#282239' }}>
