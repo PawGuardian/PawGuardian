@@ -27,31 +27,85 @@ import { Button } from '../ui/Button';
 
 const dogPlans = [
     {
-        title: "Young Pet",
-        features: ["Core vaccinations", "Deworming schedule", "Socialisation guidance", "Nutritional counselling"]
+        title: "Puppy Pack (0–1.5 years)",
+        subtitle: "Everything your growing pup needs for a strong immune system and healthy development.",
+        features: [
+            "Complete Vaccination Plan: DHPPiL (9-in-1), Anti-Rabies, and all necessary Booster Vaccinations.",
+            "Comprehensive Physical Exam: Assessment of eyes, ears, skin, fur, nails, and dental health.",
+            "Vital Signs Monitoring: Temperature, heart rate, blood pressure, and respiratory checks.",
+            "Parasite Prevention: Complete deworming, plus tick & flea treatment.",
+            "Advanced Diagnostics (Yearly): Blood Panel (CBC, Renal Function, Liver Function, Urine Analysis)",
+            "Stool Analysis Parameters"
+        ]
     },
     {
-        title: "Adult Dog",
-        features: ["Annual blood panels", "Parasite prevention", "Booster vaccines", "Mobility & joint checks"]
+        title: "Adult Dog Pack (1.5–7 years)",
+        subtitle: "Keep your active dog moving comfortably and feeling their best.",
+        features: [
+            "Comprehensive Physical Exam: Assessment of eyes, ears, skin, fur, nails, dental health, plus Joint Assessment.",
+            "Vital Signs Monitoring: Temperature, heart rate, blood pressure, and respiratory checks.",
+            "Parasite Prevention: Complete deworming, plus tick & flea treatment.",
+            "Booster Vaccinations: Age-appropriate immunizations.",
+            "Advanced Diagnostics (Bi-Annual and Annual): Blood Panel (CBC, Renal Function, Liver Function, Urine Analysis)",
+            "Stool Analysis for Parasites"
+        ]
     },
     {
-        title: "Senior Dog",
-        features: ["Advanced bloodwork", "Cardiac & renal screening", "Arthritis management", "Cognitive health monitoring"]
+        title: "Senior Dog Pack (7+ years)",
+        subtitle: "Advanced screening and joint care to support your loyal companion as they age.",
+        features: [
+            "Comprehensive Physical Exam: Assessment of eyes, ears, skin, fur, nails, dental health, plus Joint Assessment.",
+            "Vital Signs Monitoring: Temperature, heart rate, blood pressure, and respiratory checks.",
+            "Parasite Prevention: Complete deworming, plus tick & flea treatment.",
+            "Booster Vaccinations: Age-appropriate immunizations.",
+            "Advanced Diagnostics (Comprehensive Panel): Blood Panel (CBC, Renal Function, Liver Function, Urine Analysis)",
+            "Thyroid Screening (Hormone levels)",
+            "Heart Disease Parameters",
+            "Cancer Parameters (Early detection markers)",
+            "Stool Analysis for Parasites"
+        ]
     }
 ];
 
 const catPlans = [
     {
-        title: "Young Pet",
-        features: ["FVRCP & Rabies vaccines", "Deworming", "Spay / neuter guidance", "Microchipping"]
+        title: "Kitten Pack (0–1.5 years)",
+        subtitle: "Give your kitten the perfect start to a healthy life.",
+        features: [
+            "Complete Vaccination Plan: FVRCP (3-in-1), Anti-Rabies, and all necessary Booster Vaccinations.",
+            "Comprehensive Physical Exam: Assessment of eyes, ears, skin, fur, nails, and dental health.",
+            "Vital Signs Monitoring: Temperature, heart rate, blood pressure, and respiratory checks.",
+            "Parasite Prevention: Complete deworming, plus tick & flea treatment.",
+            "Advanced Diagnostics (Yearly Blood Panel): Complete Blood Count (CBC)",
+            "Renal Function (BUN, Creatinine)",
+            "Liver Function (Enzyme levels)",
+            "Urine Analysis (pH, crystals, potential infections, glucose)"
+        ]
     },
     {
-        title: "Adult Cat",
-        features: ["Annual wellness exams", "Dental health checks", "Parasite prevention", "Weight management"]
+        title: "Adult Cat Pack (2–7 years)",
+        subtitle: "Maintain their prime health with routine maintenance and monitoring.",
+        features: [
+            "Comprehensive Physical Exam: Assessment of eyes, ears, skin, fur, nails, and dental health.",
+            "Vital Signs Monitoring: Temperature, heart rate, blood pressure, and respiratory checks.",
+            "Parasite Prevention: Complete deworming, plus tick & flea treatment.",
+            "Booster Vaccinations: Age-appropriate immunizations to keep them protected.",
+            "Advanced Diagnostics (Yearly Blood Panel): Complete Blood Count, Renal Function, Liver Function, and Urine Analysis."
+        ]
     },
     {
-        title: "Senior Cat",
-        features: ["Renal & liver monitoring", "Thyroid screening", "Pain & comfort assessment"]
+        title: "Senior Cat Pack (7+ years)",
+        subtitle: "Specialized, gentle care to ensure comfort and longevity in their golden years.",
+        features: [
+            "Comprehensive Physical Exam: Assessment of eyes, ears, skin, fur, nails, and dental health.",
+            "Vital Signs Monitoring: Temperature, heart rate, blood pressure, and respiratory checks.",
+            "Parasite Prevention: Complete deworming, plus tick & flea treatment.",
+            "Booster Vaccinations: Age-appropriate immunizations.",
+            "Advanced Diagnostics (Comprehensive Panel): Complete Blood Count, Renal Function, Liver Function, and Urine Analysis.",
+            "Thyroid Screening (Hormone levels)",
+            "Heart Disease Parameters",
+            "Cancer Parameters (Early detection markers)"
+        ]
     }
 ];
 
@@ -288,8 +342,85 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
         </motion.div>
     );
 };
+// ─── Expandable Plan Component ───────────────────────────────────────────────
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
+const ExpandablePlan: React.FC<{
+    plan: { title: string; subtitle: string; features: string[] };
+    index: number;
+    accentColor: string;
+    hoverColor: string;
+}> = ({ plan, index, accentColor, hoverColor }) => {
+    const [open, setOpen] = React.useState(false);
+    return (
+        <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            custom={index}
+            viewport={{ once: true }}
+            className="bg-gray-50 p-6 rounded-2xl border transition-all hover:shadow-md cursor-pointer"
+            style={{ borderColor: 'rgba(0,63,125,0.05)' }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = hoverColor; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(0,63,125,0.05)'; }}
+            onClick={() => setOpen(!open)}
+        >
+            <div className="flex justify-between items-start gap-4">
+                <div>
+                    <h4 className="font-bold text-gray-900 text-lg mb-1">{plan.title}</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed max-w-sm">{plan.subtitle}</p>
+                </div>
+                <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300"
+                    style={{ backgroundColor: `${accentColor}1A`, transform: open ? 'rotate(180deg)' : 'none' }}
+                >
+                    <ChevronDown size={18} style={{ color: accentColor }} />
+                </div>
+            </div>
+            <AnimatePresence initial={false}>
+                {open && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                    >
+                        <div className="pt-6 mt-4 border-t border-gray-200">
+                            <ul className="space-y-3">
+                                {plan.features.map((feature, j) => {
+                                    const splitIndex = feature.indexOf(':');
+                                    let boldPart = feature;
+                                    let regularPart = '';
+
+                                    if (splitIndex !== -1) {
+                                        boldPart = feature.slice(0, splitIndex + 1);
+                                        regularPart = feature.slice(splitIndex + 1);
+                                    }
+
+                                    return (
+                                        <li key={j} className="flex items-start gap-3 text-sm text-gray-600 leading-relaxed">
+                                            <div className="w-1.5 h-1.5 rounded-full mt-2 shrink-0" style={{ backgroundColor: accentColor }} />
+                                            <span>
+                                                {splitIndex !== -1 ? (
+                                                    <>
+                                                        <strong className="text-gray-900 font-semibold">{boldPart}</strong>
+                                                        {regularPart}
+                                                    </>
+                                                ) : (
+                                                    feature
+                                                )}
+                                            </span>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.div>
+    );
+};
 
 interface ServicesProps {
     onOpenBooking: () => void;
@@ -382,10 +513,28 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                     <div className="mb-16 md:mb-32">
                         <div className="text-center mb-16">
                             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
-                                Subscription Plans
+                                🐾 PawGuardian Subscription Plans for Pet Parents
                             </h2>
-                            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                                The ultimate peace of mind. Put your pet's healthcare on autopilot — you won't have to worry or plan anything after you get it. All one-time services below are included in these comprehensive life-stage plans.
+                            <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
+                                At PawGuardian, we believe proactive care is the best way to ensure a long, happy life for your furry family members. Choose the plan tailored to your pet's life stage and let us handle the rest.
+                            </p>
+
+                            <div className="bg-white/10 border border-white/20 rounded-3xl p-6 md:p-8 max-w-3xl mx-auto text-left backdrop-blur-sm">
+                                <h3 className="text-xl font-bold text-white mb-4">✨ The PawGuardian Promise (Included in ALL Plans)</h3>
+                                <p className="text-sm text-gray-300 mb-4">Every subscription tier comes with complete peace of mind, featuring:</p>
+                                <ul className="space-y-3 text-sm text-gray-200">
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full mt-2 lg:mt-1.5 shrink-0 bg-[#FF8E00]" />
+                                        <span><strong className="text-white">Year-Round Veterinary Access:</strong> Unlimited tele-consultations and dedicated support whenever you have a question or concern.</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full mt-2 lg:mt-1.5 shrink-0 bg-[#FF8E00]" />
+                                        <span><strong className="text-white">Exclusive Member Rates:</strong> Enjoy better, discounted pricing for in-person visits and bookings at any <strong>PawGuardian-certified clinic</strong> when hands-on care is needed.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p className="text-sm tracking-wide uppercase text-[#FF8E00] font-semibold mt-12 mb-4">
+                                Click on any of the plans below to know more
                             </p>
                         </div>
 
@@ -402,27 +551,15 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                                     <Dog size={32} style={{ color: '#FF8E00' }} />
                                     For Dogs
                                 </h3>
-                                <div className="space-y-6">
+                                <div className="space-y-4">
                                     {dogPlans.map((plan, i) => (
-                                        <div
+                                        <ExpandablePlan
                                             key={i}
-                                            className="bg-gray-50 p-6 rounded-2xl border transition-all hover:-translate-y-1 hover:shadow-md"
-                                            style={{ borderColor: 'rgba(0,63,125,0.05)' }}
-                                            onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = '#FF8E00'; }}
-                                            onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(0,63,125,0.05)'; }}
-                                        >
-                                            <div className="flex justify-between items-center mb-3">
-                                                <h4 className="font-bold text-gray-900 text-lg">{plan.title}</h4>
-                                            </div>
-                                            <ul className="space-y-2">
-                                                {plan.features.map((feature, j) => (
-                                                    <li key={j} className="flex items-center gap-2 text-sm text-gray-600">
-                                                        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#003F7D' }} />
-                                                        {feature}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
+                                            plan={plan}
+                                            index={i}
+                                            accentColor="#003F7D"
+                                            hoverColor="#FF8E00"
+                                        />
                                     ))}
                                 </div>
                                 <div className="mt-8">
@@ -448,27 +585,15 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                                     <Cat size={32} style={{ color: '#FD7702' }} />
                                     For Cats
                                 </h3>
-                                <div className="space-y-6">
+                                <div className="space-y-4">
                                     {catPlans.map((plan, i) => (
-                                        <div
+                                        <ExpandablePlan
                                             key={i}
-                                            className="bg-gray-50 p-6 rounded-2xl border transition-all hover:-translate-y-1 hover:shadow-md"
-                                            style={{ borderColor: 'rgba(0,63,125,0.05)' }}
-                                            onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = '#FD7702'; }}
-                                            onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(0,63,125,0.05)'; }}
-                                        >
-                                            <div className="flex justify-between items-center mb-3">
-                                                <h4 className="font-bold text-gray-900 text-lg">{plan.title}</h4>
-                                            </div>
-                                            <ul className="space-y-2">
-                                                {plan.features.map((feature, j) => (
-                                                    <li key={j} className="flex items-center gap-2 text-sm text-gray-600">
-                                                        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#003F7D' }} />
-                                                        {feature}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
+                                            plan={plan}
+                                            index={i}
+                                            accentColor="#003F7D"
+                                            hoverColor="#FD7702"
+                                        />
                                     ))}
                                 </div>
                                 <div className="mt-8">
@@ -482,6 +607,18 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                                 </div>
                             </motion.div>
                         </div>
+
+                        {/* Disclaimer */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="mt-12 bg-[#001b38] border border-white/10 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto"
+                        >
+                            <p className="text-gray-400 text-sm leading-relaxed text-center sm:text-left">
+                                <strong className="text-white">A Note on Advanced Diagnostics:</strong> At PawGuardian, we are constantly expanding our care network. Please note that the availability of certain specialized tests—such as early-detection cancer markers and advanced cardiac parameters—is subject to local laboratory infrastructure and viability in your specific region (e.g., within Goa). We will always transparently advise you on the best available testing options in your area during your consultations.
+                            </p>
+                        </motion.div>
                     </div>
                 </div>
             </section>
