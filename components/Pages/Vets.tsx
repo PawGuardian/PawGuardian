@@ -19,19 +19,19 @@ const fadeUp = {
 
 const benefits = [
   {
-    icon: Users,
-    title: 'Grow Your Clientele',
-    desc: 'Reach thousands of pet owners actively looking for trusted, licensed vets in their area.',
+    icon: Home,
+    title: '1. The Visiting Vet',
+    desc: 'Perfect for recent graduates or vets seeking premium, flexible hours. Start earning immediately without the massive real estate, equipment, or administrative overhead of opening a physical clinic. Guaranteed patient pipeline from our dedicated subscriber base.',
   },
   {
-    icon: CalendarCheck,
-    title: 'Streamlined Scheduling',
-    desc: 'Manage all your appointments through our platform — no more back-and-forth phone calls.',
+    icon: Video,
+    title: '2. The Consulting Vet',
+    desc: 'Perfect for clinic owners wanting to monetize downtime. Turn slow clinic hours or your time at home into a secondary revenue stream. Review our recent diagnostics (CBC, Renal, Liver, Urine) before the call to provide evidence-based medical reviews, all remotely.',
   },
   {
-    icon: ShieldCheck,
-    title: 'Verified & Trusted',
-    desc: 'Join a network of certified, reviewed professionals that pet owners rely on every day.',
+    icon: Building2,
+    title: '3. The Partner Vet',
+    desc: 'Perfect for established clinics looking for tertiary care. We do the preventive heavy lifting. When our diagnostics catch early disease, we route the pet to your Certified Clinic for priority treatment. Pre-diagnosed patients save your front desk time.',
   },
 ];
 
@@ -254,24 +254,27 @@ export const Vets: React.FC<VetsProps> = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.05]"
+            className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-[1.05]"
           >
-            Partner With{' '}
+            Practice Modern, <br />
             <span
               className="text-transparent bg-clip-text"
               style={{ backgroundImage: 'linear-gradient(to right, #FF8E00, #FD7702)' }}
             >
-              PawGuardian
-            </span>
+              Preventive
+            </span>{' '}
+            Veterinary Medicine
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
-            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Expand your practice, set your own schedule, and make a real difference in the lives of pets and their families.
+            The transition to clinic-based care is stressing out our patients and delaying critical diagnoses.
+            Transporting pets to a clinic increases canine cortisol levels by 37%, and over 68% of cats experience severe stress during physical visits.
+            Relying solely on walk-ins means you are often treating cases only when they hit the expensive, late-stage crisis point.
           </motion.p>
 
           {/* Call to Action Button */}
@@ -300,14 +303,13 @@ export const Vets: React.FC<VetsProps> = () => {
               className="font-semibold tracking-wide uppercase text-sm"
               style={{ color: '#003F7D' }}
             >
-              Why Join Us
+              How We Work Together
             </span>
             <h2 className="mt-2 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
-              Built for <span style={{ color: '#003F7D' }}>Vets First</span>
+              Shifting the <span style={{ color: '#003F7D' }}>Paradigm</span>
             </h2>
-            <p className="mt-4 text-gray-500 max-w-xl mx-auto leading-relaxed">
-              We handle the logistics so you can focus on what matters — delivering outstanding
-              care to every patient.
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto leading-relaxed text-lg">
+              PawGuardian is an aggregator and triage platform that handles the preventive baseline—so you can focus on practicing high-quality medicine. Choose how you want to practice and scale your revenue with zero marketing spend.
             </p>
           </div>
 
@@ -398,10 +400,11 @@ export const Vets: React.FC<VetsProps> = () => {
               Get Started
             </span>
             <h2 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
-              Apply to Join
+              Ready to modernize your practice?
             </h2>
-            <p className="mt-3 text-gray-500 leading-relaxed">
-              Fill in your details below and we'll get back to you within 2 business days.
+            <p className="mt-3 text-gray-500 leading-relaxed max-w-lg mx-auto">
+              Register as a PawGuardian Vet Today. Select your preferred tier during onboarding.
+              You can choose any single role or a combination of all three.
             </p>
           </div>
 
