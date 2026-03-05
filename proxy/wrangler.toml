@@ -1,6 +1,0 @@
-name = "pawguardian-supabase-proxy"
-main = "src/index.ts"
-compatibility_date = "2024-12-01"
-
-[vars]
-SUPABASE_URL = "https://xgkgapbduylurqxedtoj.supabase.co"

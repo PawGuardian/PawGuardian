@@ -196,60 +196,51 @@ export const Vets: React.FC<VetsProps> = () => {
     }
   };
 
-  const validateStep = (): boolean => {
+  const validateStep = (): string | null => {
     if (step === 0) {
-      return !!(
-        formData.full_name &&
-        formData.email &&
-        formData.phone &&
-        formData.address &&
-        formData.aadhar_number.length === 12 &&
-        files.photo
-      );
+      if (!formData.full_name) return 'Please enter your full name.';
+      if (!formData.email) return 'Please enter your email address.';
+      if (!formData.phone) return 'Please enter your phone number.';
+      if (!formData.address) return 'Please enter your current address.';
+      if (formData.aadhar_number.replace(/\s/g, '').length !== 12) return 'Aadhar number must be 12 digits.';
+      if (!files.photo) return 'Please upload a profile photo.';
+      return null;
     }
     if (step === 1) {
-      return !!(
-        formData.degree &&
-        formData.college &&
-        formData.graduation_year &&
-        formData.state_vc_reg_number &&
-        formData.ivpr_vci_number &&
-        files.registration_cert &&
-        files.cv
-      );
+      if (!formData.degree) return 'Please enter your degree.';
+      if (!formData.college) return 'Please enter your college name.';
+      if (!formData.graduation_year) return 'Please enter your graduation year.';
+      if (!formData.state_vc_reg_number) return 'Please enter your State Veterinary Council registration number.';
+      if (!formData.ivpr_vci_number) return 'Please enter your IVPR / VCI registration number.';
+      if (!files.registration_cert) return 'Please upload your registration certificate.';
+      if (!files.cv) return 'Please upload your CV / resume.';
+      return null;
     }
     if (step === 2) {
-      // Must pick at least one role
-      if (!formData.role_visiting && !formData.role_partner && !formData.role_consulting) return false;
-      // Visiting vets must acknowledge at-home service and fill commute details
-      if (formData.role_visiting) {
-        if (!formData.home_visit_aware || !formData.commute_distance_km || !formData.visits_per_week) return false;
-      }
-      // Partner vets must provide clinic details
-      if (formData.role_partner) {
-        if (!formData.clinic_name || !formData.clinic_location) return false;
-      }
-      return true;
+      if (!formData.role_visiting && !formData.role_partner && !formData.role_consulting) return 'Please select at least one role.';
+      if (formData.role_visiting && !formData.home_visit_aware) return 'Please acknowledge the at-home visit service.';
+      if (formData.role_visiting && !formData.commute_distance_km) return 'Please enter your max commute distance.';
+      if (formData.role_visiting && !formData.visits_per_week) return 'Please enter how many visits per week you can do.';
+      if (formData.role_partner && !formData.clinic_name) return 'Please enter your clinic name.';
+      if (formData.role_partner && !formData.clinic_location) return 'Please enter your clinic location.';
+      return null;
     }
-    if (step === 3) {
-      return !!files.signed_agreement;
-    }
-    return false;
+    return null; // step 3 has no required fields
   };
 
   const uploadFile = async (file: File, fieldName: string): Promise<string> => {
     if (!supabase) throw new Error('Supabase not configured');
     const path = `${Date.now()}-${fieldName}-${file.name}`;
     const { data, error } = await supabase.storage.from('vet-docs').upload(path, file);
-    if (error) throw error;
+    if (error) throw new Error(`Failed to upload ${fieldName}: ${error.message}`);
     const { data: { publicUrl } } = supabase.storage.from('vet-docs').getPublicUrl(data.path);
     return publicUrl;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateStep()) {
-      setError('Please upload the signed agreement before submitting.');
+  const handleSubmit = async () => {
+    const validationError = validateStep();
+    if (validationError) {
+      setError(validationError);
       return;
     }
     setIsSubmitting(true);
@@ -262,15 +253,27 @@ export const Vets: React.FC<VetsProps> = () => {
     }
 
     try {
-      // Upload all files in parallel
-      const [photo_url, registration_cert_url, cv_url, signed_agreement_url] = await Promise.all([
-        uploadFile(files.photo!, 'photo'),
-        uploadFile(files.registration_cert!, 'registration_cert'),
-        uploadFile(files.cv!, 'cv'),
-        uploadFile(files.signed_agreement!, 'signed_agreement'),
-      ]);
+      // Upload required files
+      let photo_url = '';
+      let registration_cert_url = '';
+      let cv_url = '';
+      let signed_agreement_url: string | null = null;
 
-      const payload = {
+      try {
+        [photo_url, registration_cert_url, cv_url] = await Promise.all([
+          uploadFile(files.photo!, 'photo'),
+          uploadFile(files.registration_cert!, 'registration_cert'),
+          uploadFile(files.cv!, 'cv'),
+        ]);
+      } catch (uploadErr) {
+        throw new Error(`File upload failed: ${(uploadErr as Error).message}`);
+      }
+
+      if (files.signed_agreement) {
+        signed_agreement_url = await uploadFile(files.signed_agreement, 'signed_agreement');
+      }
+
+      const { error: supabaseError } = await supabase.from('vet_signups').insert([{
         full_name: formData.full_name,
         email: formData.email,
         phone: formData.phone,
@@ -294,15 +297,13 @@ export const Vets: React.FC<VetsProps> = () => {
         commute_distance_km: Number(formData.commute_distance_km),
         visits_per_week: Number(formData.visits_per_week),
         signed_agreement_url,
-      };
-
-      const { error: supabaseError } = await supabase.from('vet_signups').insert([payload]);
-      if (supabaseError) throw supabaseError;
+      }]);
+      if (supabaseError) throw new Error(`Database error: ${supabaseError.message}`);
 
       setIsSuccess(true);
     } catch (err) {
-      console.error(err);
-      setError('Something went wrong uploading your files or saving your application. Please try again.');
+      console.error('Submit error:', err);
+      setError((err as Error).message || 'Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -506,7 +507,7 @@ export const Vets: React.FC<VetsProps> = () => {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
                 <ProgressBar steps={STEPS} current={step} />
 
                 {/* Step 1 — Personal Info */}
@@ -684,14 +685,13 @@ export const Vets: React.FC<VetsProps> = () => {
                 )}
                 {step === 3 && (
                   <div className="space-y-5">
-                    {/* Agreement intro */}
                     <div
                       className="rounded-2xl p-5 space-y-4"
                       style={{ backgroundColor: 'rgba(0,35,71,0.05)', border: '1px solid rgba(0,35,71,0.12)' }}
                     >
                       <h3 className="text-sm font-bold text-gray-900">Partnership Agreement</h3>
                       <p className="text-xs text-gray-500 leading-relaxed">
-                        We want PawGuardian to operate in a way that's transparent and sustainable. We're putting together a simple agreement that outlines how we work together — designed to protect both parties, especially ensuring that medical judgment remains entirely with you.
+                        We want PawGuardian to operate in a way that{"'"}s transparent and sustainable. We{"'"}re putting together a simple agreement that outlines how we work together — designed to protect both parties, especially ensuring that medical judgment remains entirely with you.
                       </p>
                       <ul className="space-y-2.5">
                         {[
@@ -715,29 +715,16 @@ export const Vets: React.FC<VetsProps> = () => {
                       The full agreement will be shared with you for review before signing. No surprises.
                     </p>
 
-                    {/* Download button */}
-                    <a
-                      href="/PawGuardian-Vet-Agreement.pdf"
-                      download
-                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border font-semibold text-sm transition-colors hover:bg-gray-50"
-                      style={{ borderColor: '#003F7D', color: '#003F7D' }}
-                    >
-                      Download Agreement PDF
-                    </a>
-
-                    {/* Signed agreement upload */}
                     <FileField
-                      label="Upload Signed Agreement"
+                      label="Upload Signed Agreement (optional)"
                       name="signed_agreement"
                       accept=".pdf,.jpg,.jpeg,.png"
                       file={files.signed_agreement}
                       onChange={handleFileChange}
-                      required
-                      hint="Upload your signed copy (PDF or scanned image)"
+                      hint="If you have it ready, upload your signed copy (PDF or scanned image)"
                     />
                   </div>
                 )}
-
                 {error && (
                   <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
                     {error}
@@ -760,11 +747,12 @@ export const Vets: React.FC<VetsProps> = () => {
                     <button
                       type="button"
                       onClick={() => {
-                        if (validateStep()) {
+                        const err = validateStep();
+                        if (!err) {
                           setStep((s) => s + 1);
                           setError(null);
                         } else {
-                          setError('Please fill in all required fields before continuing.');
+                          setError(err);
                         }
                       }}
                       className="flex-1 py-3.5 rounded-full font-semibold text-white text-sm transition-all cursor-pointer"
@@ -774,8 +762,9 @@ export const Vets: React.FC<VetsProps> = () => {
                     </button>
                   ) : (
                     <button
-                      type="submit"
+                      type="button"
                       disabled={isSubmitting}
+                      onClick={handleSubmit}
                       className="flex-1 py-3.5 rounded-full font-semibold text-white text-sm transition-all disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                       style={{ backgroundColor: '#FF8E00', boxShadow: '0 4px 14px rgba(255,142,0,0.30)' }}
                     >
