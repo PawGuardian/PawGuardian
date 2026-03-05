@@ -23,7 +23,7 @@ This is a single-page React 19 + TypeScript app built with Vite. Navigation is h
 
 **Component structure:**
 - `components/Layout/` — `Navbar` and `Footer`, rendered on every page
-- `components/Pages/` — Full-page views: `AboutUs`, `Services`, `Vets` (active); `Gallery` and `Reviews` exist as files but are not wired into navigation
+- `components/Pages/` — Full-page views: `AboutUs`, `Services`, `Vets`
 - `components/Sections/` — Sections composing the home page (Hero → ValueProp → HowItWorks → Plans → FinalCTA)
 - `components/ui/` — Reusable primitives (`Button`, `Card`, `BookingModal`)
 - `lib/supabase.ts` — Supabase client (conditionally initialized; returns `null` if env vars are missing)
