@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertCircle, Home, Wallet, Activity, ChevronDown } from 'lucide-react';
+import { AlertCircle, Home, Wallet, Activity, ChevronDown, ShieldCheck } from 'lucide-react';
 import { Card } from '../ui/Card';
 
 const MaskedSymptomsCard = () => {
