@@ -265,7 +265,7 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
             custom={index}
             viewport={{ once: true }}
             whileHover={{ y: -6, boxShadow: '0 20px 45px rgba(255,142,0,0.15)', transition: { duration: 0.2 } }}
-            className="group relative bg-white rounded-3xl border border-gray-100 shadow-sm transition-all overflow-hidden flex flex-col duration-200"
+            className="group relative bg-white/30 backdrop-blur-md border hover:bg-white/40 border-white/60 rounded-3xl shadow-md transition-all overflow-hidden flex flex-col duration-200"
         >
             <div className="p-8 flex flex-col flex-1 relative z-10 transition-colors duration-200">
                 {/* Icon */}
@@ -478,7 +478,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                 </div>
             </section>            {/* NEW SECTION: Subscriptions */}
             <div className="max-w-[1400px] mx-auto px-6 pb-16 md:pb-32">
-                <div className="bg-white/30 backdrop-blur-md rounded-[40px] p-8 md:p-12 lg:p-16 border border-white/60 shadow-lg relative z-10">
+                <div className="bg-white/80 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-gray-100 shadow-sm relative z-10">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
                             Subscription Plans
@@ -510,7 +510,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="bg-white p-8 md:p-12 rounded-[32px] border border-gray-100 shadow-xl"
+                            className="bg-white/30 backdrop-blur-md p-8 md:p-12 hover:bg-white/40 transition-colors rounded-[32px] border border-white/60 shadow-xl"
                         >
                             <h3 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                                 <Dog size={32} style={{ color: '#FF8E00' }} />
@@ -543,7 +543,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="bg-white p-8 md:p-12 rounded-[32px] border border-gray-100 shadow-xl"
+                            className="bg-white/30 backdrop-blur-md p-8 md:p-12 hover:bg-white/40 transition-colors rounded-[32px] border border-white/60 shadow-xl"
                         >
                             <h3 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                                 <Cat size={32} style={{ color: '#FD7702' }} />
@@ -588,7 +588,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
 
             {/* ── Individual Services Section ──────────────────────────────────────────────── */}
             <div className="max-w-[1400px] mx-auto px-6 pb-12 md:pb-24">
-                <div className="bg-white/30 backdrop-blur-md rounded-[40px] p-8 md:p-12 lg:p-16 border border-white/60 shadow-lg relative z-10">
+                <div className="bg-white/80 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-gray-100 shadow-sm relative z-10">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
                             Individual Care
