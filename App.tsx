@@ -28,32 +28,30 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen font-sans selection:bg-[#1e3470]/20 selection:text-[#1e3470] relative" style={{ backgroundColor: '#f8f4e8' }}>
-      {/* Global Animated Background Layer — only shown on home */}
-      {currentPage === 'home' && (
-        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              x: [-100, 100, -100],
-              y: [-50, 50, -50],
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-            className="absolute top-0 left-0 w-[300px] h-[300px] md:w-[800px] md:h-[800px] rounded-full"
-            style={{ backgroundColor: 'rgba(30,52,112,0.10)', willChange: 'transform' }}
-          />
-          <motion.div
-            animate={{
-              scale: [1.2, 1, 1.2],
-              x: [100, -100, 100],
-              y: [50, -50, 50],
-            }}
-            transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-            className="absolute bottom-0 right-0 w-[250px] h-[250px] md:w-[600px] md:h-[600px] rounded-full"
-            style={{ backgroundColor: 'rgba(40,34,57,0.08)', willChange: 'transform' }}
-          />
-        </div>
-      )}
+    <div className="min-h-screen font-sans selection:bg-[#FF8E00]/20 selection:text-gray-900 relative" style={{ backgroundColor: '#f8f4e8' }}>
+      {/* Global Animated Background Layer */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [-100, 100, -100],
+            y: [-50, 50, -50],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          className="absolute top-0 left-0 w-[300px] h-[300px] md:w-[800px] md:h-[800px] rounded-full"
+          style={{ backgroundColor: 'rgba(255,142,0,0.06)', willChange: 'transform' }}
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            x: [100, -100, 100],
+            y: [50, -50, 50],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+          className="absolute bottom-0 right-0 w-[250px] h-[250px] md:w-[600px] md:h-[600px] rounded-full"
+          style={{ backgroundColor: 'rgba(253,119,2,0.04)', willChange: 'transform' }}
+        />
+      </div>
 
       <div className="relative z-10">
         <Navbar currentPage={currentPage} navigate={navigate} onOpenBooking={openBooking} />

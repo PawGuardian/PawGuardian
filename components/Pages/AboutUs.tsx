@@ -24,7 +24,7 @@ const values = [
         icon: Heart,
         title: 'Pet-First Philosophy',
         desc: 'Every decision we make starts with one question: is this the best possible outcome for the animal? We never compromise on that.',
-        color: '#003F7D',
+        color: '#FF8E00',
     },
     {
         icon: Microscope,
@@ -143,12 +143,12 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                     >
-                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#003F7D' }}>
+                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#FF8E00' }}>
                             Our Story
                         </span>
-                        <h2 className="mt-3 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
-                            Two passionate pet lovers{' '}
-                            <span style={{ color: '#003F7D' }}>on a mission.</span>
+                        <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+                            A passion for pets, <br />
+                            <span style={{ color: '#FF8E00' }}>on a mission.</span>
                         </h2>
                         <p className="mt-6 text-gray-600 text-lg leading-relaxed">
                             We are Atharavaa Khanzode and Aditya Bendi, two third-year students from BITS Pilani. Our journey with PawGuardian began not in a boardroom, but from a profound, shared passion for pets and a harsh reality we couldn't ignore.
@@ -164,7 +164,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
             <section className="py-12 md:py-24 px-6 border-t" style={{ backgroundColor: '#f8f4e8', borderColor: 'rgba(0,35,71,0.08)' }}>
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#003F7D' }}>
+                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#FF8E00' }}>
                             What Drives Us
                         </span>
                         <h2 className="mt-2 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
@@ -222,8 +222,8 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
             <section className="py-12 md:py-24 px-6" style={{ backgroundColor: '#ffffff' }}>
                 <div className="max-w-2xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 border" style={{ backgroundColor: 'rgba(0,35,71,0.05)', borderColor: 'rgba(0,35,71,0.1)' }}>
-                        <Stethoscope size={14} style={{ color: '#003F7D' }} />
-                        <span className="text-xs font-semibold tracking-wide uppercase" style={{ color: '#003F7D' }}>
+                        <Stethoscope size={14} style={{ color: '#FF8E00' }} />
+                        <span className="text-xs font-semibold tracking-wide uppercase" style={{ color: '#FF8E00' }}>
                             Join the movement
                         </span>
                     </div>

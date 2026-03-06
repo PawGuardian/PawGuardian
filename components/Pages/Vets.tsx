@@ -73,7 +73,7 @@ const ExpandableVetRole: React.FC<{
             className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0"
             style={{ backgroundColor: 'rgba(0,35,71,0.08)' }}
           >
-            <Icon size={26} strokeWidth={1.6} style={{ color: '#003F7D' }} />
+            <Icon size={26} strokeWidth={1.6} style={{ color: '#FF8E00' }} />
           </div>
           <div>
             <h3 className="text-lg font-bold text-gray-900 mb-2">{role.title}</h3>
@@ -84,7 +84,7 @@ const ExpandableVetRole: React.FC<{
           className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 mt-2"
           style={{ backgroundColor: 'rgba(0,63,125,0.05)', transform: open ? 'rotate(180deg)' : 'none' }}
         >
-          <ChevronDown size={18} style={{ color: '#003F7D' }} />
+          <ChevronDown size={18} style={{ color: '#FF8E00' }} />
         </div>
       </div>
       <AnimatePresence initial={false}>
@@ -392,12 +392,12 @@ export const Vets: React.FC<VetsProps> = () => {
           <div className="text-center mb-16">
             <span
               className="font-semibold tracking-wide uppercase text-sm"
-              style={{ color: '#003F7D' }}
+              style={{ color: '#FF8E00' }}
             >
               How We Work Together
             </span>
             <h2 className="mt-2 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
-              Shifting the <span style={{ color: '#003F7D' }}>Paradigm</span>
+              Shifting the <span style={{ color: '#FF8E00' }}>Paradigm</span>
             </h2>
           </div>
 
@@ -415,7 +415,7 @@ export const Vets: React.FC<VetsProps> = () => {
           <div className="text-center mb-16">
             <span
               className="font-semibold tracking-wide uppercase text-sm"
-              style={{ color: '#003F7D' }}
+              style={{ color: '#FF8E00' }}
             >
               The Process
             </span>
@@ -466,7 +466,7 @@ export const Vets: React.FC<VetsProps> = () => {
           <div className="text-center mb-12">
             <span
               className="font-semibold tracking-wide uppercase text-sm"
-              style={{ color: '#003F7D' }}
+              style={{ color: '#FF8E00' }}
             >
               Get Started
             </span>
@@ -492,7 +492,7 @@ export const Vets: React.FC<VetsProps> = () => {
                   className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
                   style={{ backgroundColor: 'rgba(0,35,71,0.08)' }}
                 >
-                  <CheckCircle2 size={32} style={{ color: '#003F7D' }} />
+                  <CheckCircle2 size={32} style={{ color: '#FF8E00' }} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Application Received!</h3>
                 <p className="text-gray-500 leading-relaxed max-w-sm mx-auto">
@@ -566,7 +566,7 @@ export const Vets: React.FC<VetsProps> = () => {
                             key={field}
                             className="relative flex flex-col items-center text-center gap-2 rounded-xl border-2 p-4 cursor-pointer transition-all"
                             style={{
-                              borderColor: formData[field] ? '#003F7D' : 'rgba(0,35,71,0.15)',
+                              borderColor: formData[field] ? '#FF8E00' : 'rgba(17,24,39,0.15)',
                               backgroundColor: formData[field] ? 'rgba(0,63,125,0.04)' : 'transparent',
                             }}
                           >
@@ -579,16 +579,16 @@ export const Vets: React.FC<VetsProps> = () => {
                             />
                             {formData[field] && (
                               <div className="absolute top-2 right-2">
-                                <CheckCircle2 size={16} style={{ color: '#003F7D' }} />
+                                <CheckCircle2 size={16} style={{ color: '#FF8E00' }} />
                               </div>
                             )}
                             <div
                               className="w-10 h-10 rounded-xl flex items-center justify-center"
                               style={{
-                                backgroundColor: formData[field] ? '#003F7D' : 'rgba(0,35,71,0.08)',
+                                backgroundColor: formData[field] ? '#FF8E00' : 'rgba(17,24,39,0.08)',
                               }}
                             >
-                              <Icon size={20} style={{ color: formData[field] ? '#fff' : '#003F7D' }} />
+                              <Icon size={20} style={{ color: formData[field] ? '#fff' : '#FF8E00' }} />
                             </div>
                             <span className="text-sm font-bold text-gray-900">{title}</span>
                             <p className="text-[11px] text-gray-500 leading-snug">{desc}</p>
@@ -604,7 +604,7 @@ export const Vets: React.FC<VetsProps> = () => {
                         style={{ backgroundColor: 'rgba(0,63,125,0.04)', border: '1px solid rgba(0,63,125,0.10)' }}
                       >
                         <div className="flex items-center gap-2">
-                          <Home size={16} style={{ color: '#003F7D' }} />
+                          <Home size={16} style={{ color: '#FF8E00' }} />
                           <span className="text-sm font-bold text-gray-800">Visiting Vet Details</span>
                         </div>
                         <p className="text-xs text-gray-500 leading-relaxed">
@@ -616,7 +616,7 @@ export const Vets: React.FC<VetsProps> = () => {
                             name="home_visit_aware"
                             checked={formData.home_visit_aware}
                             onChange={handleChange}
-                            className="mt-0.5 accent-[#003F7D] w-4 h-4 flex-shrink-0"
+                            className="mt-0.5 accent-[#FF8E00] w-4 h-4 flex-shrink-0"
                           />
                           <span className="text-sm text-gray-700">
                             <span className="font-semibold">I understand and agree to provide at-home visits.</span>{' '}
@@ -642,7 +642,7 @@ export const Vets: React.FC<VetsProps> = () => {
                         </div>
                         <p className="text-xs text-gray-500 leading-relaxed">
                           Nothing changes about how you run your clinic. We will list it as a{' '}
-                          <strong style={{ color: '#003F7D' }}>PawGuardian Certified Clinic</strong> — recommending
+                          <strong style={{ color: '#FF8E00' }}>PawGuardian Certified Clinic</strong> — recommending
                           it to pet parents when in-clinic care is needed (surgeries, diagnostics, etc.) and enabling
                           appointment bookings through our platform in the future.
                         </p>
@@ -660,7 +660,7 @@ export const Vets: React.FC<VetsProps> = () => {
                         style={{ backgroundColor: 'rgba(0,63,125,0.04)', border: '1px solid rgba(0,63,125,0.10)' }}
                       >
                         <div className="flex items-center gap-2">
-                          <Video size={16} style={{ color: '#003F7D' }} />
+                          <Video size={16} style={{ color: '#FF8E00' }} />
                           <span className="text-sm font-bold text-gray-800">Consulting Vet Details</span>
                         </div>
                         <p className="text-xs text-gray-500 leading-relaxed">
@@ -694,7 +694,7 @@ export const Vets: React.FC<VetsProps> = () => {
                           { title: 'Defined liability boundaries', desc: 'Clear boundaries on who is responsible for what — no ambiguity, no surprises.' },
                         ].map(({ title, desc }) => (
                           <li key={title} className="flex items-start gap-3 text-xs text-gray-600">
-                            <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: '#003F7D' }} />
+                            <CheckCircle2 size={16} className="flex-shrink-0 mt-0.5" style={{ color: '#FF8E00' }} />
                             <div>
                               <span className="font-semibold text-gray-800">{title}</span>
                               <p className="text-gray-500 mt-0.5 leading-relaxed">{desc}</p>
@@ -731,7 +731,7 @@ export const Vets: React.FC<VetsProps> = () => {
                       type="button"
                       onClick={() => setStep((s) => s - 1)}
                       className="flex-1 py-3.5 rounded-full font-semibold text-sm border transition-all cursor-pointer"
-                      style={{ borderColor: '#003F7D', color: '#003F7D' }}
+                      style={{ borderColor: '#FF8E00', color: '#FF8E00' }}
                     >
                       Back
                     </button>

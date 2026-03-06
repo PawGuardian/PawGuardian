@@ -8,8 +8,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const PRIMARY_STYLE: React.CSSProperties = {
-  backgroundColor: '#003F7D',
-  boxShadow: '0 4px 14px rgba(0,35,71,0.30)',
+  backgroundColor: '#111827',
+  boxShadow: '0 4px 14px rgba(17,24,39,0.30)',
 };
 
 export const Button: React.FC<ButtonProps> = ({
