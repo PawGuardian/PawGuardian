@@ -479,28 +479,13 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             </section>         {/* NEW SECTION: Subscriptions */}
             <div className="mb-16 md:mb-32">
                 <div className="text-center mb-16">
-                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
-                        🐾 PawGuardian Subscription Plans for Pet Parents
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
+                        Subscription Plans
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-                        At PawGuardian, we believe proactive care is the best way to ensure a long, happy life for your furry family members. Choose the plan tailored to your pet's life stage and let us handle the rest.
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+                        Comprehensive care tailored to your pet's life stage.
                     </p>
-
-                    <div className="bg-white border shadow-sm rounded-3xl p-6 md:p-8 max-w-3xl mx-auto text-left" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4">✨ The PawGuardian Promise (Included in ALL Plans)</h3>
-                        <p className="text-sm text-gray-600 mb-4">Every subscription tier comes with complete peace of mind, featuring:</p>
-                        <ul className="space-y-3 text-sm text-gray-600">
-                            <li className="flex items-start gap-3">
-                                <div className="w-1.5 h-1.5 rounded-full mt-2 lg:mt-1.5 shrink-0 bg-[#FF8E00]" />
-                                <span><strong className="text-gray-900">Year-Round Veterinary Access:</strong> Unlimited tele-consultations and dedicated support whenever you have a question or concern.</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <div className="w-1.5 h-1.5 rounded-full mt-2 lg:mt-1.5 shrink-0 bg-[#FF8E00]" />
-                                <span><strong className="text-gray-900">Exclusive Member Rates:</strong> Enjoy better, discounted pricing for in-person visits and bookings at any <strong>PawGuardian-certified clinic</strong> when hands-on care is needed.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <p className="text-sm tracking-wide uppercase text-[#FF8E00] font-semibold mt-12 mb-4">
+                    <p className="text-sm tracking-wide uppercase text-[#FF8E00] font-semibold mt-4 mb-4">
                         Click on any of the plans below to know more
                     </p>
                 </div>
@@ -586,6 +571,16 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                         <strong className="text-gray-900">A Note on Advanced Diagnostics:</strong> At PawGuardian, we are constantly expanding our care network. Please note that the availability of certain specialized tests—such as early-detection cancer markers and advanced cardiac parameters—is subject to local laboratory infrastructure and viability in your specific region (e.g., within Goa). We will always transparently advise you on the best available testing options in your area during your consultations.
                     </p>
                 </motion.div>
+            </div>
+
+            {/* ── Individual Services Section ──────────────────────────────────────────────── */}
+            <div className="text-center mb-8 mt-12 md:mt-24">
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
+                    Individual Care
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Book specific services as needed.
+                </p>
             </div>
 
             {/* ── Service Pills ──────────────────────────────────────────────── */}
