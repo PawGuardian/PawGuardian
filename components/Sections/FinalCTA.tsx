@@ -33,9 +33,9 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking, navigate }) =
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-6"
         >
-          Catch Illness Before It Starts<span style={{ color: '#FF8E00' }}>.</span>
+          Don’t wait for symptoms<span style={{ color: '#FF8E00' }}>.</span>
         </motion.h2>
 
         <motion.p
@@ -44,7 +44,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking, navigate }) =
           transition={{ delay: 0.1 }}
           className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto font-medium"
         >
-          Don’t wait for symptoms. Proactive, at-home care guarantees a longer, healthier life.
+          A simple shift to proactive care significantly improves your pet’s quality of life.
         </motion.p>
 
         <motion.div
