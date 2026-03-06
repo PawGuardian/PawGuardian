@@ -46,7 +46,7 @@ export const ValueProp: React.FC = () => {
                     </motion.p>
                 </div>
 
-                <div className="bg-white/80 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-gray-100 shadow-sm max-w-[1400px] mx-auto">
+                <div className="bg-white/30 backdrop-blur-md rounded-[40px] p-8 md:p-12 lg:p-16 border border-white/60 shadow-lg max-w-[1400px] mx-auto relative z-10">
                     <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
                         {/* Left Column: The Cost Card */}
                         <motion.div
