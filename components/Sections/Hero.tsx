@@ -32,52 +32,63 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           </span>
         </motion.div>
 
-        {/* Floating Refined Annotations */}
+        {/* Floating Artistic Annotations (Chalk-style) */}
+        {/* Top Left */}
         <motion.div
           initial={{ opacity: 0, x: -20, rotate: -5 }}
           animate={{ opacity: 1, x: 0, rotate: -8 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="absolute top-16 left-4 md:left-12 hidden lg:flex items-center gap-3 text-accent-orange"
+          className="absolute top-20 left-4 md:left-16 hidden lg:flex flex-col items-center gap-2 text-accent-orange"
         >
           <span className="font-semibold text-sm xl:text-base tracking-tight" style={{ color: '#FF8E00' }}>One-stop Subscription</span>
-          <svg width="45" height="25" viewBox="0 0 45 25" fill="none" className="opacity-70">
-            <path d="M2 2C6 3 12 5 18 8C24 11 32 16 40 22M40 22L32 20M40 22L38 14" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_1px_rgba(255,142,0,0.5)]" />
+          <svg width="60" height="40" viewBox="0 0 60 40" fill="none" className="opacity-80">
+            {/* Primary Arrow Path - Wobbly */}
+            <path d="M10 5 C 20 8, 30 15, 45 30 M 45 30 L 38 28 M 45 30 L 42 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            {/* Second Light Stroke for Chalk Effect */}
+            <path d="M11 6 C 21 9, 31 16, 46 31" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
           </svg>
         </motion.div>
 
+        {/* Top Right */}
         <motion.div
           initial={{ opacity: 0, x: 20, rotate: 5 }}
           animate={{ opacity: 1, x: 0, rotate: 6 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="absolute top-12 right-4 md:right-8 hidden lg:flex items-center gap-3 text-[#003F7D]"
+          className="absolute top-16 right-4 md:right-12 hidden lg:flex flex-col items-center gap-2 text-[#003F7D]"
         >
-          <svg width="45" height="25" viewBox="0 0 45 25" fill="none" className="opacity-70 -scale-x-100">
-            <path d="M2 2C6 3 12 5 18 8C24 11 32 16 40 22M40 22L32 20M40 22L38 14" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_1px_rgba(0,63,125,0.4)]" />
-          </svg>
           <span className="font-semibold text-sm xl:text-base tracking-tight">Proactive &gt; Reactive</span>
+          <svg width="60" height="40" viewBox="0 0 60 40" fill="none" className="opacity-80 -scale-x-100">
+            <path d="M10 5 C 20 8, 30 15, 45 30 M 45 30 L 38 28 M 45 30 L 42 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M11 6 C 21 9, 31 16, 46 31" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+          </svg>
         </motion.div>
 
+        {/* Bottom Left */}
         <motion.div
           initial={{ opacity: 0, x: -20, rotate: 3 }}
           animate={{ opacity: 1, x: 0, rotate: 2 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="absolute bottom-40 left-12 md:left-20 hidden lg:flex flex-col items-start gap-1 text-teal-600"
+          className="absolute bottom-44 left-16 md:left-24 hidden lg:flex flex-col items-start gap-1 text-teal-600"
         >
           <span className="font-semibold text-sm xl:text-base tracking-tight">At-home Care</span>
-          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" className="opacity-70 -scale-x-100">
-            <path d="M58 2C50 3 40 6 30 10C20 14 10 16 2 18M2 18L10 16M2 18L4 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_1px_rgba(13,148,136,0.4)]" />
+          <svg width="80" height="20" viewBox="0 0 80 20" fill="none" className="opacity-80">
+            {/* Wobbly Underline / Pointing Stroke */}
+            <path d="M5 15 C 20 12, 40 16, 75 10 M 75 10 L 68 12 M 75 10 L 72 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M6 16 C 21 13, 41 17, 76 11" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
           </svg>
         </motion.div>
 
+        {/* Bottom Right */}
         <motion.div
           initial={{ opacity: 0, x: 20, rotate: -3 }}
           animate={{ opacity: 1, x: 0, rotate: -2 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="absolute bottom-36 right-12 md:right-20 hidden lg:flex flex-col items-end gap-1 text-purple-600"
+          className="absolute bottom-40 right-16 md:right-24 hidden lg:flex flex-col items-end gap-1 text-purple-600"
         >
           <span className="font-semibold text-sm xl:text-base tracking-tight">Complete Ecosystem</span>
-          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" className="opacity-70">
-            <path d="M58 2C50 3 40 6 30 10C20 14 10 16 2 18M2 18L10 16M2 18L4 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_1px_rgba(147,51,234,0.4)]" />
+          <svg width="80" height="20" viewBox="0 0 80 20" fill="none" className="opacity-80 -scale-x-100">
+            <path d="M5 15 C 20 12, 40 16, 75 10 M 75 10 L 68 12 M 75 10 L 72 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M6 16 C 21 13, 41 17, 76 11" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
           </svg>
         </motion.div>
 
