@@ -93,9 +93,9 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
-                        className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-gray-900"
+                        className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-gray-900 whitespace-nowrap"
                     >
-                        For Pet Lovers, by pet lovers
+                        For Pet Lovers, By Pet Lovers
                     </motion.h1>
 
                     <motion.p
