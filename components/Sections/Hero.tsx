@@ -88,48 +88,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           </a>
         </motion.div>
 
-        {/* Trust Signal */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="flex flex-col items-center justify-center gap-3 mb-20"
-        >
-          <div className="flex -space-x-3">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-100 overflow-hidden shadow-sm">
-                <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Parent" className="w-full h-full object-cover" />
-              </div>
-            ))}
-            <div className="w-10 h-10 rounded-full border-2 border-white bg-surface flex items-center justify-center shadow-sm z-10 text-xs font-bold text-text-secondary">
-              +2k
-            </div>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-text-secondary font-medium">
-            <div className="flex text-amber-400 gap-0.5">
-              {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={14} fill="currentColor" />)}
-            </div>
-            <span>Trusted by early adopters</span>
-          </div>
-        </motion.div>
 
-        {/* Hero Product Image / Dashboard Mockup frame */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative max-w-5xl mx-auto rounded-[2rem] p-3 md:p-4 bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]"
-        >
-          <div className="relative rounded-[1.5rem] overflow-hidden aspect-video shadow-sm border border-border/50">
-            <img
-              src="/hero-bg-sunset.jpg"
-              alt="PawGuardian at home care"
-              className="w-full h-full object-cover"
-            />
-            {/* Soft inner shadow for premium feel */}
-            <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.05)] rounded-[1.5rem] pointer-events-none" />
-          </div>
-        </motion.div>
 
       </div>
     </section>
