@@ -41,7 +41,7 @@ export const Plans: React.FC<PlansProps> = ({ navigate }) => {
             {/* Background Effects removed to allow global App.tsx glow to show perfectly seamlessly */}
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="bg-white/80 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-gray-100 shadow-sm max-w-[1400px] mx-auto relative z-10">
+                <div className="p-0 lg:p-4 max-w-[1400px] mx-auto relative z-10">
                     <div className="text-center mb-16">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
