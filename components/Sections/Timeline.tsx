@@ -48,7 +48,7 @@ const roadmapSteps = [
 
 export const Timeline: React.FC = () => {
     return (
-        <section className="py-12 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#f8f4e8' }}>
+        <section className="py-12 md:py-24 relative overflow-hidden bg-transparent">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
                     <span
@@ -107,13 +107,13 @@ export const Timeline: React.FC = () => {
                                             viewport={{ once: true, margin: "-100px" }}
                                             transition={{ duration: 0.5 }}
                                         >
-                                            <Card className="hover:-translate-y-2 transition-transform duration-300 relative border-gray-100 shadow-xl shadow-gray-200/50 overflow-hidden group">
+                                            <Card className="hover:-translate-y-2 transition-transform duration-200 relative border-gray-100 shadow-xl shadow-gray-200/50 overflow-hidden group">
                                                 {/* Decorative background glow */}
-                                                <div className="absolute inset-0 bg-gradient-to-tr opacity-0 transition-opacity duration-300 group-hover:opacity-10 pointer-events-none" style={{ backgroundImage: `linear-gradient(to top right, ${step.color}, transparent)` }} />
+                                                <div className="absolute inset-0 bg-gradient-to-tr opacity-0 transition-opacity duration-200 group-hover:opacity-10 pointer-events-none" style={{ backgroundImage: `linear-gradient(to top right, ${step.color}, transparent)` }} />
 
                                                 <div className={`flex flex-col md:flex-row gap-5 items-start ${isEven ? 'md:flex-row-reverse' : ''}`}>
                                                     <div
-                                                        className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+                                                        className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-sm transition-transform duration-200 group-hover:scale-110 group-hover:rotate-3"
                                                         style={{ backgroundColor: step.bg, color: step.color }}
                                                     >
                                                         <step.icon size={28} />

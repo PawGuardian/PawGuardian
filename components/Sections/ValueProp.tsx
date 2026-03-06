@@ -27,7 +27,7 @@ const MaskedSymptomsCard = () => {
 
 export const ValueProp: React.FC = () => {
     return (
-        <section id="value" className="py-12 md:py-24 relative" style={{ backgroundColor: '#f8f4e8' }}>
+        <section id="value" className="py-12 md:py-24 relative bg-transparent">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-16">
                     <motion.h2
@@ -69,7 +69,7 @@ export const ValueProp: React.FC = () => {
                         </div>
 
                         <div className="grid gap-5">
-                            <Card className="bg-white border transition-all duration-300 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
+                            <Card className="bg-white border transition-all duration-200 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
                                 <div className="flex items-start gap-4 p-5">
                                     <div
                                         className="p-3 rounded-xl transition-colors shrink-0"
@@ -80,16 +80,16 @@ export const ValueProp: React.FC = () => {
                                     <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
                                             <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Early Detection, Not Late Panic</h4>
-                                            <ChevronDown size={20} className="text-gray-400 hidden md:block group-hover:text-[#FF8E00] group-hover:rotate-180 transition-all duration-300" />
+                                            <ChevronDown size={20} className="text-gray-400 hidden md:block group-hover:text-[#FF8E00] group-hover:rotate-180 transition-all duration-200" />
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
+                                        <div className="overflow-hidden transition-all duration-200 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
                                             <p className="text-gray-600 text-sm leading-relaxed">Regular at-home diagnostics establish baselines and catch issues before they become life-threatening.</p>
                                         </div>
                                     </div>
                                 </div>
                             </Card>
 
-                            <Card className="bg-white border transition-all duration-300 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
+                            <Card className="bg-white border transition-all duration-200 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
                                 <div className="flex items-start gap-4 p-5">
                                     <div
                                         className="p-3 rounded-xl transition-colors shrink-0"
@@ -100,16 +100,16 @@ export const ValueProp: React.FC = () => {
                                     <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
                                             <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Care Without the Clinic Stress</h4>
-                                            <ChevronDown size={20} className="text-gray-400 hidden md:block group-hover:text-[#FF8E00] group-hover:rotate-180 transition-all duration-300" />
+                                            <ChevronDown size={20} className="text-gray-400 hidden md:block group-hover:text-[#FF8E00] group-hover:rotate-180 transition-all duration-200" />
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
+                                        <div className="overflow-hidden transition-all duration-200 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
                                             <p className="text-gray-600 text-sm leading-relaxed">No travel. No anxious pets. No waiting rooms. We collect samples, vaccinate, and consult—right at home.</p>
                                         </div>
                                     </div>
                                 </div>
                             </Card>
 
-                            <Card className="bg-white border transition-all duration-300 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
+                            <Card className="bg-white border transition-all duration-200 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
                                 <div className="flex items-start gap-4 p-5">
                                     <div
                                         className="p-3 rounded-xl transition-colors shrink-0"
@@ -120,9 +120,9 @@ export const ValueProp: React.FC = () => {
                                     <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
                                             <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Predictable, Affordable Healthcare</h4>
-                                            <ChevronDown size={20} className="text-gray-400 hidden md:block group-hover:text-[#FF8E00] group-hover:rotate-180 transition-all duration-300" />
+                                            <ChevronDown size={20} className="text-gray-400 hidden md:block group-hover:text-[#FF8E00] group-hover:rotate-180 transition-all duration-200" />
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-500 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
+                                        <div className="overflow-hidden transition-all duration-200 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
                                             <p className="text-gray-600 text-sm leading-relaxed">Subscription pricing replaces surprise bills, emergency expenses, and last-minute decisions.</p>
                                         </div>
                                     </div>

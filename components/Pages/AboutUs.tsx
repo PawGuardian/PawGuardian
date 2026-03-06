@@ -68,14 +68,13 @@ interface AboutUsProps {
 
 export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => {
     return (
-        <main className="min-h-screen" style={{ backgroundColor: '#f8f4e8' }}>
+        <main className="min-h-screen bg-transparent">
 
             {/* ── Hero ─────────────────────────────────────────────────────── */}
-            <section className="relative overflow-hidden py-16 md:py-32 px-6" style={{ backgroundColor: '#f8f4e8' }}>
+            <section className="relative overflow-hidden py-16 md:py-32 px-6 bg-transparent">
                 {/* Decorative blobs */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                    <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-[120px]" style={{ backgroundColor: 'rgba(255,142,0,0.15)' }} />
-                    <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full blur-[120px]" style={{ backgroundColor: 'rgba(253,119,2,0.10)' }} />
+                    {/* Removed isolated blur blobs to allow global App glow */}
                 </div>
 
                 <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -161,7 +160,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
             </section>
 
             {/* ── Values ───────────────────────────────────────────────────── */}
-            <section className="py-12 md:py-24 px-6 border-t" style={{ backgroundColor: '#f8f4e8', borderColor: 'rgba(0,35,71,0.08)' }}>
+            <section className="py-12 md:py-24 px-6 border-t border-border bg-transparent">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#FF8E00' }}>
@@ -219,7 +218,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
 
 
             {/* ── CTA ──────────────────────────────────────────────────────── */}
-            <section className="py-12 md:py-24 px-6" style={{ backgroundColor: '#ffffff' }}>
+            <section className="py-12 md:py-24 px-6 bg-surface/50 backdrop-blur-sm">
                 <div className="max-w-2xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 border" style={{ backgroundColor: 'rgba(0,35,71,0.05)', borderColor: 'rgba(0,35,71,0.1)' }}>
                         <Stethoscope size={14} style={{ color: '#FF8E00' }} />

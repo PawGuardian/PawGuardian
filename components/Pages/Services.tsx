@@ -265,12 +265,12 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
             custom={index}
             viewport={{ once: true }}
             whileHover={{ y: -6, boxShadow: '0 20px 45px rgba(255,142,0,0.15)', transition: { duration: 0.2 } }}
-            className="group relative bg-white rounded-3xl border border-gray-100 shadow-sm transition-all overflow-hidden flex flex-col duration-300"
+            className="group relative bg-white rounded-3xl border border-gray-100 shadow-sm transition-all overflow-hidden flex flex-col duration-200"
         >
-            <div className="p-8 flex flex-col flex-1 relative z-10 transition-colors duration-300">
+            <div className="p-8 flex flex-col flex-1 relative z-10 transition-colors duration-200">
                 {/* Icon */}
                 <div
-                    className="icon-bg w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300"
+                    className="icon-bg w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-200"
                     style={{ backgroundColor: 'rgba(255,142,0,0.1)', color: '#FF8E00' }}
                 >
                     <Icon size={26} strokeWidth={1.6} />
@@ -278,15 +278,15 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
 
                 {/* Label + tagline */}
                 <p
-                    className="tagline-text text-xs font-bold tracking-[0.18em] uppercase mb-1 transition-colors duration-300"
+                    className="tagline-text text-xs font-bold tracking-[0.18em] uppercase mb-1 transition-colors duration-200"
                     style={{ color: '#FF8E00' }}
                 >
                     {service.tagline}
                 </p>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight transition-colors duration-200">
                     {service.label}
                 </h3>
-                <p className="desc-text text-gray-500 text-sm leading-relaxed mb-6 transition-colors duration-300">{service.description}</p>
+                <p className="desc-text text-gray-500 text-sm leading-relaxed mb-6 transition-colors duration-200">{service.description}</p>
 
                 {/* Feature list */}
                 <ul className="space-y-2 mt-auto">
@@ -295,10 +295,10 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
                             <CheckCircle2
                                 size={15}
                                 strokeWidth={2}
-                                className="feature-icon mt-0.5 shrink-0 transition-colors duration-300"
+                                className="feature-icon mt-0.5 shrink-0 transition-colors duration-200"
                                 style={{ color: '#FF8E00' }}
                             />
-                            <span className="feature-text text-gray-600 transition-colors duration-300">{f}</span>
+                            <span className="feature-text text-gray-600 transition-colors duration-200">{f}</span>
                         </li>
                     ))}
                 </ul>
@@ -335,7 +335,7 @@ const ExpandablePlan: React.FC<{
                     <p className="text-sm text-gray-500 leading-relaxed max-w-sm">{plan.subtitle}</p>
                 </div>
                 <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300"
+                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200"
                     style={{ backgroundColor: `${accentColor}1A`, transform: open ? 'rotate(180deg)' : 'none' }}
                 >
                     <ChevronDown size={18} style={{ color: accentColor }} />
@@ -432,18 +432,14 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
     };
 
     return (
-        <main className="min-h-screen" style={{ backgroundColor: '#f8f4e8' }}>
+        <main className="min-h-screen bg-transparent">
             {/* ── Hero ─────────────────────────────────────────────────────────────── */}
             <section
-                className="relative overflow-hidden pt-32 pb-16 px-6"
-                style={{ backgroundColor: '#f8f4e8' }}
+                className="relative overflow-hidden py-16 md:py-32 px-6 bg-transparent"
             >
                 {/* Decorative blobs */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                    <div
-                        className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full blur-[130px]"
-                        style={{ backgroundColor: 'rgba(255,142,0,0.15)' }}
-                    />
+                    {/* Removed isolated blur blobs to allow global App glow */}
                 </div>
 
                 <div className="relative z-10 max-w-4xl mx-auto text-center">
@@ -629,7 +625,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             </nav>
 
             {/* ── Services Grid (One-Time Services) ──────────────────────────────────────────────── */}
-            <section id="services-plans" className="py-12 md:py-24 px-6 bg-white" style={{ paddingTop: '5rem' }}>
+            <section id="services-plans" className="py-12 md:py-24 px-6 bg-transparent" style={{ paddingTop: '5rem' }}>
                 <div className="max-w-7xl mx-auto">
                     {/* EXISTING SECTION: One-Time Services */}
                     <div className="mb-16">
@@ -655,8 +651,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
 
             {/* ── Trust Banner ──────────────────────────────────────────────── */}
             <section
-                className="py-6 px-6 text-white text-sm font-medium"
-                style={{ backgroundColor: '#003F7D' }}
+                className="py-6 px-6 text-text-secondary text-sm font-medium border-y border-border bg-surface/40 backdrop-blur-md"
             >
                 <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-4 sm:gap-x-10 gap-y-2 text-center">
                     {[
@@ -770,10 +765,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
 
             {/* ── CTA ───────────────────────────────────────────────────────── */}
             <section
-                className="py-12 md:py-24 px-6"
-                style={{
-                    backgroundColor: '#ffffff'
-                }}
+                className="py-12 md:py-24 px-6 bg-surface/50 backdrop-blur-sm"
             >
                 <div className="max-w-2xl mx-auto text-center">
                     <div

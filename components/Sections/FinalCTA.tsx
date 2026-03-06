@@ -10,7 +10,7 @@ interface FinalCTAProps {
 
 export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking, navigate }) => {
   return (
-    <section className="py-16 md:py-32 relative overflow-hidden" style={{ backgroundColor: '#f8f4e8' }}>
+    <section className="py-16 md:py-32 relative overflow-hidden bg-transparent">
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full blur-[80px] pointer-events-none"
         style={{ background: 'radial-gradient(ellipse, rgba(255,142,0,0.12) 0%, rgba(123,147,240,0.08) 50%, transparent 80%)' }}

@@ -4,8 +4,7 @@ import { PawPrint, Instagram } from 'lucide-react';
 export const Footer: React.FC = () => {
   return (
     <footer
-      className="border-t py-12"
-      style={{ backgroundColor: '#f8f4e8', borderColor: 'rgba(0,35,71,0.12)' }}
+      className="border-t border-border pt-16 pb-8 bg-transparent text-text-secondary"
     >
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
         <div className="flex items-center gap-2">

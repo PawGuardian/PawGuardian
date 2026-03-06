@@ -15,30 +15,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
     rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-            display: ['Nunito', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
           },
           colors: {
-            brand: {
-              cream: '#f8f4e8',   // Primary background
-              navy: '#1e3470',    // Primary action / accent
-              dark: '#282239',    // Headers / dark surfaces
-              50: '#f8f4e8',
-              100: '#eee8d4',
-              500: '#1e3470',
-              600: '#19296a',     // Hover state for navy
-              900: '#282239',
+            background: 'var(--color-background)',
+            surface: 'var(--color-surface)',
+            primary: 'var(--color-primary)',
+            'primary-hover': 'var(--color-primary-hover)',
+            text: {
+              primary: 'var(--color-text-primary)',
+              secondary: 'var(--color-text-secondary)',
             },
+            border: 'var(--color-border)',
             accent: {
-              orange: '#fbbf24',  // Dog section
-              teal: '#0d9488',    // Cat section (replaces generic blue)
+              orange: 'var(--color-accent-orange)',
+              teal: 'var(--color-accent-teal)',
             }
           },
           animation: {
@@ -62,29 +61,56 @@
     }
   </script>
   <style>
-    /* ── Brand Tokens ───────────────────────────── */
+    /* ── SaaS Design Tokens ───────────────────────────── */
     :root {
-      --pg-cream: #f8f4e8;
-      --pg-navy: #1e3470;
-      --pg-dark: #282239;
-      --pg-navy-hover: #19296a;
-      --font-display: 'Nunito', sans-serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
+      /* Colors */
+      --color-primary: #111827;
+      /* Charcoal */
+      --color-primary-hover: #1f2937;
+      /* Slightly lighter charcoal */
+
+      --color-background: #f8f4e8;
+      /* Brand Cream */
+      --color-surface: #ffffff;
+      /* Pure White for cards/containers */
+
+      --color-text-primary: #111827;
+      /* High contrast text */
+      --color-text-secondary: #4b5563;
+      /* Muted body text */
+
+      --color-border: #e5e7eb;
+      /* Light gray for subtle structure */
+
+      --color-accent-orange: #FF8E00;
+      /* Primary brand highlight */
+      --color-accent-teal: #0d9488;
+      /* Secondary accent */
+
+      /* Typography */
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
     }
 
-    /* ── Typography ─────────────────────────────── */
+    /* ── Typography Scale & Roots ─────────────────────────────── */
     body {
       font-family: var(--font-body);
+      color: var(--color-text-primary);
+      background-color: var(--color-background);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Nunito on all headings — one rule, whole site */
+    /* Plus Jakarta Sans on all headings */
     h1,
     h2,
     h3,
-    h4 {
+    h4,
+    h5,
+    h6 {
       font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     /* ── Scrollbar ──────────────────────────────── */
@@ -93,16 +119,16 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: var(--pg-cream);
+      background: var(--color-background);
     }
 
     ::-webkit-scrollbar-thumb {
-      background: var(--pg-navy);
+      background: var(--color-primary);
       border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: var(--pg-dark);
+      background: var(--color-primary-hover);
     }
   </style>
   <script type="importmap">

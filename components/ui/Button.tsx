@@ -7,10 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode;
 }
 
-const PRIMARY_STYLE: React.CSSProperties = {
-  backgroundColor: '#111827',
-  boxShadow: '0 4px 14px rgba(17,24,39,0.30)',
-};
+// Removing hardcoded PRIMARY_STYLE in favor of Tailwind config tokens
 
 export const Button: React.FC<ButtonProps> = ({
   children,
@@ -24,9 +21,9 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = "inline-flex items-center justify-center font-medium transition-all duration-200 ease-in-out rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variants = {
-    primary: "text-white border border-transparent",
-    secondary: "bg-white text-black border border-gray-200 hover:border-gray-400 hover:shadow-md",
-    outline: "bg-transparent text-gray-600 border border-gray-200 hover:text-black hover:border-black",
+    primary: "bg-primary text-white border border-transparent shadow-[0_4px_14px_rgba(17,24,39,0.25)] hover:bg-primary-hover",
+    secondary: "bg-surface text-text-primary border border-border shadow-sm hover:border-gray-400 hover:shadow-md",
+    outline: "bg-transparent text-text-secondary border border-border hover:text-text-primary hover:border-text-primary",
   };
 
   const sizes = {
@@ -35,17 +32,14 @@ export const Button: React.FC<ButtonProps> = ({
     lg: "text-lg px-8 py-4",
   };
 
-  // For primary variant, merge brand navy as default bg — callsite style prop overrides take priority
-  const mergedStyle = variant === 'primary'
-    ? { ...PRIMARY_STYLE, ...style }
-    : style;
+  // Relying completely on Tailwind classes array merged via className
 
   return (
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-      style={mergedStyle}
+      style={style}
       {...props}
     >
       {children}

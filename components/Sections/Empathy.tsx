@@ -5,7 +5,7 @@ import { Card } from '../ui/Card';
 
 export const Empathy: React.FC = () => {
     return (
-        <section className="py-12 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#f8f4e8' }}>
+        <section className="py-12 md:py-24 relative overflow-hidden bg-transparent">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
 

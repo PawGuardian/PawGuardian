@@ -81,7 +81,7 @@ const ExpandableVetRole: React.FC<{
           </div>
         </div>
         <div
-          className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 mt-2"
+          className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 mt-2"
           style={{ backgroundColor: 'rgba(0,63,125,0.05)', transform: open ? 'rotate(180deg)' : 'none' }}
         >
           <ChevronDown size={18} style={{ color: '#FF8E00' }} />
@@ -310,13 +310,10 @@ export const Vets: React.FC<VetsProps> = () => {
   };
 
   return (
-    <main className="min-h-screen" style={{ backgroundColor: '#f8f4e8' }}>
+    <main className="min-h-screen bg-transparent">
 
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
-      <section
-        className="relative overflow-hidden py-16 md:pb-32 px-6"
-        style={{ backgroundColor: '#f8f4e8' }}
-      >
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-6 overflow-hidden bg-transparent">
         {/* Decorative blobs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div
@@ -387,7 +384,7 @@ export const Vets: React.FC<VetsProps> = () => {
       </section>
 
       {/* ── Benefits Grid ─────────────────────────────────────────────────────── */}
-      <section className="py-12 md:py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
+      <section className="py-12 md:py-24 px-6 bg-transparent">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <span
@@ -410,7 +407,7 @@ export const Vets: React.FC<VetsProps> = () => {
       </section>
 
       {/* ── How it Works ──────────────────────────────────────────────────────── */}
-      <section className="py-12 md:py-24 px-6" style={{ backgroundColor: '#ffffff' }}>
+      <section className="py-12 md:py-24 px-6 bg-surface/50 backdrop-blur-sm">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <span
@@ -461,7 +458,7 @@ export const Vets: React.FC<VetsProps> = () => {
       </section>
 
       {/* ── Signup Form ───────────────────────────────────────────────────────── */}
-      <section id="signup" className="py-12 md:py-24 px-6" style={{ backgroundColor: '#f8f4e8' }}>
+      <section id="signup" className="py-12 md:py-24 px-6 bg-transparent">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <span

@@ -35,7 +35,7 @@ const pillars = [
 
 export const HowItWorks: React.FC = () => {
   return (
-    <section id="how-it-works" className="py-12 md:py-24 border-t" style={{ backgroundColor: '#f8f4e8', borderColor: 'rgba(0,35,71,0.10)' }}>
+    <section id="how-it-works" className="py-12 md:py-24 border-t border-border bg-transparent">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12 md:mb-20">
           <span

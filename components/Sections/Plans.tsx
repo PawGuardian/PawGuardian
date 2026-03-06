@@ -37,12 +37,8 @@ interface PlansProps {
 
 export const Plans: React.FC<PlansProps> = ({ navigate }) => {
     return (
-        <section id="plans" className="py-12 md:py-24 relative overflow-hidden" style={{ backgroundColor: '#f8f4e8' }}>
-            {/* Background Effects */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 right-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full blur-[120px] opacity-20" style={{ backgroundColor: '#FF8E00' }} />
-                <div className="absolute bottom-0 left-1/4 w-[250px] h-[250px] md:w-[500px] md:h-[500px] rounded-full blur-[100px] opacity-10" style={{ backgroundColor: '#FD7702' }} />
-            </div>
+        <section id="plans" className="py-12 md:py-24 relative overflow-hidden bg-transparent">
+            {/* Background Effects removed to allow global App.tsx glow to show perfectly seamlessly */}
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
@@ -75,14 +71,14 @@ export const Plans: React.FC<PlansProps> = ({ navigate }) => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.15 }}
                             viewport={{ once: true }}
-                            className="bg-white p-8 rounded-3xl transition-all flex flex-col h-full group hover:-translate-y-2 duration-300"
+                            className="bg-surface p-8 rounded-[1.5rem] transition-all flex flex-col h-full group hover:-translate-y-1.5 duration-200 ease-in-out"
                             style={{
                                 boxShadow: '0 10px 40px rgba(0, 35, 71, 0.05)',
                                 border: '1px solid rgba(0, 35, 71, 0.08)'
                             }}
                         >
                             <div className="flex items-center justify-between mb-6">
-                                <div className="p-4 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300 group-hover:rotate-3 shadow-sm" style={{ backgroundColor: `${stage.color}15`, color: stage.color }}>
+                                <div className="p-4 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105 duration-200 ease-in-out shadow-sm" style={{ backgroundColor: `${stage.color}15`, color: stage.color }}>
                                     <stage.icon size={32} strokeWidth={2.5} />
                                 </div>
                             </div>
