@@ -32,57 +32,57 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           </span>
         </motion.div>
 
-        {/* Floating Hand-Drawn Annotations */}
+        {/* Floating Refined Annotations */}
         {/* Top Left */}
         <motion.div
-          initial={{ opacity: 0, x: -20, rotate: -10 }}
-          animate={{ opacity: 1, x: 0, rotate: -12 }}
+          initial={{ opacity: 0, x: -20, rotate: -5 }}
+          animate={{ opacity: 1, x: 0, rotate: -8 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="absolute top-12 left-0 md:left-12 hidden lg:flex items-end gap-2 text-accent-orange"
+          className="absolute top-16 left-4 md:left-12 hidden lg:flex items-center gap-3 text-accent-orange"
         >
-          <span className="font-medium text-sm xl:text-base border-b-2 border-accent-orange/30 pb-0.5" style={{ fontFamily: 'var(--font-heading)' }}>Subscription Based</span>
-          <svg width="40" height="40" viewBox="0 0 100 100" fill="none" className="translate-y-4">
-            <path d="M10 20 Q 50 20, 80 80 m -20 -10 l 20 10 l 0 -20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <span className="font-semibold text-sm xl:text-base tracking-tight" style={{ color: '#FF8E00' }}>Subscription Care</span>
+          <svg width="45" height="25" viewBox="0 0 45 25" fill="none" className="opacity-60">
+            <path d="M2 2C15 2 25 10 40 22M40 22L32 20M40 22L38 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </motion.div>
 
         {/* Top Right */}
         <motion.div
-          initial={{ opacity: 0, x: 20, rotate: 10 }}
-          animate={{ opacity: 1, x: 0, rotate: 8 }}
+          initial={{ opacity: 0, x: 20, rotate: 5 }}
+          animate={{ opacity: 1, x: 0, rotate: 6 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="absolute top-8 right-0 md:right-4 hidden lg:flex items-end gap-2 text-blue-600"
+          className="absolute top-12 right-4 md:right-8 hidden lg:flex items-center gap-3 text-[#003F7D]"
         >
-          <svg width="40" height="40" viewBox="0 0 100 100" fill="none" className="translate-y-4 -scale-x-100">
-            <path d="M10 20 Q 50 20, 80 80 m -20 -10 l 20 10 l 0 -20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="45" height="25" viewBox="0 0 45 25" fill="none" className="opacity-60 -scale-x-100">
+            <path d="M2 2C15 2 25 10 40 22M40 22L32 20M40 22L38 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <span className="font-medium text-sm xl:text-base border-b-2 border-blue-600/30 pb-0.5" style={{ fontFamily: 'var(--font-heading)' }}>Diagnostics, Preventive &gt; Reactive</span>
+          <span className="font-semibold text-sm xl:text-base tracking-tight">Preventive First</span>
         </motion.div>
 
         {/* Bottom Left */}
         <motion.div
-          initial={{ opacity: 0, x: -20, rotate: 6 }}
-          animate={{ opacity: 1, x: 0, rotate: 4 }}
+          initial={{ opacity: 0, x: -20, rotate: 3 }}
+          animate={{ opacity: 1, x: 0, rotate: 2 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="absolute bottom-32 left-8 md:left-16 hidden lg:flex flex-col items-center gap-1 text-teal-600"
+          className="absolute bottom-40 left-12 md:left-20 hidden lg:flex flex-col items-start gap-1 text-teal-600"
         >
-          <svg width="30" height="50" viewBox="0 0 50 100" fill="none" className="rotate-12 translate-x-4">
-            <path d="M25 90 Q 40 50, 25 10 m -10 20 l 10 -20 l 10 20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <span className="font-semibold text-sm xl:text-base tracking-tight">At-Home Diagnostics</span>
+          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" className="opacity-60 -scale-x-100">
+            <path d="M58 2C45 2 30 15 2 18M2 18L10 16M2 18L4 10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <span className="font-medium text-sm xl:text-base border-b-2 border-teal-600/30 pb-0.5" style={{ fontFamily: 'var(--font-heading)' }}>At Home as far as possible</span>
         </motion.div>
 
         {/* Bottom Right */}
         <motion.div
-          initial={{ opacity: 0, x: 20, rotate: -6 }}
-          animate={{ opacity: 1, x: 0, rotate: -4 }}
+          initial={{ opacity: 0, x: 20, rotate: -3 }}
+          animate={{ opacity: 1, x: 0, rotate: -2 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="absolute bottom-28 right-8 md:right-16 hidden lg:flex flex-col items-center gap-1 text-purple-600"
+          className="absolute bottom-36 right-12 md:right-20 hidden lg:flex flex-col items-end gap-1 text-purple-600"
         >
-          <svg width="30" height="50" viewBox="0 0 50 100" fill="none" className="-rotate-12 -translate-x-4">
-            <path d="M25 90 Q 10 50, 25 10 m -10 20 l 10 -20 l 10 20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <span className="font-semibold text-sm xl:text-base tracking-tight">Complete Ecosystem</span>
+          <svg width="60" height="20" viewBox="0 0 60 20" fill="none" className="opacity-60">
+            <path d="M58 2C45 2 30 15 2 18M2 18L10 16M2 18L4 10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <span className="font-medium text-sm xl:text-base border-b-2 border-purple-600/30 pb-0.5" style={{ fontFamily: 'var(--font-heading)' }}>Ecosystem - everything under one roof</span>
         </motion.div>
 
         {/* Heading */}

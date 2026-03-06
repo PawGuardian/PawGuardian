@@ -67,9 +67,31 @@ export const ValueProp: React.FC = () => {
                                         className="p-3 rounded-xl transition-colors shrink-0"
                                         style={{ backgroundColor: 'rgba(255,142,0,0.15)', color: '#FF8E00' }}
                                     >
+                                        <ShieldCheck size={24} />
+                                    </div>
+                                    <div className="flex-1 mt-1">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Expert Oversight</h4>
+                                        </div>
+                                        <div className="md:mt-2">
+                                            <p className="text-gray-600 text-sm leading-relaxed">Licensed veterinarians manage every detail of your pet's health plan.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Card>
+
+                            <Card className="bg-white border transition-all duration-200 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
+                                <div className="flex items-start gap-4 p-5">
+                                    <div
+                                        className="p-3 rounded-xl transition-colors shrink-0"
+                                        style={{ backgroundColor: 'rgba(255,142,0,0.15)', color: '#FF8E00' }}
+                                    >
                                         <AlertCircle size={24} />
                                     </div>
                                     <div className="flex-1 mt-1">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Early Detection</h4>
+                                        </div>
                                         <div className="md:mt-2">
                                             <p className="text-gray-600 text-sm leading-relaxed">Catch health issues before they become emergencies.</p>
                                         </div>

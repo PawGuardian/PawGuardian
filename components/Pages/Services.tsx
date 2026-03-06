@@ -478,15 +478,28 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                 </div>
             </section>         {/* NEW SECTION: Subscriptions */}
             <div className="mb-16 md:mb-32">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
                         Subscription Plans
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
                         Comprehensive care tailored to your pet's life stage.
                     </p>
-                    <p className="text-sm tracking-wide uppercase text-[#FF8E00] font-semibold mt-4 mb-4">
-                        Click on any of the plans below to know more
+
+                    {/* Subtle Promise Bar */}
+                    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mb-8 text-sm font-medium text-gray-600">
+                        <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#FF8E00]" />
+                            <span>Year-Round Vet Access & Tele-consults</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#FF8E00]" />
+                            <span>Exclusive Member Rates at Certified Clinics</span>
+                        </div>
+                    </div>
+
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-[#FF8E00] font-bold mb-4">
+                        Click on any plan to explore
                     </p>
                 </div>
 
@@ -574,12 +587,12 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             </div>
 
             {/* ── Individual Services Section ──────────────────────────────────────────────── */}
-            <div className="text-center mb-8 mt-12 md:mt-24">
+            <div className="text-center mb-12 mt-16 md:mt-32">
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
                     Individual Care
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Book specific services as needed.
+                    Not ready for a subscription? Book these services one-time, anytime.
                 </p>
             </div>
 
@@ -623,16 +636,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             <section id="services-plans" className="py-12 md:py-24 px-6 bg-transparent" style={{ paddingTop: '5rem' }}>
                 <div className="max-w-7xl mx-auto">
                     {/* EXISTING SECTION: One-Time Services */}
-                    <div className="mb-16">
-                        <div className="text-center mb-12">
-                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
-                                Individual Care Components
-                            </h2>
-                            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-                                Not ready for a subscription? Book these services one-time, anytime.
-                            </p>
-                        </div>
-                    </div>
+
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {services.map((service, i) => (
