@@ -114,7 +114,7 @@ const services = [
         label: 'Vaccination',
         tagline: 'Immunity & Protection',
         description:
-            'Stress-free shots in your living room. Custom schedules.tered by licensed vets at your doorstep.',
+            'Stress-free shots in your living room. Custom schedules.',
         highlight: 'from-[#FF8E00] to-[#FF8E00]',
         accent: '#FF8E00',
         accentLight: 'rgba(255,142,0,0.08)',
@@ -181,7 +181,7 @@ const services = [
         label: 'Medicated Grooming',
         tagline: 'Lab Quality at Home',
         description:
-            'Comprehensive lab tests at home. Catch issues early. and coat quality. Species-appropriate products, zero stress in familiar surroundings.',
+            'Comprehensive lab tests at home. Catch issues early.',
         highlight: 'from-[#FF5003] to-[#FF5003]',
         accent: '#FF5003',
         accentLight: 'rgba(234,88,12,0.08)',
