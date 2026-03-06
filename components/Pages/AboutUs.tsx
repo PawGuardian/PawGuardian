@@ -95,7 +95,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                         transition={{ duration: 0.7 }}
                         className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-gray-900"
                     >
-                        Built for Pet Lovers
+                        For Pet Lovers, by pet lovers
                     </motion.h1>
 
                     <motion.p
@@ -111,104 +111,91 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
 
 
 
-            {/* ── Mission / Vision ─────────────────────────────────────────── */}
-            <section className="py-12 md:py-24 px-6">
-                <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                    {/* Image side */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        className="relative"
-                    >
-                        <img
-                            src="/founders.jpg"
-                            alt="Founders of PawGuardian"
-                            className="w-full h-[280px] md:h-[480px] object-cover rounded-3xl shadow-2xl shadow-blue-100"
-                        />
+            {/* ── Mission / Vision & Values Wrapper ─────────────────────────────────────────── */}
+            <div className="max-w-[1400px] mx-auto px-6 pb-12 md:pb-24 pt-6">
+                <div className="bg-white/80 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-gray-100 shadow-sm relative overflow-hidden">
 
-                    </motion.div>
-
-                    {/* Text side */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                    >
-                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#FF8E00' }}>
-                            Our Story
-                        </span>
-                        <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-                            A passion for pets, <br />
-                            <span style={{ color: '#FF8E00' }}>on a mission.</span>
-                        </h2>
-                        <p className="mt-6 text-gray-600 text-lg leading-relaxed">
-                            We are Atharavaa Khanzode and Aditya Bendi, two third-year students from BITS Pilani. Our journey with PawGuardian began not in a boardroom, but from a profound, shared passion for pets and a harsh reality we couldn't ignore.
-                        </p>
-                        <p className="mt-4 text-gray-500 leading-relaxed">
-                            Time and again, we came across heartbreaking stories of pets passing away simply because their conditions were detected too late. These pets never even got the chance for a fair fight. We realized the system was inherently reactive, forcing pet parents to wait until symptoms became critical. PawGuardian was built to flip this narrative, ensuring every pet gets the early detection and preventive care they truly deserve.
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* ── Values ───────────────────────────────────────────────────── */}
-            <section className="py-12 md:py-24 px-6 border-t border-border bg-transparent">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#FF8E00' }}>
-                            What Drives Us
-                        </span>
-                        <h2 className="mt-2 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
-                            Our Core Values
-                        </h2>
-                    </div>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {values.map((v, i) => (
+                    {/* Mission / Vision Section */}
+                    <section className="pb-16 md:pb-24 border-b border-gray-100">
+                        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                            {/* Image side */}
                             <motion.div
-                                key={v.title}
-                                variants={fadeUp}
-                                initial="hidden"
-                                whileInView="visible"
-                                custom={i}
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                whileHover={{ y: -6 }}
-                                className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm transition-all group"
-                                style={{ '--tw-shadow-color': 'rgba(0,35,71,0.08)' } as React.CSSProperties}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.backgroundColor = v.color;
-                                    const iconDiv = e.currentTarget.querySelector('.icon-bg') as HTMLElement;
-                                    if (iconDiv) { iconDiv.style.backgroundColor = 'rgba(255,255,255,0.2)'; iconDiv.style.color = 'white'; }
-                                    const title = e.currentTarget.querySelector('h3') as HTMLElement;
-                                    if (title) title.style.color = 'white';
-                                    const desc = e.currentTarget.querySelector('p') as HTMLElement;
-                                    if (desc) desc.style.color = 'rgba(255,255,255,0.9)';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.backgroundColor = 'white';
-                                    const iconDiv = e.currentTarget.querySelector('.icon-bg') as HTMLElement;
-                                    if (iconDiv) { iconDiv.style.backgroundColor = `${v.color}1A`; iconDiv.style.color = v.color; }
-                                    const title = e.currentTarget.querySelector('h3') as HTMLElement;
-                                    if (title) title.style.color = '#111827';
-                                    const desc = e.currentTarget.querySelector('p') as HTMLElement;
-                                    if (desc) desc.style.color = '#6B7280';
-                                }}
+                                transition={{ duration: 0.7 }}
+                                className="relative"
                             >
-                                <div
-                                    className="icon-bg w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-all group-hover:scale-110"
-                                    style={{ color: v.color, backgroundColor: `${v.color}1A` }}
-                                >
-                                    <v.icon size={26} strokeWidth={1.5} />
-                                </div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-2 transition-colors">{v.title}</h3>
-                                <p className="text-gray-500 text-sm leading-relaxed transition-colors">{v.desc}</p>
+                                <img
+                                    src="/founders.jpg"
+                                    alt="Founders of PawGuardian"
+                                    className="w-full h-[280px] md:h-[480px] object-cover rounded-[32px] shadow-2xl shadow-blue-100"
+                                />
                             </motion.div>
-                        ))}
-                    </div>
+
+                            {/* Text side */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.7 }}
+                            >
+                                <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#FF8E00' }}>
+                                    Our Story
+                                </span>
+                                <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl leading-tight">
+                                    A passion for pets, <br />
+                                    <span style={{ color: '#FF8E00' }}>on a mission.</span>
+                                </h2>
+                                <p className="mt-8 text-gray-600 text-lg leading-relaxed font-medium">
+                                    We are Atharavaa Khanzode and Aditya Bendi, two third-year students from BITS Pilani. Our journey with PawGuardian began not in a boardroom, but from a profound, shared passion for pets and a harsh reality we couldn't ignore.
+                                </p>
+                                <p className="mt-4 text-gray-500 leading-relaxed font-medium">
+                                    Time and again, we came across heartbreaking stories of pets passing away simply because their conditions were detected too late. These pets never even got the chance for a fair fight. We realized the system was inherently reactive, forcing pet parents to wait until symptoms became critical. PawGuardian was built to flip this narrative, ensuring every pet gets the early detection and preventive care they truly deserve.
+                                </p>
+                            </motion.div>
+                        </div>
+                    </section>
+
+                    {/* Values Section */}
+                    <section className="pt-16 md:pt-24 bg-transparent">
+                        <div className="max-w-6xl mx-auto">
+                            <div className="text-center mb-16">
+                                <span className="font-semibold tracking-wide uppercase text-sm" style={{ color: '#FF8E00' }}>
+                                    What Drives Us
+                                </span>
+                                <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
+                                    Our Core Values
+                                </h2>
+                            </div>
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                                {values.map((v, i) => (
+                                    <motion.div
+                                        key={v.title}
+                                        variants={fadeUp}
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        custom={i}
+                                        viewport={{ once: true }}
+                                        whileHover={{ y: -6 }}
+                                        className="bg-white rounded-[24px] border border-gray-100 p-8 shadow-sm hover:shadow-md transition-all group flex flex-col h-full"
+                                        style={{ '--tw-shadow-color': 'rgba(0,35,71,0.08)' } as React.CSSProperties}
+                                    >
+                                        <div
+                                            className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-105"
+                                            style={{ color: v.color, backgroundColor: `${v.color}15` }}
+                                        >
+                                            <v.icon size={28} strokeWidth={2} />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight group-hover:text-[#003F7D] transition-colors">{v.title}</h3>
+                                        <p className="text-gray-500 text-sm leading-relaxed font-medium flex-grow">{v.desc}</p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </div>
 
 
 

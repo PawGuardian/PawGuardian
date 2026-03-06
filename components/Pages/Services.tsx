@@ -27,7 +27,7 @@ import { Button } from '../ui/Button';
 
 const dogPlans = [
     {
-        title: "Puppy Pack (0–1.5 years)",
+        title: "Puppy Pack",
         subtitle: "Everything your growing pup needs for a strong immune system and healthy development.",
         features: [
             "Complete Vaccination Plan: DHPPiL (9-in-1), Anti-Rabies, and all necessary Booster Vaccinations.",
@@ -39,7 +39,7 @@ const dogPlans = [
         ]
     },
     {
-        title: "Adult Dog Pack (1.5–7 years)",
+        title: "Adult Dog Pack",
         subtitle: "Keep your active dog moving comfortably and feeling their best.",
         features: [
             "Comprehensive Physical Exam: Assessment of eyes, ears, skin, fur, nails, dental health, plus Joint Assessment.",
@@ -51,7 +51,7 @@ const dogPlans = [
         ]
     },
     {
-        title: "Senior Dog Pack (7+ years)",
+        title: "Senior Dog Pack",
         subtitle: "Advanced screening and joint care to support your loyal companion as they age.",
         features: [
             "Comprehensive Physical Exam: Assessment of eyes, ears, skin, fur, nails, dental health, plus Joint Assessment.",
@@ -68,7 +68,7 @@ const dogPlans = [
 
 const catPlans = [
     {
-        title: "Kitten Pack (0–1.5 years)",
+        title: "Kitten Pack",
         subtitle: "Give your kitten the perfect start to a healthy life.",
         features: [
             "Complete Vaccination Plan: FVRCP (3-in-1), Anti-Rabies, and all necessary Booster Vaccinations.",
@@ -82,7 +82,7 @@ const catPlans = [
         ]
     },
     {
-        title: "Adult Cat Pack (2–7 years)",
+        title: "Adult Cat Pack",
         subtitle: "Maintain their prime health with routine maintenance and monitoring.",
         features: [
             "Comprehensive Physical Exam: Assessment of eyes, ears, skin, fur, nails, and dental health.",
@@ -93,7 +93,7 @@ const catPlans = [
         ]
     },
     {
-        title: "Senior Cat Pack (7+ years)",
+        title: "Senior Cat Pack",
         subtitle: "Specialized, gentle care to ensure comfort and longevity in their golden years.",
         features: [
             "Comprehensive Physical Exam: Assessment of eyes, ears, skin, fur, nails, and dental health.",
@@ -476,177 +476,179 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                         From rapid diagnostics to expert tele-consults — everything your pet needs to thrive, without the clinic anxiety.
                     </motion.p>
                 </div>
-            </section>         {/* NEW SECTION: Subscriptions */}
-            <div className="mb-16 md:mb-32">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
-                        Subscription Plans
-                    </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-                        Comprehensive care tailored to your pet's life stage.
-                    </p>
+            </section>            {/* NEW SECTION: Subscriptions */}
+            <div className="max-w-[1400px] mx-auto px-6 pb-16 md:pb-32">
+                <div className="bg-white/80 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-gray-100 shadow-sm">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
+                            Subscription Plans
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+                            Comprehensive care tailored to your pet's life stage.
+                        </p>
 
-                    {/* Subtle Promise Bar */}
-                    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mb-8 text-sm font-medium text-gray-600">
-                        <div className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#FF8E00]" />
-                            <span>Year-Round Vet Access & Tele-consults</span>
+                        {/* Subtle Promise Bar */}
+                        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mb-8 text-sm font-medium text-gray-600">
+                            <div className="flex items-center gap-2">
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#FF8E00]" />
+                                <span>Year-Round Vet Access & Tele-consults</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#FF8E00]" />
+                                <span>Exclusive Member Rates at Certified Clinics</span>
+                            </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#FF8E00]" />
-                            <span>Exclusive Member Rates at Certified Clinics</span>
-                        </div>
+
+                        <p className="text-[10px] tracking-[0.2em] uppercase text-[#FF8E00] font-bold mb-4">
+                            Click on any plan to explore
+                        </p>
                     </div>
 
-                    <p className="text-[10px] tracking-[0.2em] uppercase text-[#FF8E00] font-bold mb-4">
-                        Click on any plan to explore
-                    </p>
-                </div>
+                    <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
+                        {/* Dog Subscriptions */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="bg-white p-8 md:p-12 rounded-[32px] border border-gray-100 shadow-xl"
+                        >
+                            <h3 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                                <Dog size={32} style={{ color: '#FF8E00' }} />
+                                For Dogs
+                            </h3>
+                            <div className="space-y-4">
+                                {dogPlans.map((plan, i) => (
+                                    <ExpandablePlan
+                                        key={i}
+                                        plan={plan}
+                                        index={i}
+                                        accentColor="#FF8E00"
+                                        hoverColor="#FF8E00"
+                                    />
+                                ))}
+                            </div>
+                            <div className="mt-8">
+                                <Button
+                                    className="w-full text-white border-none shadow-lg py-4 text-lg"
+                                    style={{ backgroundColor: '#FF8E00', boxShadow: '0 8px 24px rgba(255,142,0,0.25)' }}
+                                    onClick={onOpenBooking}
+                                >
+                                    Enroll Your Dog
+                                </Button>
+                            </div>
+                        </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-                    {/* Dog Subscriptions */}
+                        {/* Cat Subscriptions */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="bg-white p-8 md:p-12 rounded-[32px] border border-gray-100 shadow-xl"
+                        >
+                            <h3 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                                <Cat size={32} style={{ color: '#FD7702' }} />
+                                For Cats
+                            </h3>
+                            <div className="space-y-4">
+                                {catPlans.map((plan, i) => (
+                                    <ExpandablePlan
+                                        key={i}
+                                        plan={plan}
+                                        index={i}
+                                        accentColor="#FD7702"
+                                        hoverColor="#FD7702"
+                                    />
+                                ))}
+                            </div>
+                            <div className="mt-8">
+                                <Button
+                                    className="w-full text-white border-none shadow-lg py-4 text-lg flex items-center justify-center gap-2"
+                                    style={{ backgroundColor: '#FD7702', boxShadow: '0 8px 24px rgba(253,119,2,0.25)' }}
+                                    onClick={onOpenBooking}
+                                >
+                                    Enroll Your Cat
+                                </Button>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    {/* Disclaimer */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-white p-8 md:p-12 rounded-3xl border shadow-xl"
-                        style={{ borderColor: 'rgba(0,63,125,0.1)' }}
+                        className="mt-12 bg-gray-50/80 border border-gray-100 shadow-sm rounded-2xl p-6 md:p-8 max-w-4xl mx-auto"
                     >
-                        <h3 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                            <Dog size={32} style={{ color: '#FF8E00' }} />
-                            For Dogs
-                        </h3>
-                        <div className="space-y-4">
-                            {dogPlans.map((plan, i) => (
-                                <ExpandablePlan
-                                    key={i}
-                                    plan={plan}
-                                    index={i}
-                                    accentColor="#FF8E00"
-                                    hoverColor="#FF8E00"
-                                />
-                            ))}
-                        </div>
-                        <div className="mt-8">
-                            <Button
-                                className="w-full text-white border-none shadow-lg py-4 text-lg"
-                                style={{ backgroundColor: '#FF8E00', boxShadow: '0 8px 24px rgba(255,142,0,0.25)' }}
-                                onClick={onOpenBooking}
-                            >
-                                Enroll Your Dog
-                            </Button>
-                        </div>
-                    </motion.div>
-
-                    {/* Cat Subscriptions */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="bg-white p-8 md:p-12 rounded-3xl border shadow-xl"
-                        style={{ borderColor: 'rgba(0,63,125,0.1)' }}
-                    >
-                        <h3 className="text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                            <Cat size={32} style={{ color: '#FD7702' }} />
-                            For Cats
-                        </h3>
-                        <div className="space-y-4">
-                            {catPlans.map((plan, i) => (
-                                <ExpandablePlan
-                                    key={i}
-                                    plan={plan}
-                                    index={i}
-                                    accentColor="#FD7702"
-                                    hoverColor="#FD7702"
-                                />
-                            ))}
-                        </div>
-                        <div className="mt-8">
-                            <Button
-                                className="w-full text-white border-none shadow-lg py-4 text-lg flex items-center justify-center gap-2"
-                                style={{ backgroundColor: '#FD7702', boxShadow: '0 8px 24px rgba(253,119,2,0.25)' }}
-                                onClick={onOpenBooking}
-                            >
-                                Enroll Your Cat
-                            </Button>
-                        </div>
+                        <p className="text-gray-500 text-sm leading-relaxed text-center sm:text-left">
+                            <strong className="text-gray-900">A Note on Advanced Diagnostics:</strong> At PawGuardian, we are constantly expanding our care network. Please note that the availability of certain specialized tests—such as early-detection cancer markers and advanced cardiac parameters—is subject to local laboratory infrastructure and viability in your specific region (e.g., within Goa). We will always transparently advise you on the best available testing options in your area during your consultations.
+                        </p>
                     </motion.div>
                 </div>
-
-                {/* Disclaimer */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mt-12 bg-gray-50 border shadow-sm rounded-2xl p-6 md:p-8 max-w-4xl mx-auto"
-                >
-                    <p className="text-gray-500 text-sm leading-relaxed text-center sm:text-left">
-                        <strong className="text-gray-900">A Note on Advanced Diagnostics:</strong> At PawGuardian, we are constantly expanding our care network. Please note that the availability of certain specialized tests—such as early-detection cancer markers and advanced cardiac parameters—is subject to local laboratory infrastructure and viability in your specific region (e.g., within Goa). We will always transparently advise you on the best available testing options in your area during your consultations.
-                    </p>
-                </motion.div>
             </div>
 
             {/* ── Individual Services Section ──────────────────────────────────────────────── */}
-            <div className="text-center mb-12 mt-16 md:mt-32">
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
-                    Individual Care
-                </h2>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Not ready for a subscription? Book these services one-time, anytime.
-                </p>
-            </div>
-
-            {/* ── Service Pills ──────────────────────────────────────────────── */}
-            <style>{`.pill-nav::-webkit-scrollbar { display: none; }`}</style>
-            <nav className="sticky top-20 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100 py-4">
-                <div
-                    className="pill-nav flex items-center justify-center gap-3 overflow-x-auto"
-                    style={{ paddingInline: '1.5rem', scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
-                >
-                    {services.map((s) => (
-                        <a
-                            key={s.id}
-                            href={`#${s.id}`}
-                            className="shrink-0 text-sm font-semibold px-3 sm:px-5 py-2 rounded-full border transition-all"
-                            style={{
-                                borderColor: 'rgba(255,142,0,0.20)',
-                                color: '#4B5563',
-                            }}
-                            onMouseEnter={(e) => {
-                                (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
-                                    '#FF8E00';
-                                (e.currentTarget as HTMLAnchorElement).style.color = '#fff';
-                                (e.currentTarget as HTMLAnchorElement).style.borderColor =
-                                    '#FF8E00';
-                            }}
-                            onMouseLeave={(e) => {
-                                (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '';
-                                (e.currentTarget as HTMLAnchorElement).style.color = '#4a4a6a';
-                                (e.currentTarget as HTMLAnchorElement).style.borderColor =
-                                    'rgba(0,35,71,0.20)';
-                            }}
-                        >
-                            {s.label}
-                        </a>
-                    ))}
-                </div>
-            </nav>
-
-            {/* ── Services Grid (One-Time Services) ──────────────────────────────────────────────── */}
-            <section id="services-plans" className="py-12 md:py-24 px-6 bg-transparent" style={{ paddingTop: '5rem' }}>
-                <div className="max-w-7xl mx-auto">
-                    {/* EXISTING SECTION: One-Time Services */}
-
-
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {services.map((service, i) => (
-                            <div id={service.id} key={service.id} className="scroll-mt-36 h-full">
-                                <ServiceCard service={service} index={i} />
-                            </div>
-                        ))}
+            <div className="max-w-[1400px] mx-auto px-6 pb-12 md:pb-24">
+                <div className="bg-white/80 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-gray-100 shadow-sm">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
+                            Individual Care
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Not ready for a subscription? Book these services one-time, anytime.
+                        </p>
                     </div>
+
+                    {/* ── Service Pills ──────────────────────────────────────────────── */}
+                    <style>{`.pill-nav::-webkit-scrollbar { display: none; }`}</style>
+                    <nav className="sticky top-20 z-30 bg-white/40 backdrop-blur-md rounded-full border border-gray-100 py-3 mb-10 max-w-4xl mx-auto">
+                        <div
+                            className="pill-nav flex items-center justify-center gap-3 overflow-x-auto"
+                            style={{ paddingInline: '1.5rem', scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
+                        >
+                            {services.map((s) => (
+                                <a
+                                    key={s.id}
+                                    href={`#${s.id}`}
+                                    className="shrink-0 text-sm font-semibold px-4 sm:px-6 py-2 rounded-full border transition-all"
+                                    style={{
+                                        borderColor: 'rgba(255,142,0,0.20)',
+                                        color: '#4B5563',
+                                        backgroundColor: 'white'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        (e.currentTarget as HTMLAnchorElement).style.backgroundColor =
+                                            '#FF8E00';
+                                        (e.currentTarget as HTMLAnchorElement).style.color = '#fff';
+                                        (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                                            '#FF8E00';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'white';
+                                        (e.currentTarget as HTMLAnchorElement).style.color = '#4a4a6a';
+                                        (e.currentTarget as HTMLAnchorElement).style.borderColor =
+                                            'rgba(0,35,71,0.20)';
+                                    }}
+                                >
+                                    {s.label}
+                                </a>
+                            ))}
+                        </div>
+                    </nav>
+
+                    {/* ── Services Grid (One-Time Services) ──────────────────────────────────────────────── */}
+                    <section id="services-plans" className="bg-transparent">
+                        <div className="max-w-7xl mx-auto">
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {services.map((service, i) => (
+                                    <div id={service.id} key={service.id} className="scroll-mt-36 h-full">
+                                        <ServiceCard service={service} index={i} />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </div>
 
             {/* ── Trust Banner ──────────────────────────────────────────────── */}
             <section
@@ -664,101 +666,6 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                             {t}
                         </span>
                     ))}
-                </div>
-            </section>
-
-            {/* ── How It Works ──────────────────────────────────────────────── */}
-            {
-                false && (
-                    <section
-                        className="py-24 px-6"
-                        style={{ backgroundColor: '#002347' }}
-                    >
-                        <div className="max-w-7xl mx-auto">
-                            <div className="text-center mb-16">
-                                <span
-                                    className="font-semibold tracking-wide uppercase text-sm"
-                                    style={{ color: '#a8b4d8' }}
-                                >
-                                    The Process
-                                </span>
-                                <h2 className="mt-2 text-3xl md:text-5xl font-bold tracking-tight text-white">
-                                    Booking to Care in{' '}
-                                    <span
-                                        className="text-transparent bg-clip-text"
-                                        style={{
-                                            backgroundImage: 'linear-gradient(to right, #FF8E00, #FD7702)',
-                                        }}
-                                    >
-                                        4 Steps
-                                    </span>
-                                </h2>
-                            </div>
-
-                            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-                                {/* Connecting line — desktop only */}
-                                <div
-                                    className="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-px"
-                                    style={{ backgroundColor: 'rgba(168,180,216,0.20)' }}
-                                />
-
-                                {processSteps.map((step, i) => {
-                                    const Icon = step.icon;
-                                    return (
-                                        <motion.div
-                                            key={step.step}
-                                            variants={fadeUp}
-                                            initial="hidden"
-                                            whileInView="visible"
-                                            custom={i}
-                                            viewport={{ once: true }}
-                                            className="relative text-center"
-                                        >
-                                            {/* Circle */}
-                                            <div
-                                                className="w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center relative z-10"
-                                                style={{ backgroundColor: 'rgba(0,35,71,0.40)', border: '1px solid rgba(168,180,216,0.20)' }}
-                                            >
-                                                <Icon size={28} style={{ color: '#FF8E00' }} strokeWidth={1.5} />
-                                            </div>
-                                            <div
-                                                className="text-xs font-black tracking-[0.2em] uppercase mb-2"
-                                                style={{ color: '#a8b4d8' }}
-                                            >
-                                                Step {step.step}
-                                            </div>
-                                            <h3 className="text-lg font-bold text-white mb-2">
-                                                {step.title}
-                                            </h3>
-                                            <p className="text-sm text-gray-400 leading-relaxed max-w-xs mx-auto">
-                                                {step.desc}
-                                            </p>
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </section>
-                )
-            }
-
-            {/* ── FAQ / Details ─────────────────────────────────────────────── */}
-            <section className="py-12 md:py-24 px-6 bg-white">
-                <div className="max-w-3xl mx-auto">
-                    <div className="text-center rounded-3xl border border-gray-100 shadow-sm p-6 md:p-12" style={{ backgroundColor: '#f8f4e8' }}>
-                        <span
-                            className="font-semibold tracking-wide uppercase text-sm"
-                            style={{ color: '#FF8E00' }}
-                        >
-                            Any queries?
-                        </span>
-                        <h2 className="mt-4 text-2xl md:text-4xl font-bold tracking-tight text-gray-900 mb-6">
-                            DM us at <span style={{ color: '#FF8E00' }}>+91 9325855890</span>
-                        </h2>
-                        <p className="text-gray-600">
-                            We're happy to answer any questions you might have.
-                        </p>
-                    </div>
                 </div>
             </section>
 

@@ -1,36 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertCircle, Home, Wallet, Activity, ChevronDown, ShieldCheck } from 'lucide-react';
+import { AlertCircle, Home, Wallet, Activity, ChevronDown, UserCheck, HeartPulse } from 'lucide-react';
 import { Card } from '../ui/Card';
 
 const MaskedSymptomsCard = () => {
     return (
-        <div className="mt-6 space-y-4">
-            <div className="bg-white p-6 rounded-2xl text-gray-900 shadow-xl" style={{ border: '1px solid rgba(0,35,71,0.08)' }}>
-                <div className="flex items-start gap-4 mb-4">
-                    <div className="bg-[#FF8E00]/10 p-2 rounded-xl text-[#FF8E00] shrink-0">
-                        <AlertCircle size={24} />
-                    </div>
-                    <h4 className="text-xl font-bold text-[#003F7D]">More than 6 out of 10 pets instinctively hide their symptoms.</h4>
+        <div className="bg-white p-8 md:p-10 rounded-[32px] text-gray-900 shadow-xl border border-gray-100 flex flex-col justify-center h-full">
+            <div className="flex items-start gap-4 mb-6">
+                <div className="bg-[#FF8E00]/10 p-2.5 rounded-xl text-[#FF8E00] shrink-0 mt-1">
+                    <AlertCircle size={24} strokeWidth={2.5} />
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 font-medium">
-                    Catching issues late is dangerous and 3x more expensive. Stay ahead with regular diagnostics.
-                </p>
+                <h4 className="text-2xl font-bold text-[#003F7D] leading-tight pr-4">More than 6 out of 10 pets instinctively hide their symptoms.</h4>
             </div>
+            <p className="text-gray-600 leading-relaxed font-medium">
+                Catching issues late is dangerous and 3x more expensive. Stay ahead with regular diagnostics.
+            </p>
         </div>
     );
 };
 
 export const ValueProp: React.FC = () => {
     return (
-        <section id="value" className="py-12 md:py-24 relative bg-transparent">
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="text-center mb-16">
+        <section id="value" className="py-16 md:py-32 relative bg-transparent">
+            {/* Soft background shape */}
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-[0.4] pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255, 142, 0, 0.1) 0%, transparent 70%)' }} />
+
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <div className="text-center mb-16 md:mb-24">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6"
+                        className="text-4xl md:text-[56px] font-bold tracking-tight text-gray-900 mb-4"
                     >
                         Proactive Care, At Home
                     </motion.h2>
@@ -39,103 +40,81 @@ export const ValueProp: React.FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-xl text-gray-500 max-w-2xl mx-auto"
+                        className="text-xl text-gray-500 font-medium"
                     >
                         We make pet health easy, stress-free, and affordable.
                     </motion.p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
-                    {/* Left Column: The Cost Card - Adjusted sizing */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="w-full max-w-lg mx-auto lg:mx-0"
-                    >
-                        <MaskedSymptomsCard />
-                    </motion.div>
+                <div className="bg-white/80 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-gray-100 shadow-sm max-w-[1400px] mx-auto">
+                    <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+                        {/* Left Column: The Cost Card */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="lg:col-span-5 h-full"
+                        >
+                            <MaskedSymptomsCard />
+                        </motion.div>
 
-                    {/* Right Column: The Solution */}
-                    <div className="space-y-8">
-                        {/* Removed the extra "From Reactive to Proactive" as it overlaps with the main headline now */}
-
-                        <div className="grid gap-5">
-                            <Card className="bg-white border transition-all duration-200 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
-                                <div className="flex items-start gap-4 p-5">
-                                    <div
-                                        className="p-3 rounded-xl transition-colors shrink-0"
-                                        style={{ backgroundColor: 'rgba(255,142,0,0.15)', color: '#FF8E00' }}
-                                    >
-                                        <ShieldCheck size={24} />
-                                    </div>
-                                    <div className="flex-1 mt-1">
-                                        <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Expert Oversight</h4>
-                                        </div>
-                                        <div className="md:mt-2">
-                                            <p className="text-gray-600 text-sm leading-relaxed">Licensed veterinarians manage every detail of your pet's health plan.</p>
-                                        </div>
-                                    </div>
+                        {/* Right Column: The 4 Benefits Grid */}
+                        <div className="lg:col-span-7 flex flex-col justify-between gap-4 h-full">
+                            {/* Benefit 1 */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+                                className="bg-white border border-gray-100 rounded-[24px] p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-5 flex-1"
+                            >
+                                <div className="bg-[#FF8E00]/10 p-2.5 rounded-xl text-[#FF8E00] shrink-0">
+                                    <UserCheck size={24} />
                                 </div>
-                            </Card>
-
-                            <Card className="bg-white border transition-all duration-200 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
-                                <div className="flex items-start gap-4 p-5">
-                                    <div
-                                        className="p-3 rounded-xl transition-colors shrink-0"
-                                        style={{ backgroundColor: 'rgba(255,142,0,0.15)', color: '#FF8E00' }}
-                                    >
-                                        <AlertCircle size={24} />
-                                    </div>
-                                    <div className="flex-1 mt-1">
-                                        <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Early Detection</h4>
-                                        </div>
-                                        <div className="md:mt-2">
-                                            <p className="text-gray-600 text-sm leading-relaxed">Catch health issues before they become emergencies.</p>
-                                        </div>
-                                    </div>
+                                <div className="mt-0.5">
+                                    <h4 className="text-[22px] font-bold text-gray-900 tracking-tight leading-none mb-2">Expert Oversight</h4>
+                                    <p className="text-gray-500 text-[15px] leading-snug">Licensed veterinarians manage every detail of your pet's health plan.</p>
                                 </div>
-                            </Card>
+                            </motion.div>
 
-                            <Card className="bg-white border transition-all duration-200 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
-                                <div className="flex items-start gap-4 p-5">
-                                    <div
-                                        className="p-3 rounded-xl transition-colors shrink-0"
-                                        style={{ backgroundColor: 'rgba(255,142,0,0.15)', color: '#FF8E00' }}
-                                    >
-                                        <Home size={24} />
-                                    </div>
-                                    <div className="flex-1 mt-1">
-                                        <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Stress-Free Visits</h4>
-                                        </div>
-                                        <div className="md:mt-2">
-                                            <p className="text-gray-600 text-sm leading-relaxed">No clinic travel or waiting rooms. We come to you.</p>
-                                        </div>
-                                    </div>
+                            {/* Benefit 2 */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+                                className="bg-white border border-gray-100 rounded-[24px] p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-5 flex-1"
+                            >
+                                <div className="bg-[#FF8E00]/10 p-2.5 rounded-xl text-[#FF8E00] shrink-0">
+                                    <HeartPulse size={24} />
                                 </div>
-                            </Card>
+                                <div className="mt-0.5">
+                                    <h4 className="text-[22px] font-bold text-gray-900 tracking-tight leading-none mb-2">Early Detection</h4>
+                                    <p className="text-gray-500 text-[15px] leading-snug">Catch health issues before they become emergencies.</p>
+                                </div>
+                            </motion.div>
 
-                            <Card className="bg-white border transition-all duration-200 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
-                                <div className="flex items-start gap-4 p-5">
-                                    <div
-                                        className="p-3 rounded-xl transition-colors shrink-0"
-                                        style={{ backgroundColor: 'rgba(255,142,0,0.15)', color: '#FF8E00' }}
-                                    >
-                                        <Wallet size={24} />
-                                    </div>
-                                    <div className="flex-1 mt-1">
-                                        <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Predictable Costs</h4>
-                                        </div>
-                                        <div className="md:mt-2">
-                                            <p className="text-gray-600 text-sm leading-relaxed">One flat subscription. No surprise emergency bills.</p>
-                                        </div>
-                                    </div>
+                            {/* Benefit 3 */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+                                className="bg-white border border-gray-100 rounded-[24px] p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-5 flex-1"
+                            >
+                                <div className="bg-[#FF8E00]/10 p-2.5 rounded-xl text-[#FF8E00] shrink-0">
+                                    <Home size={24} />
                                 </div>
-                            </Card>
+                                <div className="mt-0.5">
+                                    <h4 className="text-[22px] font-bold text-gray-900 tracking-tight leading-none mb-2">Stress-Free Visits</h4>
+                                    <p className="text-gray-500 text-[15px] leading-snug">No clinic travel or waiting rooms. We come to you.</p>
+                                </div>
+                            </motion.div>
+
+                            {/* Benefit 4 */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+                                className="bg-white border border-gray-100 rounded-[24px] p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-5 flex-1"
+                            >
+                                <div className="bg-[#FF8E00]/10 p-2.5 rounded-xl text-[#FF8E00] shrink-0">
+                                    <Wallet size={24} />
+                                </div>
+                                <div className="mt-0.5">
+                                    <h4 className="text-[22px] font-bold text-gray-900 tracking-tight leading-none mb-2">Predictable Costs</h4>
+                                    <p className="text-gray-500 text-[15px] leading-snug">One flat subscription. No surprise emergency bills.</p>
+                                </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>

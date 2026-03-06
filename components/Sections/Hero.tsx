@@ -112,7 +112,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
         >
-          Vet-grade diagnostics and expert guidance at your door. No more stressful clinic visits.
+          Vet-grade diagnostics and expert guidance at your door.
         </motion.p>
 
         {/* Buttons & CTA */}
