@@ -50,9 +50,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-xl md:text-2xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
         >
-          India's first subscription-based preventive care ecosystem. Stop stressing your pet with clinic visits—get vet-grade diagnostics and expert guidance right at your door.
+          Vet-grade diagnostics and expert guidance at your door. No more stressful clinic visits.
         </motion.p>
 
         {/* Buttons & CTA */}

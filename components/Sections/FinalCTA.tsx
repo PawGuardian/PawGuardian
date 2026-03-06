@@ -35,20 +35,16 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenBooking, navigate }) =
           whileInView={{ opacity: 1, y: 0 }}
           className="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-6"
         >
-          Your Pet Can&apos;t Tell You When Something&apos;s Wrong.{' '}
-          <span>
-            <span style={{ color: '#003F7D' }}>We Can</span>
-            <span style={{ color: '#FF8E00' }}>.</span>
-          </span>
+          Catch Illness Before It Starts<span style={{ color: '#FF8E00' }}>.</span>
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto"
+          className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto font-medium"
         >
-          Stop waiting for symptoms. Start caring before it&apos;s urgent.
+          Don’t wait for symptoms. Proactive, at-home care guarantees a longer, healthier life.
         </motion.p>
 
         <motion.div

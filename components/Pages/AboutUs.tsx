@@ -22,26 +22,26 @@ import type { Page } from '../../App';
 const values = [
     {
         icon: Heart,
-        title: 'Pet-First Philosophy',
-        desc: 'Every decision we make starts with one question: is this the best possible outcome for the animal? We never compromise on that.',
+        title: 'Pet-First Focus',
+        desc: 'Every decision prioritizes the animal’s best outcome.',
         color: '#FF8E00',
     },
     {
         icon: Microscope,
-        title: 'Science-Backed Care',
-        desc: 'Our protocols are grounded in clinical research, diagnostic data, and continuous feedback loops with licensed veterinarians.',
+        title: 'Science-Backed',
+        desc: 'Protocols grounded in clinical data and expert vet feedback.',
         color: '#003366',
     },
     {
         icon: Shield,
-        title: 'Radical Transparency',
-        desc: 'No hidden fees, no upsells. We tell pet parents exactly what their pet needs and why — every single time.',
+        title: 'Transparent Pricing',
+        desc: 'No hidden fees or upsells. You always know what you pay.',
         color: '#FF8E00',
     },
     {
         icon: Zap,
-        title: 'Prevention Over Cure',
-        desc: 'Catching issues early is cheaper, kinder, and smarter. We make preventive care the default, not the exception.',
+        title: 'Prevention First',
+        desc: 'Early detection is kinder and cheaper. We make it the default.',
         color: '#FD7702',
     },
 ];
@@ -95,21 +95,16 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
                         transition={{ duration: 0.7 }}
                         className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-gray-900"
                     >
-                        Built by Pet Lovers,{' '}
-                        <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(to right, #FF8E00, #FD7702)' }}>
-                            For Pet Lovers.
-                        </span>
+                        Built for Pet Lovers
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.7 }}
-                        className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+                        transition={{ delay: 0.1, duration: 0.6 }}
+                        className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed"
                     >
-                        PawGuardian was born out of one vet appointment gone too late, one bill
-                        that didn't need to exist, and a conviction that India's 30 million pet
-                        parents deserve better.
+                        Reimagining veterinary care to be proactive and compassionate.
                     </motion.p>
                 </div>
             </section>

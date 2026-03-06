@@ -14,12 +14,8 @@ const MaskedSymptomsCard = () => {
                     <h4 className="text-xl font-bold text-[#003F7D]">More than 6 out of 10 pets instinctively hide their symptoms.</h4>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 font-medium">
-                    By the time you notice they are sick, the condition has often progressed significantly.
+                    Catching issues late is dangerous and 3x more expensive. Stay ahead with regular diagnostics.
                 </p>
-                <div className="bg-[#f8f4e8] p-4 rounded-xl border border-orange-100 text-center">
-                    <span className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Cost of Waiting</span>
-                    <span className="text-[#FD7702] font-bold text-lg">Late treatment can be 3x more expensive</span>
-                </div>
             </div>
         </div>
     );
@@ -36,7 +32,7 @@ export const ValueProp: React.FC = () => {
                         viewport={{ once: true }}
                         className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6"
                     >
-                        Why Smart Pet Parents Choose Us
+                        Proactive Care, At Home
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -45,8 +41,7 @@ export const ValueProp: React.FC = () => {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-gray-500 max-w-2xl mx-auto"
                     >
-                        Most pet parents don't delay care because they don't care. <br />
-                        <span style={{ color: '#003F7D' }} className="font-semibold">They delay because the system makes it hard.</span>
+                        We make pet health easy, stress-free, and affordable.
                     </motion.p>
                 </div>
 
@@ -63,10 +58,7 @@ export const ValueProp: React.FC = () => {
 
                     {/* Right Column: The Solution */}
                     <div className="space-y-8">
-                        <div className="border-l-4 pl-6" style={{ borderColor: '#003F7D' }}>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">From Reactive to Proactive</h3>
-                            <p className="text-gray-600">PawGuardian flips the model. We move from reactive clinic visits to proactive, at-home, continuous care.</p>
-                        </div>
+                        {/* Removed the extra "From Reactive to Proactive" as it overlaps with the main headline now */}
 
                         <div className="grid gap-5">
                             <Card className="bg-white border transition-all duration-200 group hover:shadow-lg" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
@@ -78,12 +70,8 @@ export const ValueProp: React.FC = () => {
                                         <AlertCircle size={24} />
                                     </div>
                                     <div className="flex-1 mt-1">
-                                        <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Early Detection, Not Late Panic</h4>
-                                            <ChevronDown size={20} className="text-gray-400 hidden md:block group-hover:text-[#FF8E00] group-hover:rotate-180 transition-all duration-200" />
-                                        </div>
-                                        <div className="overflow-hidden transition-all duration-200 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
-                                            <p className="text-gray-600 text-sm leading-relaxed">Regular at-home diagnostics establish baselines and catch issues before they become life-threatening.</p>
+                                        <div className="md:mt-2">
+                                            <p className="text-gray-600 text-sm leading-relaxed">Catch health issues before they become emergencies.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -99,11 +87,10 @@ export const ValueProp: React.FC = () => {
                                     </div>
                                     <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Care Without the Clinic Stress</h4>
-                                            <ChevronDown size={20} className="text-gray-400 hidden md:block group-hover:text-[#FF8E00] group-hover:rotate-180 transition-all duration-200" />
+                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Stress-Free Visits</h4>
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-200 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
-                                            <p className="text-gray-600 text-sm leading-relaxed">No travel. No anxious pets. No waiting rooms. We collect samples, vaccinate, and consult—right at home.</p>
+                                        <div className="md:mt-2">
+                                            <p className="text-gray-600 text-sm leading-relaxed">No clinic travel or waiting rooms. We come to you.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -119,11 +106,10 @@ export const ValueProp: React.FC = () => {
                                     </div>
                                     <div className="flex-1 mt-1">
                                         <div className="flex items-center justify-between">
-                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Predictable, Affordable Healthcare</h4>
-                                            <ChevronDown size={20} className="text-gray-400 hidden md:block group-hover:text-[#FF8E00] group-hover:rotate-180 transition-all duration-200" />
+                                            <h4 className="text-xl font-bold text-gray-900 transition-colors group-hover:text-[#003F7D]">Predictable Costs</h4>
                                         </div>
-                                        <div className="overflow-hidden transition-all duration-200 max-h-32 opacity-100 mt-3 md:max-h-0 md:opacity-0 md:mt-0 md:group-hover:max-h-32 md:group-hover:opacity-100 md:group-hover:mt-3">
-                                            <p className="text-gray-600 text-sm leading-relaxed">Subscription pricing replaces surprise bills, emergency expenses, and last-minute decisions.</p>
+                                        <div className="md:mt-2">
+                                            <p className="text-gray-600 text-sm leading-relaxed">One flat subscription. No surprise emergency bills.</p>
                                         </div>
                                     </div>
                                 </div>

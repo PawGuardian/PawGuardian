@@ -7,25 +7,25 @@ import { HeartPulse, Activity, ShieldCheck } from 'lucide-react';
 const stages = [
     {
         title: "Young Pet",
-        subtitle: "The Foundation",
-        desc: "Build a strong immune system and establish healthy baselines.",
-        features: ["Core vaccinations & boosters", "Deworming schedules", "Spay/neuter guidance", "Nutritional counselling"],
+        subtitle: "Build a healthy foundation.",
+        desc: "Boost immunity and establish health baselines.",
+        features: ["Core vaccinations", "Deworming schedules", "Spay/neuter advice", "Nutrition guide"],
         icon: ShieldCheck,
         color: '#FF8E00'
     },
     {
         title: "Adult Pet",
-        subtitle: "Maintenance & Prevention",
-        desc: "Keep them active, healthy, and catch minor issues early.",
-        features: ["Annual comprehensive panels", "Dental health monitoring", "Parasite prevention", "Weight management"],
+        subtitle: "Maintain health & prevent.",
+        desc: "Keep them active and catch minor issues early.",
+        features: ["Annual lab panels", "Dental monitoring", "Parasite protection", "Weight management"],
         icon: Activity,
         color: '#FD7702'
     },
     {
         title: "Senior Pet",
-        subtitle: "Monitoring & Comfort",
-        desc: "Ensure quality of life with proactive chronic disease management.",
-        features: ["Advanced organ screening", "Mobility & arthritis care", "Pain management", "Cognitive monitoring"],
+        subtitle: "Comfort & chronic care.",
+        desc: "Ensure a high quality of life in their golden years.",
+        features: ["Organ screening", "Mobility support", "Pain management", "Cognitive checks"],
         icon: HeartPulse,
         color: '#FF5003'
     }
@@ -49,7 +49,7 @@ export const Plans: React.FC<PlansProps> = ({ navigate }) => {
                         className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight mb-6"
                         style={{ color: '#002347' }}
                     >
-                        One Subscription. Every Life Stage.
+                        Plans for Every Life Stage
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -59,7 +59,7 @@ export const Plans: React.FC<PlansProps> = ({ navigate }) => {
                         className="text-xl font-medium max-w-2xl mx-auto"
                         style={{ color: '#003366' }}
                     >
-                        Whether they're taking their first steps or enjoying their golden years, our proactive care scales with your pet's exact needs.
+                        Proactive care that grows with your pet.
                     </motion.p>
                 </div>
 

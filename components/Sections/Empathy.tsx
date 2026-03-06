@@ -17,19 +17,18 @@ export const Empathy: React.FC = () => {
                             viewport={{ once: true }}
                             className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6"
                         >
-                            We Feel You.<br />
-                            <span style={{ color: '#FF8E00' }}>And We Feel Them, Too.</span>
+                            <span style={{ color: '#FF8E00' }}>Eliminate Clinic Anxiety.</span>
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-lg text-gray-600 leading-relaxed mb-8"
+                            className="text-lg text-gray-600 leading-relaxed mb-8 max-w-lg font-medium"
                         >
-                            Clinic anxiety isn't just "in your head." Did you know that more than <strong className="text-gray-900">40% of cats</strong> develop long-term carrier phobia after just 3 vet visits?
+                            Keep their safe space safe. We bring expert care to your living room.
                             <br /><br />
-                            We know the panic of trying to get a scared cat into a carrier or dragging an anxious dog through clinic doors. That's why we bring the care to your living room.
+                            Skipping the vet trip protects your pet. Don't risk lasting trauma from stressful clinic visits.
                         </motion.p>
 
                         <div className="flex flex-col gap-6">
@@ -39,7 +38,7 @@ export const Empathy: React.FC = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-gray-900 text-lg">Instant Tele-Consults</h4>
-                                    <p className="text-gray-600 text-sm">Multiple vet opinions at your fingertips. No need to load up the car for a second opinion.</p>
+                                    <p className="text-gray-600 text-sm">Quick second opinions without the stressful car ride.</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -48,7 +47,7 @@ export const Empathy: React.FC = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-gray-900 text-lg">Breed-Specific Experts</h4>
-                                    <p className="text-gray-600 text-sm">Access specialized vets who understand the exact quirks and risks of your specific breed.</p>
+                                    <p className="text-gray-600 text-sm">Veterinarians who know your pet's exact quirks and risks.</p>
                                 </div>
                             </div>
                         </div>
@@ -67,11 +66,11 @@ export const Empathy: React.FC = () => {
                             <HeartPulse size={48} style={{ color: '#FF8E00' }} className="mx-auto mb-6" />
                             <h3 className="text-4xl sm:text-6xl font-black mb-4" style={{ color: '#FF8E00' }}>40%</h3>
                             <p className="text-xl font-bold text-gray-900 uppercase tracking-widest mb-2">Of Cats Develop</p>
-                            <p className="text-gray-600">Carrier phobia & lasting anxiety after just three standard clinic visits.</p>
+                            <p className="text-gray-600">Lasting phobias after just 3 vet visits.</p>
 
                             <hr className="border-gray-200 my-8" />
 
-                            <p className="text-gray-900 font-bold">Keep their safe space safe. Let the vet come to you.</p>
+                            <p className="text-gray-900 font-bold">Let the vet come to you.</p>
                         </Card>
                     </motion.div>
 

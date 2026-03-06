@@ -6,28 +6,28 @@ const pillars = [
   {
     icon: Layers,
     title: "Smart Subscription",
-    desc: "Personalised plans with regular diagnostics, baseline tracking, and AI-assisted health insights.",
+    desc: "Custom plans with regular diagnostics and health tracking.",
     iconStyle: { backgroundColor: 'rgba(255,142,0,0.12)', color: '#FF8E00' },
     ghostColor: 'rgba(255,142,0,0.15)',
   },
   {
     icon: Truck,
-    title: "Doorstep Veterinary Care",
-    desc: "At-home sample collection, vaccinations, and tele-consults based on real test results.",
+    title: "Doorstep Care",
+    desc: "At-home sample collection, vaccinations, and tele-consults.",
     iconStyle: { backgroundColor: 'rgba(0,51,102,0.12)', color: '#003366' },
     ghostColor: 'rgba(78,205,196,0.15)',
   },
   {
     icon: Smartphone,
-    title: "Digital Health Platform",
-    desc: "All records, reminders, reports, and vet guidance—accessible in one place.",
+    title: "Digital Platform",
+    desc: "All your pet’s records and reminders in one app.",
     iconStyle: { backgroundColor: 'rgba(255,142,0,0.12)', color: '#FF8E00' },
     ghostColor: 'rgba(255,159,127,0.15)',
   },
   {
     icon: PiggyBank,
-    title: "Affordable by Design",
-    desc: "Early intervention means fewer emergencies, no transport costs, and lower lifetime spend.",
+    title: "Affordable Health",
+    desc: "Prevent emergencies and save on lifetime veterinary costs.",
     iconStyle: { backgroundColor: 'rgba(196,181,253,0.20)', color: '#9B6DFF' },
     ghostColor: 'rgba(196,181,253,0.15)',
   }
@@ -42,10 +42,10 @@ export const HowItWorks: React.FC = () => {
             className="inline-block text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-2"
             style={{ backgroundColor: '#FD7702', color: '#7a5c00' }}
           >
-            <Sparkles size={12} className="inline mr-1" /> The 4-Pillar Model
+            <Sparkles size={12} className="inline mr-1" /> How It Works
           </span>
           <h2 className="mt-2 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
-            A Complete Preventive Care Ecosystem
+            Complete Preventive Care
           </h2>
         </div>
 

@@ -112,9 +112,9 @@ const services = [
         id: 'vaccinations',
         icon: Syringe,
         label: 'Vaccination',
-        tagline: 'Core & Lifestyle Shots',
+        tagline: 'Immunity & Protection',
         description:
-            'Age-appropriate vaccination schedules for dogs and cats — from Puppyhood Rabies & DHPP to annual boosters — administered by licensed vets at your doorstep.',
+            'Stress-free shots in your living room. Custom schedules.tered by licensed vets at your doorstep.',
         highlight: 'from-[#FF8E00] to-[#FF8E00]',
         accent: '#FF8E00',
         accentLight: 'rgba(255,142,0,0.08)',
@@ -145,9 +145,9 @@ const services = [
         id: 'deworming',
         icon: Bug,
         label: 'Deworming & Anti-Parasite',
-        tagline: 'Internal & External Cover',
+        tagline: 'Tick, Flea & Worm',
         description:
-            "Tailored deworming protocols based on your pet's age, weight, and exposure risk. Plus tick, flea, and mite prevention with vet-recommended products.",
+            'Year-round protection from ticks, fleas, and worms.',
         highlight: 'from-[#FF8E00] to-[#FF8E00]',
         accent: '#FF8E00',
         accentLight: 'rgba(255,142,0,0.08)',
@@ -164,7 +164,7 @@ const services = [
         label: 'Dental Care',
         tagline: 'Oral Health Matters',
         description:
-            'Dental disease affects over 70% of pets by age 3. Our vets provide thorough oral exams and professional-grade teeth cleaning guidance at home.',
+            'Oral exams and professional cleaning guidance.',
         highlight: 'from-[#FD7702] to-[#FD7702]',
         accent: '#FD7702',
         accentLight: 'rgba(253,119,2,0.08)',
@@ -179,9 +179,9 @@ const services = [
         id: 'grooming',
         icon: Heart,
         label: 'Medicated Grooming',
-        tagline: 'Skin, Coat & Comfort',
+        tagline: 'Lab Quality at Home',
         description:
-            'More than a bath — our vet-supervised grooming targets skin conditions, ear infections, and coat quality. Species-appropriate products, zero stress in familiar surroundings.',
+            'Comprehensive lab tests at home. Catch issues early. and coat quality. Species-appropriate products, zero stress in familiar surroundings.',
         highlight: 'from-[#FF5003] to-[#FF5003]',
         accent: '#FF5003',
         accentLight: 'rgba(234,88,12,0.08)',
@@ -198,7 +198,7 @@ const services = [
         label: 'Vet Consultations',
         tagline: 'Expert Advice, Anytime',
         description:
-            'In-person home visits and video consultations with our network of licensed vets.',
+            'Video calls or home visits with licensed vets.',
         highlight: 'from-[#FF8E00] to-[#FF8E00]',
         accent: '#FF8E00',
         accentLight: 'rgba(255,142,0,0.08)',
