@@ -471,21 +471,21 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             {/* ── Hero ──────────────────────────────────────────────────────── */}
             <section
                 className="relative overflow-hidden pt-12 pb-16 md:pb-32 px-6"
-                style={{ backgroundColor: '#002347' }}
+                style={{ backgroundColor: '#f8f4e8' }}
             >
                 {/* Decorative blobs */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
                     <div
                         className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full blur-[130px]"
-                        style={{ backgroundColor: 'rgba(0,35,71,0.30)' }}
-                    />
-                    <div
-                        className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[100px]"
                         style={{ backgroundColor: 'rgba(255,142,0,0.15)' }}
                     />
                     <div
+                        className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[100px]"
+                        style={{ backgroundColor: 'rgba(253,119,2,0.10)' }}
+                    />
+                    <div
                         className="absolute -bottom-20 right-1/4 w-[300px] h-[300px] rounded-full blur-[100px]"
-                        style={{ backgroundColor: 'rgba(0,35,71,0.20)' }}
+                        style={{ backgroundColor: 'rgba(0,35,71,0.05)' }}
                     />
                 </div>
 
@@ -494,7 +494,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-3xl sm:text-5xl md:text-7xl font-black text-white mb-6 tracking-tight"
+                            className="text-3xl sm:text-5xl md:text-7xl font-black text-gray-900 mb-6 tracking-tight"
                         >
                             Our <span style={{ color: '#FF8E00' }}>Services</span>
                         </motion.h1>
@@ -502,7 +502,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-xl text-gray-300 leading-relaxed"
+                            className="text-xl text-gray-600 leading-relaxed"
                         >
                             Complete, proactive healthcare delivered right to your living room.
                             Choose our autopilot subscription or book individual services as needed.
@@ -512,24 +512,24 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                     {/* NEW SECTION: Subscriptions */}
                     <div className="mb-16 md:mb-32">
                         <div className="text-center mb-16">
-                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
+                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
                                 🐾 PawGuardian Subscription Plans for Pet Parents
                             </h2>
-                            <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
+                            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
                                 At PawGuardian, we believe proactive care is the best way to ensure a long, happy life for your furry family members. Choose the plan tailored to your pet's life stage and let us handle the rest.
                             </p>
 
-                            <div className="bg-white/10 border border-white/20 rounded-3xl p-6 md:p-8 max-w-3xl mx-auto text-left backdrop-blur-sm">
-                                <h3 className="text-xl font-bold text-white mb-4">✨ The PawGuardian Promise (Included in ALL Plans)</h3>
-                                <p className="text-sm text-gray-300 mb-4">Every subscription tier comes with complete peace of mind, featuring:</p>
-                                <ul className="space-y-3 text-sm text-gray-200">
+                            <div className="bg-white border shadow-sm rounded-3xl p-6 md:p-8 max-w-3xl mx-auto text-left" style={{ borderColor: 'rgba(0,35,71,0.08)' }}>
+                                <h3 className="text-xl font-bold text-gray-900 mb-4">✨ The PawGuardian Promise (Included in ALL Plans)</h3>
+                                <p className="text-sm text-gray-600 mb-4">Every subscription tier comes with complete peace of mind, featuring:</p>
+                                <ul className="space-y-3 text-sm text-gray-600">
                                     <li className="flex items-start gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full mt-2 lg:mt-1.5 shrink-0 bg-[#FF8E00]" />
-                                        <span><strong className="text-white">Year-Round Veterinary Access:</strong> Unlimited tele-consultations and dedicated support whenever you have a question or concern.</span>
+                                        <span><strong className="text-gray-900">Year-Round Veterinary Access:</strong> Unlimited tele-consultations and dedicated support whenever you have a question or concern.</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full mt-2 lg:mt-1.5 shrink-0 bg-[#FF8E00]" />
-                                        <span><strong className="text-white">Exclusive Member Rates:</strong> Enjoy better, discounted pricing for in-person visits and bookings at any <strong>PawGuardian-certified clinic</strong> when hands-on care is needed.</span>
+                                        <span><strong className="text-gray-900">Exclusive Member Rates:</strong> Enjoy better, discounted pricing for in-person visits and bookings at any <strong>PawGuardian-certified clinic</strong> when hands-on care is needed.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -802,38 +802,37 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
             <section
                 className="py-12 md:py-24 px-6"
                 style={{
-                    background:
-                        'linear-gradient(135deg, #002347 0%, #003F7D 50%, #002347 100%)',
+                    backgroundColor: '#ffffff'
                 }}
             >
                 <div className="max-w-2xl mx-auto text-center">
                     <div
                         className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8 border"
                         style={{
-                            backgroundColor: 'rgba(255,255,255,0.10)',
-                            borderColor: 'rgba(255,255,255,0.20)',
+                            backgroundColor: 'rgba(0,35,71,0.05)',
+                            borderColor: 'rgba(0,35,71,0.10)',
                         }}
                     >
-                        <PawPrint size={14} className="text-blue-300" />
+                        <PawPrint size={14} style={{ color: '#003F7D' }} />
                         <span
                             className="text-xs font-semibold tracking-wide uppercase"
-                            style={{ color: '#c8d4f0' }}
+                            style={{ color: '#003F7D' }}
                         >
                             Book Today
                         </span>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
                         Your Pet's Health{' '}
                         <span
                             className="text-transparent bg-clip-text"
                             style={{
-                                backgroundImage: 'linear-gradient(to right, #a8b8e8, #c8b4f0)',
+                                backgroundImage: 'linear-gradient(to right, #FF8E00, #FD7702)',
                             }}
                         >
                             Can't Wait.
                         </span>
                     </h2>
-                    <p className="text-gray-400 text-lg mb-10">
+                    <p className="text-gray-600 text-lg mb-10">
                         Book your first home visit in under 60 seconds. Our vets are ready —
                         expert care available at your convenience.
                     </p>
@@ -848,7 +847,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                             onClick={onOpenBooking}
                         >
                             <CalendarCheck size={18} />
-                            <span>Book a Home Visit</span>
+                            <span>Schedule a Visit</span>
                             <ArrowRight
                                 size={16}
                                 className="group-hover:translate-x-1 transition-transform"

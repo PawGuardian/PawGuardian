@@ -314,27 +314,27 @@ export const Vets: React.FC<VetsProps> = () => {
 
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden py-16 md:py-32 px-6"
-        style={{ backgroundColor: '#002347' }}
+        className="relative overflow-hidden py-16 md:pb-32 px-6"
+        style={{ backgroundColor: '#f8f4e8' }}
       >
         {/* Decorative blobs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div
             className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full blur-[130px]"
-            style={{ backgroundColor: 'rgba(0,35,71,0.30)' }}
+            style={{ backgroundColor: 'rgba(255,142,0,0.10)' }}
           />
           <div
             className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[100px]"
-            style={{ backgroundColor: 'rgba(255,142,0,0.10)' }}
+            style={{ backgroundColor: 'rgba(253,119,2,0.08)' }}
           />
         </div>
 
         {/* Paw watermark */}
-        <div className="absolute right-12 top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none select-none hidden md:block">
-          <PawPrint size={320} strokeWidth={0.8} className="text-white" />
+        <div className="absolute right-12 top-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none select-none hidden md:block" style={{ color: '#002347' }}>
+          <PawPrint size={320} strokeWidth={0.8} />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -350,29 +350,22 @@ export const Vets: React.FC<VetsProps> = () => {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-[1.05]"
+            transition={{ delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 tracking-tight text-gray-900"
           >
-            Partner with{' '}
-            <span
-              className="text-transparent bg-clip-text"
-              style={{ backgroundImage: 'linear-gradient(to right, #FF8E00, #FD7702)' }}
-            >
-              PawGuardian
-            </span>
+            Partner with <span style={{ color: '#FF8E00' }}>PawGuardian</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.7 }}
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl mb-12 leading-relaxed text-gray-600"
           >
-            The transition to clinic-based care is stressing out our patients and delaying critical diagnoses.
-            Transporting pets to a clinic increases canine cortisol levels for 3 out of 10 dogs, and more than 6 out of 10 cats experience severe stress during physical visits.
-            Relying solely on walk-ins means you are often treating cases only when they hit the expensive, late-stage crisis point.
+            3 out of 10 dogs and more than 6 out of 10 cats experience severe stress during physical clinic visits.
+            Join our network to provide stress-free, modern preventive care on your terms.
           </motion.p>
 
           {/* Call to Action Button */}
@@ -417,16 +410,16 @@ export const Vets: React.FC<VetsProps> = () => {
       </section>
 
       {/* ── How it Works ──────────────────────────────────────────────────────── */}
-      <section className="py-12 md:py-24 px-6" style={{ backgroundColor: '#002347' }}>
+      <section className="py-12 md:py-24 px-6" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <span
               className="font-semibold tracking-wide uppercase text-sm"
-              style={{ color: '#FF8E00' }}
+              style={{ color: '#003F7D' }}
             >
               The Process
             </span>
-            <h2 className="mt-2 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-white">
+            <h2 className="mt-2 text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
               How It Works
             </h2>
           </div>
@@ -435,7 +428,7 @@ export const Vets: React.FC<VetsProps> = () => {
             {/* Connecting line — desktop only */}
             <div
               className="hidden sm:block absolute top-10 left-[16.67%] right-[16.67%] h-px"
-              style={{ backgroundColor: 'rgba(168,180,216,0.25)' }}
+              style={{ backgroundColor: 'rgba(0,35,71,0.1)' }}
             />
 
             {steps.map(({ number, title, desc }, i) => (
@@ -449,16 +442,16 @@ export const Vets: React.FC<VetsProps> = () => {
                 className="relative text-center"
               >
                 <div
-                  className="w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center relative z-10"
+                  className="w-20 h-20 rounded-2xl mx-auto mb-6 flex items-center justify-center relative z-10 bg-white"
                   style={{
-                    backgroundColor: 'rgba(255,255,255,0.10)',
-                    border: '1px solid rgba(168,180,216,0.25)',
+                    border: '1px solid rgba(0,35,71,0.10)',
+                    boxShadow: '0 8px 24px rgba(0,35,71,0.05)',
                   }}
                 >
-                  <span className="text-2xl font-black text-white">{number}</span>
+                  <span className="text-2xl font-black text-[#FF8E00]">{number}</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
-                <p className="text-sm leading-relaxed max-w-xs mx-auto" style={{ color: '#a8b4d8' }}>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
+                <p className="text-sm leading-relaxed max-w-xs mx-auto text-gray-600">
                   {desc}
                 </p>
               </motion.div>
