@@ -478,7 +478,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
                 </div>
             </section>            {/* NEW SECTION: Subscriptions */}
             <div className="max-w-[1400px] mx-auto px-6 pb-16 md:pb-32">
-                <div className="p-0 lg:p-4 relative z-10">
+                <div className="bg-white/40 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-white/50 shadow-sm relative z-10">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
                             Subscription Plans
@@ -588,7 +588,7 @@ const ServicesContent: React.FC<ServicesProps> = ({ onOpenBooking }) => {
 
             {/* ── Individual Services Section ──────────────────────────────────────────────── */}
             <div className="max-w-[1400px] mx-auto px-6 pb-12 md:pb-24">
-                <div className="p-0 lg:p-4 relative z-10">
+                <div className="bg-white/40 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-white/50 shadow-sm relative z-10">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
                             Individual Care

@@ -113,7 +113,7 @@ export const AboutUs: React.FC<AboutUsProps> = ({ navigate, onOpenBooking }) => 
 
             {/* ── Mission / Vision & Values Wrapper ─────────────────────────────────────────── */}
             <div className="max-w-[1400px] mx-auto px-6 pb-12 md:pb-24 pt-6">
-                <div className="p-0 lg:p-4 relative overflow-hidden z-10">
+                <div className="bg-white/40 backdrop-blur-sm rounded-[40px] p-8 md:p-12 lg:p-16 border border-white/50 shadow-sm relative overflow-hidden z-10">
 
                     {/* Mission / Vision Section */}
                     <section className="pb-16 md:pb-24 border-b border-gray-100">
